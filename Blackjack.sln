@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack", "Blackjack\Blackjack.csproj", "{9EB89807-22EF-4933-B732-D216FFA6AB4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackGame", "BlackjackGame\BlackjackGame.csproj", "{9EB89807-22EF-4933-B732-D216FFA6AB4B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackTest", "BlackjackTest\BlackjackTest.csproj", "{D451B1AD-8EEC-4C27-B8C7-D6D8BD621911}"
 EndProject

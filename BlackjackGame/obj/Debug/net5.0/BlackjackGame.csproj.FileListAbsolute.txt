@@ -1,0 +1,15 @@
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/BlackjackGame.deps.json
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/BlackjackGame.runtimeconfig.json
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/BlackjackGame.runtimeconfig.dev.json
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/BlackjackGame.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/ref/BlackjackGame.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/BlackjackGame.pdb
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.csprojAssemblyReference.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.GeneratedMSBuildEditorConfig.editorconfig
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.AssemblyInfoInputs.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.AssemblyInfo.cs
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.csproj.CoreCompileInputs.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/ref/BlackjackGame.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.pdb
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.genruntimeconfig.cache

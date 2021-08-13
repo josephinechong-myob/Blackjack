@@ -92,10 +92,10 @@
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/Blackjack.dll
-/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/Blackjack.pdb
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/BlackjackTest.csproj.CopyComplete
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/BlackjackTest.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/ref/BlackjackTest.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/BlackjackTest.pdb
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/BlackjackTest.genruntimeconfig.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/BlackjackGame.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/BlackjackGame.pdb

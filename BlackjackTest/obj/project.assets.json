@@ -1649,14 +1649,14 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Blackjack/1.0.0": {
+      "BlackjackGame/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/Blackjack.dll": {}
+          "bin/placeholder/BlackjackGame.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Blackjack.dll": {}
+          "bin/placeholder/BlackjackGame.dll": {}
         }
       }
     }
@@ -5622,15 +5622,15 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Blackjack/1.0.0": {
+    "BlackjackGame/1.0.0": {
       "type": "project",
-      "path": "../Blackjack/Blackjack.csproj",
-      "msbuildProject": "../Blackjack/Blackjack.csproj"
+      "path": "../BlackjackGame/BlackjackGame.csproj",
+      "msbuildProject": "../BlackjackGame/BlackjackGame.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Blackjack >= 1.0.0",
+      "BlackjackGame >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
@@ -5662,8 +5662,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj": {
-              "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj"
+            "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj": {
+              "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj"
             }
           }
         }

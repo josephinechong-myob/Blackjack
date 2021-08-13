@@ -1,32 +1,31 @@
 using System;
 using System.Reflection.Metadata;
-using Blackjack.Blackjack;
+using BlackjackGame;
 using Xunit;
 
 namespace BlackjackTest
 {
     public class UnitTest1
     {
-        Blackjack.Blackjack blackjack = new Blackjack.Blackjack();
         
         [Fact]
         public void PlayersHandTest()
         {
-            
+            var blackjack = new Blackjack();
             var result = blackjack.SumOfCards(
-                new Card("4", "spade"), 
-                new Card("5", "spade")
+                new Card(Rank.Four, Suit.Spade), 
+                new Card(Rank.Five, Suit.Spade)
                 );
-           // Console.WriteLine($"Sum of 4 and 5 should be 9, got: {result}");
-           Assert.Equal(9,result);
+            Assert.Equal(9,result);
         }
-
+        
         [Fact]
         public void PlayersHandWithKingTest()
         {
+            var blackjack = new Blackjack();
             var result = blackjack.SumOfCards(
-                new Card("King", "spade"), 
-                new Card("5", "spade")
+                new Card(Rank.King, Suit.Spade), 
+                new Card(Rank.Five, Suit.Club)
                 );
             Assert.Equal(15, result);
         }
@@ -34,9 +33,10 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithQueenTest()
         {
-            var result = Blackjack.Blackjack.SumOfCards(
-                new Card("King", "spade"), 
-                new Card("5", "spade")
+            var blackjack = new Blackjack();
+            var result = blackjack.SumOfCards(
+                new Card(Rank.Queen, Suit.Spade), 
+                new Card(Rank.Five, Suit.Club)
             );
             Assert.Equal(15, result);
         }
@@ -44,9 +44,10 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithJackTest()
         {
-            var result = Blackjack.Blackjack.SumOfCards(
-                new Card("King", "spade"), 
-                new Card("5", "spade")
+            var blackjack = new Blackjack();
+            var result = blackjack.SumOfCards(
+                new Card(Rank.Jack, Suit.Spade), 
+                new Card(Rank.Five, Suit.Club)
             );
             Assert.Equal(15, result);
         }
@@ -54,9 +55,10 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest()
         {
-            var result = Blackjack.Blackjack.SumOfCards(
-                new Blackjack.Card("Ace", "spade"), 
-                new Blackjack.Card("5", "spade")
+            var blackjack = new Blackjack();
+            var result = blackjack.SumOfCards(
+                new BlackjackGame.Card(Rank.Ace, Suit.Spade), 
+                new BlackjackGame.Card(Rank.Five, Suit.Club)
             );
             Assert.Equal(16, result);
         }
@@ -64,10 +66,11 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest2()
         {
-            var result = Blackjack.Blackjack.SumOfCards(
-                new Card("5", "spade"),
-                new Card("King", "spade"),
-                new Card("Ace", "spade")
+            var blackjack = new Blackjack();
+            var result = blackjack.SumOfCards(
+                new Card(Rank.Five, Suit.Spade),
+                new Card(Rank.King, Suit.Diamond),
+                new Card(Rank.Ace, Suit.Heart)
             );
             Assert.Equal(16, result);
         }
@@ -75,12 +78,22 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest3()
         {
-            var result = Blackjack.Blackjack.SumOfCards(
-                new Card("Ace", "spade"), 
-                new Card("5", "spade"),
-                new Card("King", "spade")
+            var blackjack = new Blackjack();
+            var result = blackjack.SumOfCards(
+                new Card(Rank.Ace, Suit.Club), 
+                new Card(Rank.Five, Suit.Spade),
+                new Card(Rank.King, Suit.Heart)
             );
             Assert.Equal(16, result);
+        }
+        
+        [Fact]
+        public void CardShouldPrintTwoDiamond()
+        {
+            var card = new Card(Rank.Two, Suit.Diamond);
+            var result = card.ToString();
+            var expected = "Two of Diamond";
+            Assert.Equal(expected, result);
         }
     }
 }

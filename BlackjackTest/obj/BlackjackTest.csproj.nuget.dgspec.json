@@ -4,14 +4,14 @@
     "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/BlackjackTest.csproj": {}
   },
   "projects": {
-    "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj": {
+    "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj",
-        "projectName": "Blackjack",
-        "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj",
+        "projectUniqueName": "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj",
+        "projectName": "BlackjackGame",
+        "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj",
         "packagesPath": "/Users/josephine.chong/.nuget/packages/",
-        "outputPath": "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/",
+        "outputPath": "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/josephine.chong/.nuget/NuGet/NuGet.Config"
@@ -78,8 +78,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj": {
-                "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/Blackjack.csproj"
+              "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj": {
+                "projectPath": "/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/BlackjackGame.csproj"
               }
             }
           }
