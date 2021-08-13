@@ -1,0 +1,15 @@
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.csprojAssemblyReference.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.GeneratedMSBuildEditorConfig.editorconfig
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.AssemblyInfoInputs.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.AssemblyInfo.cs
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.csproj.CoreCompileInputs.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.deps.json
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.runtimeconfig.json
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.runtimeconfig.dev.json
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/ref/Blackjack.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.pdb
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/ref/Blackjack.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.pdb
+/Users/josephine.chong/Documents/FMA/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.genruntimeconfig.cache
