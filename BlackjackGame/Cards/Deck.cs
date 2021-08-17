@@ -5,6 +5,12 @@ namespace BlackjackGame
 {
     public class Deck
     {
+        public List<Card> Cards;
+
+        public Deck()
+        {
+            Cards = CreateInitialDeck();
+        }
         //Provide random card
         public Card DrawRandomCard(List<Card> deckOfCards)
         {
@@ -14,7 +20,7 @@ namespace BlackjackGame
         }
         
         //Record of cards
-        public List<Card> RecordOfCards()
+        private List<Card> CreateInitialDeck()
         {
             var suitCount = 4;
             var deckOfCards = new List<Card>{};

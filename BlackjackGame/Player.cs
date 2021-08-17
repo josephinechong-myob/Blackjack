@@ -5,7 +5,7 @@ namespace BlackjackGame
 {
     public class Player:IPlayer
     {
-        //declare playershand and deck
+        //declare playershand and deck as fields of the class
         //deck should be shared player and dealer - 
         public Player(Deck deck)
         {
@@ -64,7 +64,7 @@ namespace BlackjackGame
         public List<Card> InitalHand()
         {
             var deck = new Deck();
-            var deckOfCards = deck.RecordOfCards();
+            var deckOfCards = new List<Card>();
                 
             var playersHand = new List<Card>()
             {

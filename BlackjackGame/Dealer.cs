@@ -20,7 +20,7 @@ namespace BlackjackGame
         {
             var deck = new Deck();
             var hand = new Hand();
-            var deckOfCards = deck.RecordOfCards();
+            var deckOfCards = new List<Card>();
             var dealer = new Dealer();
             var dealershand = new List<Card>()
             {
