@@ -33,8 +33,8 @@ namespace BlackjackGame
                 Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
             }
             return turn;
-        }
-        */
+        }*/
+        
         private void Hit()
         {
             playersHand.Add(deck.DrawRandomCard(deckOfCards));

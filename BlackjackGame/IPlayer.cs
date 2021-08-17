@@ -1,7 +1,7 @@
 namespace BlackjackGame
 {
-    public class IPlayer
+    public interface IPlayer
     {
-        string HitOrStay(int score);
+        public string HitOrStay(int score);
     }
 }
