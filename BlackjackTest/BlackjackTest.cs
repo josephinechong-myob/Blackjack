@@ -11,8 +11,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandTest()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.Four, Suit.Spade), 
                 new Card(Rank.Five, Suit.Spade)
                 );
@@ -22,8 +22,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithKingTest()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.King, Suit.Spade), 
                 new Card(Rank.Five, Suit.Club)
                 );
@@ -33,8 +33,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithQueenTest()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.Queen, Suit.Spade), 
                 new Card(Rank.Five, Suit.Club)
             );
@@ -44,8 +44,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithJackTest()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.Jack, Suit.Spade), 
                 new Card(Rank.Five, Suit.Club)
             );
@@ -55,8 +55,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new BlackjackGame.Card(Rank.Ace, Suit.Spade), 
                 new BlackjackGame.Card(Rank.Five, Suit.Club)
             );
@@ -66,8 +66,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest2()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.Five, Suit.Spade),
                 new Card(Rank.King, Suit.Diamond),
                 new Card(Rank.Ace, Suit.Heart)
@@ -78,8 +78,8 @@ namespace BlackjackTest
         [Fact]
         public void PlayersHandWithAceTest3()
         {
-            var blackjack = new Blackjack();
-            var result = blackjack.SumOfCards(
+            var hand = new Hand();
+            var result = hand.SumOfCards(
                 new Card(Rank.Ace, Suit.Club), 
                 new Card(Rank.Five, Suit.Spade),
                 new Card(Rank.King, Suit.Heart)

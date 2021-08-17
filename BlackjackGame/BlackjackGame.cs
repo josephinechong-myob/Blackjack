@@ -8,7 +8,8 @@ namespace BlackjackGame
     {
         public void Run()
         {
-            var player = new Player();
+            var deck = new Deck();
+            var player = new Player(deck);
             var dealer = new Dealer();
             var hand = new Hand();
             var playersHand = player.InitalHand();
@@ -18,7 +19,7 @@ namespace BlackjackGame
             while (sum < 21 && turn == "1")
             {
                 player.PrintPlayersHand(playersHand);
-                turn = player.HitOrStay(score);
+                turn = player.HitOrStay(sum);
                 sum = hand.SumOfCards(playersHand);
                 
                 var handEvaluator = new HandEvaluator();

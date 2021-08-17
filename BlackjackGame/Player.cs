@@ -5,6 +5,12 @@ namespace BlackjackGame
 {
     public class Player:IPlayer
     {
+        //declare playershand and deck
+        //deck should be shared player and dealer - 
+        public Player(Deck deck)
+        {
+            //hand should be created here it should be passed two cards
+        }
         public void PrintPlayersHand(List<Card> playersHand)
         {
             var hand = new Hand();
@@ -35,13 +41,13 @@ namespace BlackjackGame
             return turn;
         }*/
         
-        private void Hit()
+        /*private void Hit()
         {
             playersHand.Add(deck.DrawRandomCard(deckOfCards));
             var cardLength = playersHand.Count;
             Console.WriteLine($"You draw [ {playersHand[cardLength-1]} ]");
             Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
-        }
+        }*/
         public string HitOrStay(int score)
         {
             Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
