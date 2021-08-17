@@ -16,6 +16,7 @@ namespace BlackjackGame
             }
         }
         
+        //Player, Dealer and Game class
         /*
         private string HitOrStay(List<Card> playersHand, List<Card> deckOfCards)
         {
@@ -34,9 +35,16 @@ namespace BlackjackGame
             return turn;
         }
         */
+        private void Hit()
+        {
+            playersHand.Add(deck.DrawRandomCard(deckOfCards));
+            var cardLength = playersHand.Count;
+            Console.WriteLine($"You draw [ {playersHand[cardLength-1]} ]");
+            Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
+        }
         public string HitOrStay(int score)
         {
-            Console.WriteLine(" Your score is ...Hit or stay? (Hit = 1, Stay = 0)");
+            Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
 
             while (true)
             {
