@@ -24,15 +24,15 @@ namespace BlackjackGame
             var dealer = new Dealer();
             var dealershand = new List<Card>()
             {
-                deck.DrawRandomCard(deckOfCards)
+                deck.DrawRandomCard()
             };
-            dealershand.Add(deck.DrawRandomCard(deckOfCards));
+            dealershand.Add(deck.DrawRandomCard());
             var sumOfDealersHand = hand.SumOfCards(dealershand);
 
             while (sumOfDealersHand < 21)
             {
                 dealer.PrintDealersHand(dealershand);
-                dealershand.Add(deck.DrawRandomCard(deckOfCards));
+                dealershand.Add(deck.DrawRandomCard());
                 sumOfDealersHand = hand.SumOfCards(dealershand);
             }
 

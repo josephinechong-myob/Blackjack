@@ -68,9 +68,9 @@ namespace BlackjackGame
                 
             var playersHand = new List<Card>()
             {
-                deck.DrawRandomCard(deckOfCards)
+                deck.DrawRandomCard()
             };
-            playersHand.Add(deck.DrawRandomCard(deckOfCards));
+            playersHand.Add(deck.DrawRandomCard());
 
             return playersHand;
         }

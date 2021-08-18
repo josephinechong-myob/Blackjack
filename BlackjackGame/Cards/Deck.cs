@@ -12,11 +12,24 @@ namespace BlackjackGame
             Cards = CreateInitialDeck();
         }
         //Provide random card
-        public Card DrawRandomCard(List<Card> deckOfCards)
+        public Card DrawRandomCard()
         {
             Random rnd = new Random();
-            var cardInterval = rnd.Next(deckOfCards.Count);
-            return deckOfCards[cardInterval];
+            var cardIndex = rnd.Next(Cards.Count);
+            var card = Cards[cardIndex];
+            Cards.Remove(card);
+            return card;
+        }
+        
+        //Adding more cards to initial deck
+
+        public Card AddingCardToDeck()
+        {
+            Random rnd = new Random();
+            var cardIndex = rnd.Next(Cards.Count);
+            var card = Cards[cardIndex];
+            Cards.Add(card);
+            return card;
         }
         
         //Record of cards
