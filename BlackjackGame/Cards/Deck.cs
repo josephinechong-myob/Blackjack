@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Blackjack
 {
     public class Deck
     {
         public List<Card> Cards;
+        public List<Card> DrawnCards;
 
         public Deck()
         {
             Cards = CreateInitialDeck();
+            
+            //Record of cards drawn from deck
+            DrawnCards = new List<Card>();
         }
         
         //Drawing a random card
@@ -19,11 +24,12 @@ namespace Blackjack
             var cardIndex = rnd.Next(Cards.Count);
             var card = Cards[cardIndex];
             Cards.Remove(card);
+            DrawnCards.Add(card);
             return card;
         }
         
         //Adding a card to the deck
-        public Card AddingCardToDeck()
+        public Card AddCardToDeck()
         {
             Random rnd = new Random();
             var cardIndex = rnd.Next(Cards.Count);
@@ -57,7 +63,7 @@ namespace Blackjack
 
             return deckOfCards;
         }
-        
+
         //Reset the deck
         public List<Card> ResetDeck()
         {

@@ -24,10 +24,11 @@ namespace BlackjackTest
         public void DeckLengthShouldDecreaseAfterDrawingACard()
         {
             //arrange
-            var expectedCardAmount = 51;
+            var expectedCardAmount = 50;
 
             //act
             var deck = new Deck();
+            deck.DrawRandomCard();
             deck.DrawRandomCard();
             var result = deck.Cards.Count;
             
@@ -45,8 +46,8 @@ namespace BlackjackTest
 
             //act
             var deck = new Deck();
-            deck.AddingCardToDeck();
-            deck.AddingCardToDeck();
+            deck.AddCardToDeck();
+            deck.AddCardToDeck();
             var result = deck.Cards.Count;
             
             //assert
@@ -54,7 +55,21 @@ namespace BlackjackTest
         }
         
         //Record of cards taken/used from deck by player or dealer's hand
-        
+        [Fact]
+        public void DrawnCardsShouldBeRecorded()
+        {
+            //arrange
+            var cardsDrawn = 2;
+
+            //act
+            var deck = new Deck();
+            deck.DrawRandomCard();
+            deck.DrawRandomCard();
+            var result = deck.DrawnCards.Count;
+            
+            //assert
+            Assert.Equal(cardsDrawn, result);
+        }
         
         //Reset the deck with new game - added 2 cards to deck before resetting
         [Fact]
@@ -65,8 +80,8 @@ namespace BlackjackTest
 
             //act
             var deck = new Deck();
-            deck.AddingCardToDeck();
-            deck.AddingCardToDeck();
+            deck.AddCardToDeck();
+            deck.AddCardToDeck();
             deck.ResetDeck();
             var result = deck.Cards.Count;
             
