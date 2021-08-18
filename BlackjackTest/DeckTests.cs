@@ -1,7 +1,7 @@
 using Blackjack;
 using Xunit;
 
-namespace HandTest
+namespace BlackjackTest
 {
     public class DeckTests
     {
