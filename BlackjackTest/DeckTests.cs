@@ -59,16 +59,21 @@ namespace BlackjackTest
         public void DrawnCardsShouldBeRecorded()
         {
             //arrange
-            var cardsDrawn = 2;
+            var drawnCardsExpectedCount = 2;
+            var deck = new Deck();
 
             //act
-            var deck = new Deck();
-            deck.DrawRandomCard();
-            deck.DrawRandomCard();
-            var result = deck.DrawnCards.Count;
+            var firstExpectedCard = deck.DrawRandomCard();
+            var secondExpectedCard = deck.DrawRandomCard();
+
+            var firstActualCard = deck.DrawnCards[0];
+            var secondActualCard = deck.DrawnCards[1];
+            var drawnCardsActualCount = deck.DrawnCards.Count;
             
             //assert
-            Assert.Equal(cardsDrawn, result);
+            Assert.Equal(drawnCardsExpectedCount, drawnCardsActualCount);
+            Assert.Equal(firstExpectedCard, firstActualCard);
+            Assert.Equal(secondExpectedCard, secondActualCard);
         }
         
         //Reset the deck with new game - added 2 cards to deck before resetting
