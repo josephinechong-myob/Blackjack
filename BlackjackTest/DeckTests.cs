@@ -11,9 +11,9 @@ namespace BlackjackTest
         {
             //arrange
             var expectedCardAmount = 52;
+            var deck = new Deck();
             
             //act
-            var deck = new Deck();
             var result = deck.Cards.Count;
             
             //assert
@@ -25,9 +25,9 @@ namespace BlackjackTest
         {
             //arrange
             var expectedCardAmount = 50;
-
-            //act
             var deck = new Deck();
+            
+            //act
             deck.DrawRandomCard();
             deck.DrawRandomCard();
             var result = deck.Cards.Count;

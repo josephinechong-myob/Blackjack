@@ -10,14 +10,14 @@ namespace BlackjackTest
         [Fact]
         public void NewHandShouldHaveTwoCards()
         {
-            //Arrange
+            //arrange
             var expectedCountOfHandCards = 2;
             var hand = new Hand();
             
-            //Act
+            //act
             var actualCountOfHandCards = hand.Cards.Count;
             
-            //Assert
+            //assert
             Assert.Equal(expectedCountOfHandCards, actualCountOfHandCards);
         }
         
