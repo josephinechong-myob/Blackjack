@@ -3,7 +3,7 @@ using System.Reflection.Metadata;
 using Blackjack;
 using Xunit;
 
-namespace BlackjackTest
+namespace HandTest
 {
     public class UnitTest1
     {
