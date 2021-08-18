@@ -4,6 +4,17 @@ namespace Blackjack
 {
     public class Hand
     {
+        public List<Card> Cards;
+        
+        //Hand should have a min of 2 cards
+        public Hand()
+        {
+            Cards = new List<Card>();
+            var deck = new Deck();
+            Cards.Add(deck.DrawRandomCard());
+            Cards.Add(deck.DrawRandomCard());
+        }
+       
         public int NonAceCards(params Card[] playerHand2)
         {
             var nonAceCardsTotal = 0;

@@ -7,6 +7,19 @@ namespace BlackjackTest
 {
     public class HandTest
     {
+        [Fact]
+        public void NewHandShouldHaveTwoCards()
+        {
+            //Arrange
+            var expectedCountOfHandCards = 2;
+            var hand = new Hand();
+            
+            //Act
+            var actualCountOfHandCards = hand.Cards.Count;
+            
+            //Assert
+            Assert.Equal(expectedCountOfHandCards, actualCountOfHandCards);
+        }
         
         [Fact]
         public void PlayersHandTest()
