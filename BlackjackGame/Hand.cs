@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BlackjackGame
+namespace Blackjack
 {
     public class Hand
     {

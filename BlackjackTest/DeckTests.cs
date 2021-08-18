@@ -1,4 +1,4 @@
-using BlackjackGame;
+using Blackjack;
 using Xunit;
 
 namespace BlackjackTest
@@ -9,9 +9,14 @@ namespace BlackjackTest
         [Fact]
         public void DeckShouldBe52Cards()
         {
+            //arrange
             var expectedCardAmount = 52;
+            
+            //act
             var deck = new Deck();
             var result = deck.Cards.Count;
+            
+            //assert
             Assert.Equal(expectedCardAmount, result);
         }
         //Providing a random card "pulling a random card" - should result in a decreased number in deck
@@ -20,9 +25,9 @@ namespace BlackjackTest
         {
             //arrange
             var expectedCardAmount = 51;
-            var deck = new Deck();
-            
+
             //act
+            var deck = new Deck();
             deck.DrawRandomCard();
             var result = deck.Cards.Count;
             
@@ -30,16 +35,17 @@ namespace BlackjackTest
             Assert.Equal(expectedCardAmount, result);
         }
 
-        //Drawing more than 52 cards to a deck
+        //Adding more cards to a deck
 
         [Fact]
         public void DeckLengthShouldIncreaseAfterAddingACard()
         {
             //arrange
-            var expectedCardAmount = 53;
-            var deck = new Deck();
-            
+            var expectedCardAmount = 54;
+
             //act
+            var deck = new Deck();
+            deck.AddingCardToDeck();
             deck.AddingCardToDeck();
             var result = deck.Cards.Count;
             
@@ -50,15 +56,18 @@ namespace BlackjackTest
         //Record of cards taken/used from deck by player or dealer's hand
         
         
-        //Reset the deck with new game
+        //Reset the deck with new game - added 2 cards to deck before resetting
         [Fact]
         public void DeckShouldBeResetAtTheStartOfANewGame()
         {
             //arrange
             var expectedCardAmount = 52;
-            var deck = new Deck();
-            
+
             //act
+            var deck = new Deck();
+            deck.AddingCardToDeck();
+            deck.AddingCardToDeck();
+            deck.ResetDeck();
             var result = deck.Cards.Count;
             
             //assert

@@ -1,6 +1,6 @@
 using System;
 using System.Reflection.Metadata;
-using BlackjackGame;
+using Blackjack;
 using Xunit;
 
 namespace BlackjackTest
@@ -57,8 +57,8 @@ namespace BlackjackTest
         {
             var hand = new Hand();
             var result = hand.SumOfCards(
-                new BlackjackGame.Card(Rank.Ace, Suit.Spade), 
-                new BlackjackGame.Card(Rank.Five, Suit.Club)
+                new Blackjack.Card(Rank.Ace, Suit.Spade), 
+                new Blackjack.Card(Rank.Five, Suit.Club)
             );
             Assert.Equal(16, result);
         }

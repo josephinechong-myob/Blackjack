@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BlackjackGame
+namespace Blackjack
 {
     public class Deck
     {
@@ -11,7 +11,8 @@ namespace BlackjackGame
         {
             Cards = CreateInitialDeck();
         }
-        //Provide random card
+        
+        //Drawing a random card
         public Card DrawRandomCard()
         {
             Random rnd = new Random();
@@ -21,8 +22,7 @@ namespace BlackjackGame
             return card;
         }
         
-        //Adding more cards to initial deck
-
+        //Adding a card to the deck
         public Card AddingCardToDeck()
         {
             Random rnd = new Random();
@@ -58,6 +58,11 @@ namespace BlackjackGame
             return deckOfCards;
         }
         
-        //Reset the deck with new game
+        //Reset the deck
+        public List<Card> ResetDeck()
+        {
+            Cards = CreateInitialDeck();
+            return Cards;
+        }
     }
 }

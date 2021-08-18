@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 
-namespace BlackjackGame
+namespace Blackjack
 {
     public class HandEvaluator
     {

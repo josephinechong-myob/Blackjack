@@ -1,6 +1,6 @@
 using System;
 
-namespace BlackjackGame
+namespace Blackjack
 {
     public class Card
     {

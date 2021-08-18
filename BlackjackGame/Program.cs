@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace BlackjackGame
+namespace Blackjack
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var blackjack = new Blackjack();
+            var blackjack = new BlackjackGame();
             blackjack.Run();
         }
     }
