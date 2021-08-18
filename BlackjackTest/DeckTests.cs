@@ -82,16 +82,20 @@ namespace BlackjackTest
         {
             //arrange
             var expectedCardAmount = 52;
-
-            //act
             var deck = new Deck();
-            deck.AddCardToDeck();
-            deck.AddCardToDeck();
+            var expectedDrawnCards = 0;
+            
+            //act
+            deck.DrawRandomCard();
+            deck.DrawRandomCard();
             deck.ResetDeck();
+            var actualDrawnCards = deck.DrawnCards.Count;
+            
             var result = deck.Cards.Count;
             
             //assert
             Assert.Equal(expectedCardAmount, result);
+            Assert.Equal(expectedDrawnCards, actualDrawnCards);
         }
     }
 }

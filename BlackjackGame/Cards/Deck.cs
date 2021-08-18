@@ -65,10 +65,10 @@ namespace Blackjack
         }
 
         //Reset the deck
-        public List<Card> ResetDeck()
+        public void ResetDeck()
         {
             Cards = CreateInitialDeck();
-            return Cards;
+            DrawnCards = new List<Card>();
         }
     }
 }
