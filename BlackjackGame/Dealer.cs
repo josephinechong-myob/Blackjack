@@ -20,12 +20,11 @@ namespace Blackjack
         {
             var deck = new Deck();
             var hand = new Hand();
-            var deckOfCards = new List<Card>();
             var dealer = new Dealer();
-            var dealershand = new List<Card>()
+            var dealershand = deck.Cards;
             {
-                deck.DrawRandomCard()
-            };
+                deck.DrawRandomCard();
+            }
             dealershand.Add(deck.DrawRandomCard());
             var sumOfDealersHand = hand.SumOfCards(dealershand);
 

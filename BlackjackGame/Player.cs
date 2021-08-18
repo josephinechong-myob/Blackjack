@@ -64,12 +64,10 @@ namespace Blackjack
         public List<Card> InitalHand()
         {
             var deck = new Deck();
-            var deckOfCards = new List<Card>();
-                
-            var playersHand = new List<Card>()
+            var playersHand = deck.Cards;
             {
-                deck.DrawRandomCard()
-            };
+                deck.DrawRandomCard();
+            }
             playersHand.Add(deck.DrawRandomCard());
 
             return playersHand;
