@@ -8,6 +8,10 @@ namespace Blackjack
     {
         public void Run()
         {
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
+            var he = HandEvaluator.SumOfHand(hand);
             /*
             var deck = new Deck();
             var player = new Player(deck);
