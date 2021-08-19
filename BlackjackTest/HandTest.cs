@@ -47,7 +47,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards());
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(15, result);
