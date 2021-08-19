@@ -11,33 +11,11 @@ namespace Blackjack
         {
             Cards = new List<Card>{firstCard, secondCard};
         }
-        public int NonAceCards()
+
+        public int CalculateSumOfAllCards()
         {
-            var nonAceCardsTotal = 0;
-            foreach (var card in Cards)
-            {
-                if (card.Rank != Rank.Ace)
-                {
-                    nonAceCardsTotal += card.GetValue();
-                }
-            }
-            return nonAceCardsTotal;
-        }
-        public int SumOfCards()
-        {
-            var total = NonAceCards();
-            foreach (var card in Cards)
-            {
-                if (card.Rank == Rank.Ace && total <= 10)
-                {
-                    total += 11;
-                }
-                else if (card.Rank == Rank.Ace && total > 10)
-                {
-                    total += 1;
-                }
-            }
-            return total;
+            var sumOfAllCards = HandEvaluator.SumOfHand(this);
+            return sumOfAllCards;
         }
     }
 }

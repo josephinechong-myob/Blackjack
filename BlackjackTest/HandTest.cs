@@ -12,7 +12,9 @@ namespace BlackjackTest
         {
             //arrange
             var expectedCountOfHandCards = 2;
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
             var actualCountOfHandCards = hand.Cards.Count;
@@ -25,13 +27,12 @@ namespace BlackjackTest
         public void PlayersHandTest()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.Four, Suit.Spade), 
-                new Card(Rank.Five, Suit.Spade)
-                );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(9,result);
@@ -41,13 +42,12 @@ namespace BlackjackTest
         public void PlayersHandWithKingTest()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.King, Suit.Spade), 
-                new Card(Rank.Five, Suit.Club)
-                );
+            var result = hand.CalculateSumOfAllCards());
             
             //assert
             Assert.Equal(15, result);
@@ -57,13 +57,12 @@ namespace BlackjackTest
         public void PlayersHandWithQueenTest()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.Queen, Suit.Spade), 
-                new Card(Rank.Five, Suit.Club)
-            );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(15, result);
@@ -73,13 +72,12 @@ namespace BlackjackTest
         public void PlayersHandWithJackTest()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.Jack, Suit.Spade), 
-                new Card(Rank.Five, Suit.Club)
-            );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(15, result);
@@ -89,13 +87,12 @@ namespace BlackjackTest
         public void PlayersHandWithAceTest()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Blackjack.Card(Rank.Ace, Suit.Spade), 
-                new Blackjack.Card(Rank.Five, Suit.Club)
-            );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(16, result);
@@ -105,14 +102,12 @@ namespace BlackjackTest
         public void PlayersHandWithAceTest2()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.Five, Suit.Spade),
-                new Card(Rank.King, Suit.Diamond),
-                new Card(Rank.Ace, Suit.Heart)
-            );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(16, result);
@@ -122,14 +117,12 @@ namespace BlackjackTest
         public void PlayersHandWithAceTest3()
         {
             //arrange
-            var hand = new Hand();
+            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.SumOfCards(
-                new Card(Rank.Ace, Suit.Club), 
-                new Card(Rank.Five, Suit.Spade),
-                new Card(Rank.King, Suit.Heart)
-            );
+            var result = hand.CalculateSumOfAllCards();
             
             //assert
             Assert.Equal(16, result);

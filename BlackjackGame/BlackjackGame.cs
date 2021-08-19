@@ -8,17 +8,18 @@ namespace Blackjack
     {
         public void Run()
         {
+            /*
             var deck = new Deck();
             var player = new Player(deck);
             var dealer = new Dealer();
-            var hand = new Hand(deck);
+            //var hand = new Hand(deck);
             var playersHand = player.InitalHand();
             var turn = "1";
             var sum = hand.SumOfCards(playersHand);
             
             while (sum < 21 && turn == "1")
             {
-                player.PrintPlayersHand(playersHand);
+                //player.PrintPlayersHand(playersHand);
                 turn = player.HitOrStay(sum);
                 sum = hand.SumOfCards(playersHand);
                 
@@ -27,6 +28,7 @@ namespace Blackjack
             }
             
             dealer.DealersTurn();
+            */
         }
     }
 }

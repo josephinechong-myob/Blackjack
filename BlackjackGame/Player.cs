@@ -11,6 +11,7 @@ namespace Blackjack
         {
             //hand should be created here it should be passed two cards
         }
+        /*
         public void PrintPlayersHand(List<Card> playersHand)
         {
             var hand = new Hand();
@@ -21,7 +22,7 @@ namespace Blackjack
                 Console.Write($"[{card}]");
             }
         }
-        
+        */
         //Player, Dealer and Game class
         /*
         private string HitOrStay(List<Card> playersHand, List<Card> deckOfCards)

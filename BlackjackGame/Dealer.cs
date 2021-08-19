@@ -5,6 +5,7 @@ namespace Blackjack
 {
     public class Dealer
     {
+        /*
         public void PrintDealersHand(List<Card> dealersHand)
         {
             var hand = new Hand();
@@ -37,5 +38,6 @@ namespace Blackjack
 
             return dealershand;
         }
+        */
     }
 }
