@@ -1,10 +1,17 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Blackjack
 {
     public class HandEvaluator
     {
+        public List<Card> Cards;
+
+        public HandEvaluator()
+        {
+            Cards = new List<Card>();
+        }
         public string WinCondition1(int sum)
         {
             if (sum == 21) return "You have hit 21 and win the game!";

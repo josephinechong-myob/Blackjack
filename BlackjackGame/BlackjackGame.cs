@@ -11,7 +11,7 @@ namespace Blackjack
             var deck = new Deck();
             var player = new Player(deck);
             var dealer = new Dealer();
-            var hand = new Hand();
+            var hand = new Hand(deck);
             var playersHand = player.InitalHand();
             var turn = "1";
             var sum = hand.SumOfCards(playersHand);

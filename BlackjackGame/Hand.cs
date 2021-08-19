@@ -7,48 +7,37 @@ namespace Blackjack
         public List<Card> Cards;
         
         //Hand should have a min of 2 cards
-        public Hand()
+        public Hand(Card firstCard, Card secondCard)
         {
-            Cards = new List<Card>();
-            var deck = new Deck();
-            Cards.Add(deck.DrawRandomCard());
-            Cards.Add(deck.DrawRandomCard());
+            Cards = new List<Card>{firstCard, secondCard};
         }
-       
-        public int NonAceCards(params Card[] playerHand2)
+        public int NonAceCards()
         {
             var nonAceCardsTotal = 0;
-            foreach (var card in playerHand2)
+            foreach (var card in Cards)
             {
                 if (card.Rank != Rank.Ace)
                 {
                     nonAceCardsTotal += card.GetValue();
                 }
             }
-
             return nonAceCardsTotal;
         }
-
-        public int SumOfCards(params Card[] playerHand)
+        public int SumOfCards()
         {
-        var hand = new Hand();
-        var total = NonAceCards(playerHand);
-            foreach (var card in playerHand)
-        {
-            if (card.Rank == Rank.Ace && total <= 10)
+            var total = NonAceCards();
+            foreach (var card in Cards)
             {
-                total += 11;
+                if (card.Rank == Rank.Ace && total <= 10)
+                {
+                    total += 11;
+                }
+                else if (card.Rank == Rank.Ace && total > 10)
+                {
+                    total += 1;
+                }
             }
-            else if (card.Rank == Rank.Ace && total > 10)
-            {
-                total += 1;
-            }
-        }
-        return total;
-        }
-        public int SumOfCards(List<Card> playerHand)
-        {
-            return SumOfCards(playerHand.ToArray());
+            return total;
         }
     }
 }
