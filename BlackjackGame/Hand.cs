@@ -21,13 +21,13 @@ namespace Blackjack
 
         public void AddCardToHand(Card card)
         {
-            
+           Cards.Add(card); 
         }
         
         //no arguments - reassign to field cards Aces coming last
         public void Sort()
         {
-            var orderedCards = Cards.OrderByDescending(card => card.Rank).ToList();
+            Cards.OrderByDescending(card => card.Rank).ToList();
         }
     }
 }

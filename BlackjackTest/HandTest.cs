@@ -39,6 +39,7 @@ namespace BlackjackTest
 
             //act
             hand.AddCardToHand(expectedSecondCard);
+            hand.Sort();
 
             //assert
             Assert.Equal(hand.Cards.Last(),expectedThridCard);
