@@ -24,7 +24,7 @@ namespace Blackjack
            Cards.Add(card); 
         }
         
-        //no arguments - reassign to field cards Aces coming last
+        //Sort list to reassign the field cards for Aces coming last
         public void Sort()
         {
             Cards.OrderByDescending(card => card.Rank).ToList();

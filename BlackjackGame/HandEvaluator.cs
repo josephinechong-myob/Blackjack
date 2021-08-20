@@ -11,9 +11,9 @@ namespace Blackjack
         {
             var cards = hand.Cards;
             var total = 0;
-            //Ace needs to be evaluated last in a list so function can work
-            var orderedCards = cards.OrderBy(card => card.Rank);
-            Console.WriteLine(orderedCards);
+            
+            cards.Sort();
+            
             //line 16 - 29 put contents of loop into a function that will return the individual value of the card and return total
             //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
             foreach (var card in cards)
