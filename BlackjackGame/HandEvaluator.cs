@@ -7,6 +7,19 @@ namespace Blackjack
 {
     public static class HandEvaluator
     {
+        //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
+        public static void AceEvaluator(Card card, int total)
+        {
+            if (card.Rank == Rank.Ace && total <= 10)
+            {
+                total += 11;
+            }
+            else if (card.Rank == Rank.Ace && total > 10)
+            {
+                total += 1;
+            }
+        }
+
         public static int SumOfHand(Hand hand)
         {
             var cards = hand.Cards;
@@ -15,21 +28,16 @@ namespace Blackjack
             cards.Sort();
             
             //line 16 - 29 put contents of loop into a function that will return the individual value of the card and return total
-            //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
+            
             foreach (var card in cards)
             {
                 if (card.Rank != Rank.Ace)
                 {
                     total += card.GetValue();
                 }
-                
-                if (card.Rank == Rank.Ace && total <= 10)
+                else if (card.Rank == Rank.Ace)
                 {
-                    total += 11;
-                }
-                else if (card.Rank == Rank.Ace && total > 10)
-                {
-                    total += 1;
+                    AceEvaluator(card, total);
                 }
             }
             return total;
