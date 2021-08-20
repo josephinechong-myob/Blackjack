@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection.Metadata;
 using Blackjack;
 using Xunit;
@@ -7,6 +8,42 @@ namespace BlackjackTest
 {
     public class HandTest
     {
+        //Adding a card to the Hand
+        [Fact]
+        public void HandShouldIncreaseAfterAddingACard()
+        {
+            //arrange
+            var expectedCountOfHandCards = 3;
+            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
+            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
+            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
+            var hand = new Hand(expectedFirstCard, expectedSecondCard);
+
+            //act
+            hand.AddCardToHand(expectedThridCard);
+
+            //assert
+            Assert.True(hand.Cards.Contains(expectedThridCard));
+            Assert.Equal(expectedCountOfHandCards, hand.Cards.Count);
+        }
+        
+        [Fact]
+        public void HandShouldSortCards()
+        {
+            //arrange
+            var expectedCountOfHandCards = 3;
+            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
+            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
+            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
+            var hand = new Hand(expectedFirstCard, expectedThridCard);
+
+            //act
+            hand.AddCardToHand(expectedSecondCard);
+
+            //assert
+            Assert.Equal(hand.Cards.Last(),expectedThridCard);
+        }
+
         [Fact]
         public void NewHandShouldHaveTwoCards()
         {

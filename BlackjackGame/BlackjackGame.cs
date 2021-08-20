@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Blackjack
 {
@@ -8,15 +9,11 @@ namespace Blackjack
     {
         public void Run()
         {
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            var he = HandEvaluator.SumOfHand(hand);
-            /*
             var deck = new Deck();
             var player = new Player(deck);
             var dealer = new Dealer();
-            //var hand = new Hand(deck);
+            /*
+            var hand = new Hand(deck);
             var playersHand = player.InitalHand();
             var turn = "1";
             var sum = hand.SumOfCards(playersHand);
