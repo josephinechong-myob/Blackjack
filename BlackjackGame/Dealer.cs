@@ -17,6 +17,11 @@ namespace Blackjack
         {
             //adding a card from deck to hand
         }
+        
+        public void Evaluate()
+        {
+            
+        }
         /*
         public void PrintDealersHand(List<Card> dealersHand)
         {

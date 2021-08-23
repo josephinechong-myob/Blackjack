@@ -66,7 +66,20 @@ namespace Blackjack
 
         public void Hit()
         {
-            
+            Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
+
+            while (true)
+            {
+                var answer = Console.ReadLine();
+                if (answer == "1") Console.WriteLine("hit");
+                if (answer == "0") Console.WriteLine("stay");
+                Console.WriteLine("Please enter a valid value");
+            } 
+        }
+
+        public void Evaluate()
+        {
+            //what is total? 
         }
 
         public List<Card> InitalHand()
