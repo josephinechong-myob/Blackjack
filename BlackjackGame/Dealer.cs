@@ -1,10 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace Blackjack
 {
     public class Dealer
     {
+        public Hand Hand;
+
+        public Dealer(Card firstCard, Card secondCard)
+        {
+            Hand = new Hand(firstCard, secondCard);
+        }
         /*
         public void PrintDealersHand(List<Card> dealersHand)
         {

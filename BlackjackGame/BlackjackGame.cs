@@ -11,7 +11,7 @@ namespace Blackjack
         {
             var deck = new Deck();
             var player = new Player(deck);
-            var dealer = new Dealer();
+            //var dealer = new Dealer();
             /*
             var hand = new Hand(deck);
             var playersHand = player.InitalHand();

@@ -7,7 +7,6 @@ namespace Blackjack
     {
         public List<Card> Cards;
         
-        
         //Hand should have a min of 2 cards
         public Hand(Card firstCard, Card secondCard)
         {
