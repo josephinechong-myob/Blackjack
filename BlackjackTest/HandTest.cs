@@ -31,7 +31,6 @@ namespace BlackjackTest
         public void HandShouldSortCards()
         {
             //arrange
-            var expectedCountOfHandCards = 3;
             var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
             var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
             var expectedThridCard = new Card(Rank.Ace, Suit.Club);
@@ -39,10 +38,10 @@ namespace BlackjackTest
 
             //act
             hand.AddCardToHand(expectedSecondCard);
-            hand.Sort();
+            hand.SortHand();
 
             //assert
-            Assert.Equal(hand.Cards.Last(),expectedThridCard);
+            Assert.Equal(expectedThridCard, hand.Cards.Last());
         }
 
         [Fact]

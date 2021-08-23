@@ -7,6 +7,7 @@ namespace Blackjack
     {
         public List<Card> Cards;
         
+        
         //Hand should have a min of 2 cards
         public Hand(Card firstCard, Card secondCard)
         {
@@ -15,7 +16,7 @@ namespace Blackjack
 
         public int CalculateSumOfAllCards()
         {
-            var sumOfAllCards = HandEvaluator.SumOfHand(this);
+            var sumOfAllCards = HandEvaluator.GetTotal(this);
             return sumOfAllCards;
         }
 
@@ -25,9 +26,9 @@ namespace Blackjack
         }
         
         //Sort list to reassign the field cards for Aces coming last
-        public void Sort()
+        public void SortHand()
         {
-            Cards.OrderByDescending(card => card.Rank).ToList();
+            Cards = Cards.OrderByDescending(card => card.Rank).ToList();
         }
     }
 }

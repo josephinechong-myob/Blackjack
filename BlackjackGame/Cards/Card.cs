@@ -13,7 +13,7 @@ namespace Blackjack
             Suit = suit;
         }
 
-        public int GetValue()
+        public int GetRankValue()
         {
             if (Rank == Rank.Jack || Rank == Rank.Queen || Rank == Rank.King)
             {
