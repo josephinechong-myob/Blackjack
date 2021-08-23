@@ -4,13 +4,18 @@ using System.Xml;
 
 namespace Blackjack
 {
-    public class Dealer
+    public class Dealer: IBlackjackParticipant
     {
         public Hand Hand;
 
         public Dealer(Card firstCard, Card secondCard)
         {
             Hand = new Hand(firstCard, secondCard);
+        }
+
+        public void Hit()
+        {
+            //adding a card from deck to hand
         }
         /*
         public void PrintDealersHand(List<Card> dealersHand)

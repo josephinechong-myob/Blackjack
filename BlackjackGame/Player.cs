@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Blackjack
 {
-    public class Player:IPlayer
+    public class Player:IBlackjackParticipant
     {
         //declare playershand and deck as fields of the class
         //deck should be shared player and dealer - 
@@ -11,6 +11,8 @@ namespace Blackjack
         {
             //hand should be created here it should be passed two cards
         }
+        
+        
         /*
         public void PrintPlayersHand(List<Card> playersHand)
         {
@@ -60,6 +62,11 @@ namespace Blackjack
                 if (answer == "0") return "stay";
                 Console.WriteLine("Please enter a valid value");
             }
+        }
+
+        public void Hit()
+        {
+            
         }
 
         public List<Card> InitalHand()
