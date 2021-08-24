@@ -1,14 +1,12 @@
-using Blackjack;
 using Xunit;
 
 namespace BlackjackTest
 {
-    public class PlayerTest
+    public class DealerTest
     {
         [Fact]
-        public void InputOfOneShouldReturnHit()
+        public void HitShouldContinueToTotalOfSeventeen()
         {
-            //Unsure if we can test a loop?
             
             //arrange
             

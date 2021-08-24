@@ -51,7 +51,7 @@ namespace Blackjack
             Console.WriteLine($"You draw [ {playersHand[cardLength-1]} ]");
             Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
         }*/
-        public string HitOrStay(int score)
+        public string HitOrStay()
         {
             Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
 
@@ -66,15 +66,7 @@ namespace Blackjack
 
         public void Hit()
         {
-            Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
-
-            while (true)
-            {
-                var answer = Console.ReadLine();
-                if (answer == "1") Console.WriteLine("hit");
-                if (answer == "0") Console.WriteLine("stay");
-                Console.WriteLine("Please enter a valid value");
-            } 
+            HitOrStay();
         }
 
         public void Evaluate()
