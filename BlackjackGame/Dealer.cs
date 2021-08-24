@@ -15,15 +15,21 @@ namespace Blackjack
             Deck = new Deck();
         }
         
-        public void HitUntilTotalIsAtLeastSeventeen()
+        public void HitUntilTotalIsAtLeastSeventeen(Card card)
         {
             var dealersHandTotal = HandEvaluator.GetTotal(Hand);
             
             while (dealersHandTotal <= 17)
             {
                 HandEvaluator.PrintHand(Hand);
-                Hand.Add(Deck.DrawRandomCard());
+                Hand.AddCardToHand(card);
             }
+            /*
+              playersHand.Add(deck.DrawRandomCard(deckOfCards));
+            var cardLength = playersHand.Count;
+            Console.WriteLine($"You draw [ {playersHand[cardLength-1]} ]");
+            Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
+             */
 
         }
         
