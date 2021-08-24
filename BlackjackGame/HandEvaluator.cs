@@ -48,5 +48,15 @@ namespace Blackjack
             var cards = hand.Cards;
             return SumOfHand(cards);
         }
+
+        public static void PrintHand(Hand hand)
+        {
+            Console.WriteLine($"You are currently at {GetTotal(hand)}");
+            Console.Write($"with the hand");
+            foreach (var card in hand.Cards)
+            {
+                Console.Write($"[{card}]");
+            }
+        }
     }
 }

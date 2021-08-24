@@ -68,7 +68,7 @@ namespace Blackjack
         {
             HitOrStay();
         }
-
+        
         public void Evaluate()
         {
             //what is total? 

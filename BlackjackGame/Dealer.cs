@@ -12,7 +12,22 @@ namespace Blackjack
         {
             Hand = new Hand(firstCard, secondCard);
         }
-
+        
+        public int HitUntilTotalIsAtLeastSeventeen()
+        {
+            var dealersHand = HandEvaluator.GetTotal(Hand);
+            /*
+            while (dealersHand <=17)
+            {
+                Hand.PrintDealersHand();
+                dealershand.Add(deck.DrawRandomCard());
+                sumOfDealersHand = hand.SumOfCards(dealershand);
+            }
+*/
+            return dealersHand;
+        
+        }
+        
         public void Hit()
         {
             //adding a card from deck to hand

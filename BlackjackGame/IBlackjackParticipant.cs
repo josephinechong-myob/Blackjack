@@ -3,7 +3,7 @@ namespace Blackjack
     public interface IBlackjackParticipant
     {
         public void Hit();
-
+        
         public void Evaluate();
         // playing (choosing btw hitting or staying)
         // stay
