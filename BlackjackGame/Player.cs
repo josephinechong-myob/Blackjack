@@ -62,25 +62,51 @@ namespace Blackjack
             var drawnCard = deck.DrawRandomCard();
             Hand.AddCardToHand(drawnCard);
         }
-        
+
+        private bool IsThereABust()
+        {
+            var score = HandEvaluator.GetTotal(Hand);
+            if (score > 21)
+            {
+                return true;
+            }
+            return false;
+        }
         public void Play(Deck deck)
         {
             bool PlayerHasChosenToStay = false;
             
+            
             while (!PlayerHasChosenToStay)
             {
+                var score = HandEvaluator.GetTotal(Hand);
                 HandEvaluator.PrintHand(Hand);
+                
                 Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
+                
+                
+                
                 var answer = Console.ReadLine();
-                if (answer == "1") Hit(deck);
-                else if (answer == "0") PlayerHasChosenToStay = true;
+                
+                if (answer == "1" && score < 21) Hit(deck);
+                
+                if (score == 21)
+                {
+                    Console.WriteLine("You have won");
+                    PlayerHasChosenToStay = true;
+                }
+
+                /*if (score > 21)
+                {
+                    Console.WriteLine("You have gone bust");
+                    PlayerHasChosenToStay = true;
+                }*/
+                
+                else if (answer == "0" || score > 21) PlayerHasChosenToStay = true;
+                
                 else Console.WriteLine("Please enter a valid value");
                 
                 //conditon for bust over 21 and end loop
-                
-                //conditions for exiting loop
-                //over 21
-                //if they choose to stay
             }
         }
 
