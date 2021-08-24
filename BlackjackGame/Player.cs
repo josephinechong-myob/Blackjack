@@ -10,7 +10,7 @@ namespace Blackjack
        
         public Hand Hand;
 
-        public Player(Card firstCard, Card secondCard, Deck deck)
+        public Player(Card firstCard, Card secondCard)
         {
             Hand = new Hand(firstCard, secondCard);
         }
@@ -50,17 +50,38 @@ namespace Blackjack
                 if (answer == "1") return "hit";
                 if (answer == "0") return "stay";
                 Console.WriteLine("Please enter a valid value");
+                
+                //conditions for exiting loop
+                //over 21
+                //if they choose to stay
             }
         }
 
-        public void Hit()
+        public void Hit(Deck deck)
         {
-            HitOrStay();
+            var drawnCard = deck.DrawRandomCard();
+            Hand.AddCardToHand(drawnCard);
         }
         
-        public void Evaluate()
+        public void Play(Deck deck)
         {
-            //what is total? 
+            bool PlayerHasChosenToStay = false;
+            
+            while (!PlayerHasChosenToStay)
+            {
+                HandEvaluator.PrintHand(Hand);
+                Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
+                var answer = Console.ReadLine();
+                if (answer == "1") Hit(deck);
+                else if (answer == "0") PlayerHasChosenToStay = true;
+                else Console.WriteLine("Please enter a valid value");
+                
+                //conditon for bust over 21 and end loop
+                
+                //conditions for exiting loop
+                //over 21
+                //if they choose to stay
+            }
         }
 
         public List<Card> InitalHand()

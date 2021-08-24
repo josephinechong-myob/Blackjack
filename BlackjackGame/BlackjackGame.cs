@@ -10,7 +10,12 @@ namespace Blackjack
         public void Run()
         {
             var deck = new Deck();
-            //var player = new Player(firstCard, secondCard, deck);
+            var firstCard = deck.DrawRandomCard();
+            var secondCard = deck.DrawRandomCard();
+            var player = new Player(firstCard, secondCard);
+            
+            player.Play(deck);
+            
             //var dealer = new Dealer();
             /*
             var hand = new Hand(deck);

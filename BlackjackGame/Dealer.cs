@@ -33,12 +33,12 @@ namespace Blackjack
 
         }
         
-        public void Hit()
+        public void Hit(Deck deck)
         {
             //adding a card from deck to hand
         }
         
-        public void Evaluate()
+        public void Play(Deck deck)
         {
             
         }

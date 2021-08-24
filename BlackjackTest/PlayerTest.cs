@@ -6,18 +6,22 @@ namespace BlackjackTest
     public class PlayerTest
     {
         [Fact]
-        public void InputOfOneShouldReturnHit()
+        public void HitShouldIncreaseCardCountByOne()
         {
-            //Unsure if we can test a loop?
-            
             //arrange
-            
-            
-            //act
-            
+            var expectedHandTotal = 3;
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var player = new Player(firstCard, secondCard);
+            var deck = new Deck();
 
-            //assert
+            //act
+            player.Hit(deck);
+            var actualHandTotal = player.Hand.Cards.Count;
             
+            //assert
+            Assert.Equal(expectedHandTotal, actualHandTotal);
+
         }
     }
 }
