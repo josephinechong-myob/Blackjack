@@ -7,25 +7,24 @@ namespace Blackjack
     public class Dealer: IBlackjackParticipant
     {
         public Hand Hand;
+        public Deck Deck;
 
-        public Dealer(Card firstCard, Card secondCard)
+        public Dealer(Card firstCard, Card secondCard, Deck deck)
         {
             Hand = new Hand(firstCard, secondCard);
+            Deck = new Deck();
         }
         
-        public int HitUntilTotalIsAtLeastSeventeen()
+        public void HitUntilTotalIsAtLeastSeventeen()
         {
-            var dealersHand = HandEvaluator.GetTotal(Hand);
-            /*
-            while (dealersHand <=17)
+            var dealersHandTotal = HandEvaluator.GetTotal(Hand);
+            
+            while (dealersHandTotal <= 17)
             {
-                Hand.PrintDealersHand();
-                dealershand.Add(deck.DrawRandomCard());
-                sumOfDealersHand = hand.SumOfCards(dealershand);
+                HandEvaluator.PrintHand(Hand);
+                Hand.Add(Deck.DrawRandomCard());
             }
-*/
-            return dealersHand;
-        
+
         }
         
         public void Hit()
@@ -38,17 +37,7 @@ namespace Blackjack
             
         }
         /*
-        public void PrintDealersHand(List<Card> dealersHand)
-        {
-            var hand = new Hand();
-            Console.WriteLine($"Dealer is at {hand.SumOfCards(dealersHand.ToArray())}");
-            Console.Write($"with the hand ");
-            foreach (var card in dealersHand)
-            {
-                Console.Write(($"[{card}]"));
-            }
-        }
-
+     
         public List<Card> DealersTurn()
         {
             var deck = new Deck();

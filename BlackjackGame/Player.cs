@@ -7,24 +7,13 @@ namespace Blackjack
     {
         //declare playershand and deck as fields of the class
         //deck should be shared player and dealer - 
-        public Player(Deck deck)
+       
+        public Hand Hand;
+
+        public Player(Card firstCard, Card secondCard, Deck deck)
         {
-            //hand should be created here it should be passed two cards
+            Hand = new Hand(firstCard, secondCard);
         }
-        
-        
-        /*
-        public void PrintPlayersHand(List<Card> playersHand)
-        {
-            var hand = new Hand();
-            Console.WriteLine($"You are currently at {hand.SumOfCards(playersHand.ToArray())}");
-            Console.Write($"with the hand ");
-            foreach (var card in playersHand)
-            {
-                Console.Write($"[{card}]");
-            }
-        }
-        */
         //Player, Dealer and Game class
         /*
         private string HitOrStay(List<Card> playersHand, List<Card> deckOfCards)

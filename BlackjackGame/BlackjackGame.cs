@@ -10,7 +10,7 @@ namespace Blackjack
         public void Run()
         {
             var deck = new Deck();
-            var player = new Player(deck);
+            //var player = new Player(firstCard, secondCard, deck);
             //var dealer = new Dealer();
             /*
             var hand = new Hand(deck);

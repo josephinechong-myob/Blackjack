@@ -11,15 +11,8 @@ namespace Blackjack
         //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
         private static int CalculateValueOfAce(int total)
         {
-            if (total <= 10)
-            {
-                total = 11;
-            }
-            else
-            {
-                total = 1;
-            }
-
+            total = (total <= 10) ? 11 : 1;
+            
             return total;
         }
 
