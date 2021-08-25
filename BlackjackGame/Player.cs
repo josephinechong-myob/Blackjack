@@ -31,7 +31,7 @@ namespace Blackjack
             return false;
         }
        
-        public string HitOrStay()
+        private string HitOrStay()
         {
             Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
             while (true)

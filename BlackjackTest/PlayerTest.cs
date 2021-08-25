@@ -5,28 +5,29 @@ namespace BlackjackTest
 {
     public class PlayerTest
     {
+        
         //mocks - testing user input
         //NuGet - terminal 
         [Fact]
         public void WhenScoreIsOverTwentyOnePlayerShouldBust()
         {
             //arrange
-            var consoleOperations = new Mock<IConsoleOperations>();
+          
             //act
             
             //assert
-            consoleOperations.Verify(
-                m => m.Write(It.Is<string>(c => c == "It’s a bust!")));
+            
         }
         
         [Fact]
         public void HitShouldIncreaseCardCountByOne()
         {
             //arrange
+            var stubConsole = new StubConsole();
             var expectedHandTotal = 3;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard);
+            var player = new Player(firstCard, secondCard, stubConsole);
             var deck = new Deck();
 
             //act
@@ -36,6 +37,25 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedHandTotal, actualHandTotal);
 
+        }
+
+        [Fact]
+        public void PlayerShouldBeAbleToStay()
+        {
+            //arrange
+            var stubConsole = new StubConsole();
+            var expectedHandTotal = 2;
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var player = new Player(firstCard, secondCard, stubConsole);
+            var deck = new Deck();
+            
+            //act
+            player.Play(deck);
+            var actualHandTotal = player.Hand.Cards.Count;
+
+            //assert
+            Assert.Equal(expectedHandTotal, actualHandTotal);
         }
     }
 }

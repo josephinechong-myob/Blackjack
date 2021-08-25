@@ -12,9 +12,9 @@ namespace Blackjack
             var deck = new Deck();
             var firstCard = deck.DrawRandomCard();
             var secondCard = deck.DrawRandomCard();
-            var player = new Player(firstCard, secondCard);
+           // var player = new Player(firstCard, secondCard, );
             
-            player.Play(deck);
+           // player.Play(deck);
         }
     }
 }
