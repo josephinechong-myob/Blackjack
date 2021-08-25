@@ -42,6 +42,11 @@ namespace Blackjack
         {
             
         }
+        
+        public void ResetGame(Deck deck)
+        {
+            
+        }
         /*
      
         public List<Card> DealersTurn()

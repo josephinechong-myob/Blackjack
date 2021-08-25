@@ -15,9 +15,6 @@ namespace Blackjack
             var player = new Player(firstCard, secondCard);
             
             player.Play(deck);
-            
-      
-       
         }
     }
 }

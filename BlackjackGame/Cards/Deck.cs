@@ -17,7 +17,7 @@ namespace Blackjack
             DrawnCards = new List<Card>();
         }
         
-        //Drawing a random card
+        //Drawing a random card - Used in Play
         public Card DrawRandomCard()
         {
             Random rnd = new Random();
@@ -28,7 +28,7 @@ namespace Blackjack
             return card;
         }
         
-        //Adding a card to the deck
+        //Adding a card to the deck - If we increase the number of cards in original game deck
         public Card AddCardToDeck()
         {
             Random rnd = new Random();
