@@ -6,10 +6,12 @@ namespace Blackjack
     public class Player:IBlackjackParticipant
     {
         public Hand Hand;
+        private readonly IConsole Console;
 
-        public Player(Card firstCard, Card secondCard)
+        public Player(Card firstCard, Card secondCard, IConsole console )
         {
             Hand = new Hand(firstCard, secondCard);
+            Console = console;
         }
         
         public void Hit(Deck deck)
@@ -40,11 +42,14 @@ namespace Blackjack
                 Console.WriteLine("Please enter a valid value");
             }
         }
+        
+        //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public void Play(Deck deck)
         {
             var score = 0;
+            bool playerWantsToStay = false;
 
-            while (!IsThereABust())
+            while (!IsThereABust() && !playerWantsToStay)
             {
                 HandEvaluator.PrintHand(Hand);
                 var choice = HitOrStay();
@@ -56,7 +61,7 @@ namespace Blackjack
                 }
                 else if (choice == "stay")
                 {
-                    break;
+                    playerWantsToStay = true;
                 }
             }
 
