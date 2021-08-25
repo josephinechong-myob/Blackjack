@@ -72,14 +72,14 @@ namespace BlackjackTest
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(9,result);
+            Assert.Equal(19,result);
         }
         
         [Fact]
         public void PlayersHandWithKingTest()
         {
             //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var firstCard = new Card(Rank.King, Suit.Club);
             var secondCard = new Card(Rank.Eight, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
             
@@ -87,14 +87,14 @@ namespace BlackjackTest
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(15, result);
+            Assert.Equal(18, result);
         }
         
         [Fact]
         public void PlayersHandWithQueenTest()
         {
             //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var firstCard = new Card(Rank.Queen, Suit.Club);
             var secondCard = new Card(Rank.Eight, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
             
@@ -102,14 +102,14 @@ namespace BlackjackTest
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(15, result);
+            Assert.Equal(18, result);
         }
         
         [Fact]
         public void PlayersHandWithJackTest()
         {
             //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
+            var firstCard = new Card(Rank.Jack, Suit.Club);
             var secondCard = new Card(Rank.Eight, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
             
@@ -117,7 +117,7 @@ namespace BlackjackTest
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(15, result);
+            Assert.Equal(18, result);
         }
         
         [Fact]
@@ -132,7 +132,7 @@ namespace BlackjackTest
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(16, result);
+            Assert.Equal(19, result);
         }
         
         [Fact]
@@ -140,14 +140,14 @@ namespace BlackjackTest
         {
             //arrange
             var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var secondCard = new Card(Rank.Ace, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
             
             //act
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(16, result);
+            Assert.Equal(12, result);
         }
         
         [Fact]
@@ -155,14 +155,14 @@ namespace BlackjackTest
         {
             //arrange
             var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
+            var secondCard = new Card(Rank.King, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
             
             //act
             var result = hand.CalculateSumOfAllCards();
             
             //assert
-            Assert.Equal(16, result);
+            Assert.Equal(21, result);
         }
         
         [Fact]

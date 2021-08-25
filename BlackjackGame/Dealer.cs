@@ -39,7 +39,36 @@ namespace Blackjack
         }
         
         public void Play(Deck deck)
-        {
+        {/*
+            bool DealerHasChosenToStay = false;
+            
+            while (!PlayerHasChosenToStay)
+            {
+                var score = HandEvaluator.GetTotal(Hand);
+                HandEvaluator.PrintHand(Hand);
+                if (score > 21)
+                {
+                    Console.WriteLine("\nYou have bust!");  
+                    break;
+                }
+                Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");  
+                
+                var answer = Console.ReadLine();
+                
+                if (answer == "0") PlayerHasChosenToStay = true;
+
+                else if (score == 21)
+                {
+                    Console.WriteLine("You have won");
+                    PlayerHasChosenToStay = true;
+                }
+                
+                else if (answer == "1") Hit(deck);
+                
+                else Console.WriteLine("Please enter a valid value");
+                
+            }
+            */
             
         }
         

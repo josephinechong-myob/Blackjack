@@ -5,6 +5,20 @@ namespace BlackjackTest
 {
     public class PlayerTest
     {
+        //mocks - testing user input
+        //NuGet - terminal 
+        [Fact]
+        public void WhenScoreIsOverTwentyOnePlayerShouldBust()
+        {
+            //arrange
+            var consoleOperations = new Mock<IConsoleOperations>();
+            //act
+            
+            //assert
+            consoleOperations.Verify(
+                m => m.Write(It.Is<string>(c => c == "It’s a bust!")));
+        }
+        
         [Fact]
         public void HitShouldIncreaseCardCountByOne()
         {
