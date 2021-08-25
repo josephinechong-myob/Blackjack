@@ -1,11 +1,22 @@
+using System.Collections.Generic;
+
 namespace Blackjack
 {
     public class StubConsole: IConsole
     {
+        public list<> writeLine;
+        public int readLine;
+
+        public StubConsole()
+        {
+            writeLine = new List<>();
+            readLine = ;
+            //Needs fixing
+        }
         public void WriteLine(string writeLine)
         {
            //We can track the number of times this method was called and also track the value of write line - using fields inside the StubConsole class
-           //write a test to track home many times the method is called and the value is what we expect
+           //write a test to track how many times the method is called and the value is what we expect
            
            //track write line gets called and what the values are (list to track it)
            //update the test for it
