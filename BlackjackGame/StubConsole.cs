@@ -1,17 +1,17 @@
+using System;
 using System.Collections.Generic;
 
 namespace Blackjack
 {
     public class StubConsole: IConsole
     {
-        public list<> writeLine;
-        public int readLine;
+        public List<string> TestingWriteLine;
+        public int TestingReadLine;
 
         public StubConsole()
         {
-            writeLine = new List<>();
-            readLine = ;
-            //Needs fixing
+            TestingWriteLine = new List<string>();
+            TestingReadLine = 0;
         }
         public void WriteLine(string writeLine)
         {
