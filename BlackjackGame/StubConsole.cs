@@ -15,18 +15,14 @@ namespace Blackjack
         }
         public void WriteLine(string content)
         {
-            //player Play method to run
-            //then read the string content of this method
-            //add the string to the List
-           Console.WriteLine(content);
+            TestingWriteLine.Add(content);
         }
         public string ReadLine()
         {
             return "0";
-            //player method to run
-            //count the times readline was called
-            //return the count?
         }
+        //stubconsolestay and stubconsolehit 
+        
         //We can track the number of times this method was called and also track the value of write line - using fields inside the StubConsole class
         //write a test to track how many times the method is called and the value is what we expect
            

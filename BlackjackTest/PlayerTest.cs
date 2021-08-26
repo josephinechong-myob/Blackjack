@@ -18,7 +18,7 @@ namespace BlackjackTest
             //assert
             
         }
-        
+      
         [Fact]
         public void HitShouldIncreaseCardCountByOne()
         {
@@ -59,7 +59,7 @@ namespace BlackjackTest
         }
 
         [Fact]
-        public void ConsoleWriteLineCountShouldReturnOneWhenPlayerStays()
+        public void ThereShouldBeOneConsoleWriteLineCountWhenPlayerStays()
         {
             //arrange
             var stubConsole = new StubConsole();
@@ -76,5 +76,27 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedWriteLineCount, actualWriteLineCount);
         }
+        [Fact]
+        public void ConsoleWriteLineShouldPrintWinningStatement()
+        {
+            //arrange
+            var stubConsole = new StubConsole();
+            var firstCard = new Card(Rank.Ace, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var player = new Player(firstCard, secondCard, stubConsole);
+            var deck = new Deck();
+            var expectedWinningStatement = "\nYou have won!";
+
+            //act
+            player.Play(deck);
+            var actualWinningStatement = stubConsole.TestingWriteLine[0];
+
+            //assert
+            Assert.Equal(expectedWinningStatement, actualWinningStatement);
+        }
+
+        
+        
+        
     }
 }
