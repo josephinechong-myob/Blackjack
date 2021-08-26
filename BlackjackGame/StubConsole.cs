@@ -6,12 +6,15 @@ namespace Blackjack
     public class StubConsole: IConsole
     {
         public List<string> TestingWriteLine;
-        public int TestingReadLine;
-
-        public StubConsole()
+        public int TestingReadLineCounter;
+        private List<string> PlayOrder;
+        // var playORder = new List<string>() { "1", "0" };
+        // var stubConsole = new StubConsole(playORder);
+        public StubConsole(List<string> playOrder)
         {
             TestingWriteLine = new List<string>();
-            TestingReadLine = 0;
+            TestingReadLineCounter = 0;
+            PlayOrder = playOrder;
         }
         public void WriteLine(string content)
         {
@@ -19,7 +22,11 @@ namespace Blackjack
         }
         public string ReadLine()
         {
-            return "0";
+            var input = PlayOrder[TestingReadLineCounter];
+            TestingReadLineCounter += 1;
+            return input;
+            
+            //have an array passed 
         }
         //stubconsolestay and stubconsolehit 
         

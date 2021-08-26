@@ -13,3 +13,6 @@
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/ref/BlackjackGame.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.pdb
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.genruntimeconfig.cache
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/Castle.Core.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/bin/Debug/net5.0/Moq.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackGame/obj/Debug/net5.0/BlackjackGame.csproj.CopyComplete

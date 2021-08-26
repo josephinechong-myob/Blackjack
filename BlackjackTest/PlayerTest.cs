@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using Blackjack;
 using Xunit;
+using Moq;
 
 namespace BlackjackTest
 {
     public class PlayerTest
     {
-        
+        //how to verify how a function is called - helena
         //mocks - testing user input
         //NuGet - terminal 
         [Fact]
@@ -16,14 +18,34 @@ namespace BlackjackTest
             //act
             
             //assert
-            
         }
-      
+        
+        [Fact]
+        public void TestingPlayMethod_HitShouldIncreaseCardCountByOne()
+        {
+            //arrange
+            var mockConsole = new Mock<IConsole>();
+            mockConsole.Setup(m => m.ReadLine()).Returns("1");
+            var expectedHandTotal = 3;
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var deck = new Deck();
+
+            //act
+            player.Play(deck);
+            var actualHandTotal = player.Hand.Cards.Count;
+            
+            //assert
+            Assert.Equal(expectedHandTotal, actualHandTotal);
+        }
+        
         [Fact]
         public void HitShouldIncreaseCardCountByOne()
         {
             //arrange
-            var stubConsole = new StubConsole();
+            var playOrder = new List<string>() {"1", "1"};
+            var stubConsole = new StubConsole(playOrder);
             var expectedHandTotal = 3;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
@@ -36,14 +58,14 @@ namespace BlackjackTest
             
             //assert
             Assert.Equal(expectedHandTotal, actualHandTotal);
-
         }
 
         [Fact]
         public void PlayerShouldBeAbleToStay()
         {
             //arrange
-            var stubConsole = new StubConsole();
+            var playOrder = new List<string> {"0"};
+            var stubConsole = new StubConsole(playOrder);
             var expectedHandTotal = 2;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
@@ -62,7 +84,8 @@ namespace BlackjackTest
         public void ThereShouldBeOneConsoleWriteLineCountWhenPlayerStays()
         {
             //arrange
-            var stubConsole = new StubConsole();
+            var playOrder = new List<string> {"0"};
+            var stubConsole = new StubConsole(playOrder);
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var player = new Player(firstCard, secondCard, stubConsole);
@@ -76,11 +99,13 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedWriteLineCount, actualWriteLineCount);
         }
+        
         [Fact]
-        public void ConsoleWriteLineShouldPrintWinningStatement()
+        public void WhenPlayerHasTwentyOneConsoleWriteLineShouldPrintWinningStatement()
         {
             //arrange
-            var stubConsole = new StubConsole();
+            var playOrder = new List<string> {"0"};
+            var stubConsole = new StubConsole(playOrder);
             var firstCard = new Card(Rank.Ace, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var player = new Player(firstCard, secondCard, stubConsole);
@@ -89,14 +114,10 @@ namespace BlackjackTest
 
             //act
             player.Play(deck);
-            var actualWinningStatement = stubConsole.TestingWriteLine[0];
+            var actualWinningStatement = stubConsole.TestingWriteLine[stubConsole.TestingWriteLine.Count-1];
 
             //assert
             Assert.Equal(expectedWinningStatement, actualWinningStatement);
         }
-
-        
-        
-        
     }
 }

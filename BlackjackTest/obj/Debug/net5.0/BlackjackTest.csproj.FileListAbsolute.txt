@@ -99,3 +99,5 @@
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/obj/Debug/net5.0/BlackjackTest.genruntimeconfig.cache
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/BlackjackGame.dll
 /Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/BlackjackGame.pdb
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/Castle.Core.dll
+/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest/bin/Debug/net5.0/Moq.dll

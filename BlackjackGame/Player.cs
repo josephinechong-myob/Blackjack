@@ -56,13 +56,12 @@ namespace Blackjack
                 if (choice == "hit")
                 {
                     Hit(deck);
-                    score = HandEvaluator.GetTotal(Hand);
-                    HandEvaluator.PrintHand(Hand);
                 }
                 else if (choice == "stay")
                 {
                     playerWantsToStay = true;
                 }
+                score = HandEvaluator.GetTotal(Hand);
             }
 
             if (score == 21)
