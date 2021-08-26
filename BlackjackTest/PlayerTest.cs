@@ -57,5 +57,24 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedHandTotal, actualHandTotal);
         }
+
+        [Fact]
+        public void ConsoleWriteLineCountShouldReturnOneWhenPlayerStays()
+        {
+            //arrange
+            var stubConsole = new StubConsole();
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var player = new Player(firstCard, secondCard, stubConsole);
+            var deck = new Deck();
+            var expectedWriteLineCount = 1;
+
+            //act
+            player.Play(deck);
+            var actualWriteLineCount = stubConsole.TestingWriteLine.Count;
+
+            //assert
+            Assert.Equal(expectedWriteLineCount, actualWriteLineCount);
+        }
     }
 }
