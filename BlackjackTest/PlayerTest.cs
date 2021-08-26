@@ -10,14 +10,27 @@ namespace BlackjackTest
         //how to verify how a function is called - helena
         //mocks - testing user input
         //NuGet - terminal 
+        
         [Fact]
-        public void WhenScoreIsOverTwentyOnePlayerShouldBust()
+        public void ScoreOverTwentyOneShouldPrintBustStatement()
         {
             //arrange
-          
+            var playOrder = new List<string>() {"1"};
+            var stubConsole = new StubConsole(playOrder);
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var thirdCard = new Card(Rank.Jack, Suit.Spade);
+            var player = new Player(firstCard, secondCard, stubConsole);
+            var deck = new Deck();
+            var expectedBustStatement = "\nThere is a bust!";
+
             //act
+            player.Play(deck);
+            player.Hand.AddCardToHand(thirdCard);
+            var actualBustStatement = stubConsole.TestingWriteLine[stubConsole.TestingWriteLine.Count-1];
             
             //assert
+            Assert.Equal(expectedBustStatement, actualBustStatement);
         }
         
         [Fact]

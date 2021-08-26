@@ -20,9 +20,8 @@ namespace Blackjack
             Hand.AddCardToHand(drawnCard);
         }
 
-        private bool IsThereABust()
+        private bool IsThereABust(int score)
         {
-            var score = HandEvaluator.GetTotal(Hand);
             if (score > 21)
             {
                 Console.WriteLine("\nThere is a bust!");
@@ -49,7 +48,7 @@ namespace Blackjack
             var score = 0;
             bool playerWantsToStay = false;
 
-            while (!IsThereABust() && !playerWantsToStay)
+            while (!IsThereABust(score) && !playerWantsToStay)
             {
                 HandEvaluator.PrintHand(Hand);
                 var choice = HitOrStay();
