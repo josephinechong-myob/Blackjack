@@ -5,7 +5,7 @@ namespace Blackjack
 {
     public class Player:IBlackjackParticipant
     {
-        public Hand Hand;
+        private Hand Hand;
         private readonly IConsole Console;
 
         public Player(Card firstCard, Card secondCard, IConsole console )

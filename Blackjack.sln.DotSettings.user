@@ -14,7 +14,7 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.ConsoleWriteLineShouldPrintWinningStatement&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15cf936e_002D4bf6_002D4754_002Dbd89_002D46fd82375c85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15cf936e_002D4bf6_002D4754_002Dbd89_002D46fd82375c85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestingHowManyTimesHitOrStayIsCalled #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
@@ -48,7 +48,7 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=71c5acfa_002D0146_002D4ac4_002Da70a_002D081de6b99ed6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestingHowManyTimesHitOrStayIsCalled #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=71c5acfa_002D0146_002D4ac4_002Da70a_002D081de6b99ed6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;

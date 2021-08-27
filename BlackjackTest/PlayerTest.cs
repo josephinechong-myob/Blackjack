@@ -140,27 +140,36 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedWinningStatement, actualWinningStatement);
         }
+        //mocks return anything, inconsistencies with multiple developers stubs maintains consistency and stubs are used in dependedncy injections
         
         [Fact]
         public void ScoreOverTwentyOneShouldPrintBustStatement()
         {
             //arrange
-            var playOrder = new List<string>() {"1"};
-            var stubConsole = new StubConsole(playOrder);
+            var mockConsole = new Mock<IConsole>();
+            var mockDeck = new Mock<Deck>();
+            mockConsole.Setup(m => m.ReadLine()).Returns("1");
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var thirdCard = new Card(Rank.Jack, Suit.Spade);
-            var player = new Player(firstCard, secondCard, stubConsole);
-            var deck = new Deck();
+            mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
+            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var deck = mockDeck.Object;
             var expectedBustStatement = "\nThere is a bust!";
-
+            var logWriteLine = string.Empty;
+            mockConsole.Setup(m => m.WriteLine(It.IsAny<string>()))
+                .Callback<string>((m) =>
+                {
+                    logWriteLine = m;
+                });
+            
+            //make a new list to take in m - to know how many times the fucntion was called and with what value
             //act
             player.Play(deck);
-            player.Hand.AddCardToHand(thirdCard);
-            var actualBustStatement = stubConsole.TestingWriteLine[stubConsole.TestingWriteLine.Count-1];
             
             //assert
-            Assert.Equal(expectedBustStatement, actualBustStatement);
+            Assert.Equal(expectedBustStatement, logWriteLine);
+            mockConsole.Verify(m => m.ReadLine(), Times.Exactly(1));
         }
     }
 }
