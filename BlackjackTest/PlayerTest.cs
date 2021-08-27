@@ -12,27 +12,34 @@ namespace BlackjackTest
         //NuGet - terminal 
         
         [Fact]
-        public void ScoreOverTwentyOneShouldPrintBustStatement()
+        public void TestingHowManyTimesHitOrStayIsCalled()
         {
             //arrange
-            var playOrder = new List<string>() {"1"};
-            var stubConsole = new StubConsole(playOrder);
-            var firstCard = new Card(Rank.Eight, Suit.Heart);
-            var secondCard = new Card(Rank.Jack, Suit.Club);
-            var thirdCard = new Card(Rank.Jack, Suit.Spade);
-            var player = new Player(firstCard, secondCard, stubConsole);
+            var mockConsole = new Mock<IConsole>();
+            //mockConsole.Setup(m => m.ReadLine()).Returns("1");
+            //mockConsole.SetupSequence(m => m.ReadLine()).Returns("1").Returns("1");
+            //mockConsole.SetupSequence(m => m.ReadLine()).Returns(new Queue<string>(new[] { "1", "1"}).Dequeue);
+            var firstCard = new Card(Rank.Two, Suit.Heart);
+            var secondCard = new Card(Rank.Three, Suit.Club);
+            var thirdCard = new Card(Rank.Five, Suit.Spade);
+            //var fourthCard = new Card(Rank.Ace, Suit.Spade);
+            var player = new Player(firstCard, secondCard, mockConsole.Object);
             var deck = new Deck();
-            var expectedBustStatement = "\nThere is a bust!";
+
 
             //act
             player.Play(deck);
-            player.Hand.AddCardToHand(thirdCard);
-            var actualBustStatement = stubConsole.TestingWriteLine[stubConsole.TestingWriteLine.Count-1];
+            //player.Hand.AddCardToHand(thirdCard);
+            //player.Hand.AddCardToHand(fourthCard);
+            //var actualWinningStatement = mockConsole.TestingWriteLine[mockConsole.TestingWriteLine.Count-1];
             
             //assert
-            Assert.Equal(expectedBustStatement, actualBustStatement);
+            mockConsole.Verify(m => m.ReadLine(), Times.Exactly(2));
+            
+            //Assert.Equal(expectedWinningStatement, actualWinningStatement);
+            
         }
-        
+
         [Fact]
         public void TestingPlayMethod_HitShouldIncreaseCardCountByOne()
         {
@@ -51,6 +58,7 @@ namespace BlackjackTest
             
             //assert
             Assert.Equal(expectedHandTotal, actualHandTotal);
+            mockConsole.Verify(m => m.ReadLine(), Times.Exactly(1));
         }
         
         [Fact]
@@ -131,6 +139,28 @@ namespace BlackjackTest
 
             //assert
             Assert.Equal(expectedWinningStatement, actualWinningStatement);
+        }
+        
+        [Fact]
+        public void ScoreOverTwentyOneShouldPrintBustStatement()
+        {
+            //arrange
+            var playOrder = new List<string>() {"1"};
+            var stubConsole = new StubConsole(playOrder);
+            var firstCard = new Card(Rank.Eight, Suit.Heart);
+            var secondCard = new Card(Rank.Jack, Suit.Club);
+            var thirdCard = new Card(Rank.Jack, Suit.Spade);
+            var player = new Player(firstCard, secondCard, stubConsole);
+            var deck = new Deck();
+            var expectedBustStatement = "\nThere is a bust!";
+
+            //act
+            player.Play(deck);
+            player.Hand.AddCardToHand(thirdCard);
+            var actualBustStatement = stubConsole.TestingWriteLine[stubConsole.TestingWriteLine.Count-1];
+            
+            //assert
+            Assert.Equal(expectedBustStatement, actualBustStatement);
         }
     }
 }
