@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Blackjack
 {
-    public class Deck
+    public class Deck : IDeck
     {
         public List<Card> Cards;
         public List<Card> DrawnCards;

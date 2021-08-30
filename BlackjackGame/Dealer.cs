@@ -7,12 +7,10 @@ namespace Blackjack
     public class Dealer: IBlackjackParticipant
     {
         public Hand Hand;
-        public Deck Deck;
 
-        public Dealer(Card firstCard, Card secondCard, Deck deck)
+        public Dealer(Card firstCard, Card secondCard)
         {
             Hand = new Hand(firstCard, secondCard);
-            Deck = new Deck();
         }
         
         public void HitUntilTotalIsAtLeastSeventeen(Card card)
@@ -33,12 +31,12 @@ namespace Blackjack
 
         }
         
-        public void Hit(Deck deck)
+        public void Hit(IDeck deck)
         {
             //adding a card from deck to hand
         }
         
-        public void Play(Deck deck)
+        public void Play(IDeck deck)
         {/*
             bool DealerHasChosenToStay = false;
             
@@ -72,10 +70,6 @@ namespace Blackjack
             
         }
         
-        public void ResetGame(Deck deck)
-        {
-            
-        }
         /*
      
         public List<Card> DealersTurn()

@@ -11,26 +11,33 @@ namespace BlackjackTest
         //mocks - testing user input
         //NuGet - terminal 
         
+        
         [Fact]
         public void TestingHowManyTimesHitOrStayIsCalled()
         {
             //arrange
             var mockConsole = new Mock<IConsole>();
+            var mockdeck = new Mock<IDeck>();
+            int count = 0;
             //mockConsole.Setup(m => m.ReadLine()).Returns("1");
-            //mockConsole.SetupSequence(m => m.ReadLine()).Returns("1").Returns("1");
+            mockConsole.SetupSequence(m => m.ReadLine()).Returns("1").Returns("1");
             //mockConsole.SetupSequence(m => m.ReadLine()).Returns(new Queue<string>(new[] { "1", "1"}).Dequeue);
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
             var thirdCard = new Card(Rank.Five, Suit.Spade);
-            //var fourthCard = new Card(Rank.Ace, Suit.Spade);
+            var fourthCard = new Card(Rank.Ace, Suit.Spade);
+            var deck = mockdeck.Object;
+            mockdeck.Setup(m => m.DrawRandomCard()).Returns(()=>
+            {
+                return thirdCard;
+                //callback so it returns a different value based on count
+            });
             var player = new Player(firstCard, secondCard, mockConsole.Object);
-            var deck = new Deck();
-
-
+            
+            
             //act
             player.Play(deck);
-            //player.Hand.AddCardToHand(thirdCard);
-            //player.Hand.AddCardToHand(fourthCard);
+            
             //var actualWinningStatement = mockConsole.TestingWriteLine[mockConsole.TestingWriteLine.Count-1];
             
             //assert
@@ -39,7 +46,8 @@ namespace BlackjackTest
             //Assert.Equal(expectedWinningStatement, actualWinningStatement);
             
         }
-
+        
+/*
         [Fact]
         public void TestingPlayMethod_HitShouldIncreaseCardCountByOne()
         {
@@ -142,34 +150,51 @@ namespace BlackjackTest
         }
         //mocks return anything, inconsistencies with multiple developers stubs maintains consistency and stubs are used in dependedncy injections
         
+        */
+
         [Fact]
         public void ScoreOverTwentyOneShouldPrintBustStatement()
         {
+            // times function being called = times you have hit
+            
             //arrange
             var mockConsole = new Mock<IConsole>();
-            var mockDeck = new Mock<Deck>();
+            var mockDeck = new Mock<IDeck>();
+            
+            //var expectedNumberTimesFunctionCalled = 1;
             mockConsole.Setup(m => m.ReadLine()).Returns("1");
+            
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var thirdCard = new Card(Rank.Jack, Suit.Spade);
+            
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
             var player = new Player(firstCard, secondCard, mockConsole.Object);
+            
             var deck = mockDeck.Object;
             var expectedBustStatement = "\nThere is a bust!";
+            
+            var writeLineList = new List<string>();
+            
             var logWriteLine = string.Empty;
+            
             mockConsole.Setup(m => m.WriteLine(It.IsAny<string>()))
                 .Callback<string>((m) =>
                 {
                     logWriteLine = m;
+                    //tracking value of write line
+                    writeLineList.Add(m);
                 });
             
-            //make a new list to take in m - to know how many times the fucntion was called and with what value
+            //make a new list to take in m - to know how many times the function was called and with what value
+            
             //act
             player.Play(deck);
-            
+            var lastIndexForWriteLineList = writeLineList.Count - 1;
             //assert
-            Assert.Equal(expectedBustStatement, logWriteLine);
+            Assert.Equal(expectedBustStatement, writeLineList[lastIndexForWriteLineList]);
             mockConsole.Verify(m => m.ReadLine(), Times.Exactly(1));
+            //Assert.Equal(expectedNumberTimesFunctionCalled, writeLineList.Count);
         }
     }
 }

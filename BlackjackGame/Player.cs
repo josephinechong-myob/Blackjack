@@ -14,7 +14,7 @@ namespace Blackjack
             Console = console;
         }
         
-        public void Hit(Deck deck)
+        public void Hit(IDeck deck)
         {
             var drawnCard = deck.DrawRandomCard();
             Hand.AddCardToHand(drawnCard);
@@ -43,7 +43,7 @@ namespace Blackjack
         }
         
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
-        public void Play(Deck deck)
+        public void Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
             var score = 0;
             bool playerWantsToStay = false;
@@ -56,21 +56,18 @@ namespace Blackjack
                 {
                     Hit(deck);
                 }
-                else if (choice == "stay")
+                else if (choice == "stay") //return 1
                 {
                     playerWantsToStay = true;
                 }
                 score = HandEvaluator.GetTotal(Hand);
             }
-
-            if (score == 21)
+//this following part should be in Game
+            if (score == 21) //return 1
             {
                 Console.WriteLine("\nYou have won!");
             }
         }
-        public void ResetGame(Deck deck)
-        {
-            
-        }
+        
     }
 }

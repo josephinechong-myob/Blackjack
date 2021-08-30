@@ -7,8 +7,31 @@ namespace Blackjack
 {
     public class BlackjackGame
     {
+        //IBlackjackParticipant - player
+        //IBlackjackParticipant - dealer
+
+        public BlackjackGame()
+        {
+        }
+        //Call order (list) while IPlayer.Play should play in and record the scores
+        
+        //return 0 or 1 for play method (possible to make them enums)
+        
+        //while HasNotFinished playing - once played evaluate score to determine winner
+        
+        //Methods: Player - Play - score 
+        // if score is <21 and Stay
+        //Dealer - Plays
+        //Dealer.Play
+        //Result Assign Winner
+        //Reset game
+        
         public void Run()
         {
+            //Player - Stay (not bust)
+            //Dealer - Result
+            //Outcome - Evalute who won
+            
             var deck = new Deck();
             var firstCard = deck.DrawRandomCard();
             var secondCard = deck.DrawRandomCard();

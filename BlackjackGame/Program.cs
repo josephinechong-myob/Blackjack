@@ -8,6 +8,8 @@ namespace Blackjack
         {
             var blackjack = new BlackjackGame();
             blackjack.Run();
+            
+            //possible dependency injections?
         }
     }
 }

@@ -12,13 +12,7 @@ namespace Blackjack
         {
             Cards = new List<Card>{firstCard, secondCard};
         }
-
-        public int CalculateSumOfAllCards()
-        {
-            var sumOfAllCards = HandEvaluator.GetTotal(this);
-            return sumOfAllCards;
-        }
-
+        
         public void AddCardToHand(Card card)
         {
            Cards.Add(card); 

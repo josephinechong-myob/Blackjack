@@ -8,6 +8,8 @@ namespace BlackjackTest
 {
     public class HandTest
     {
+        //convert this test to theory**
+        
         //Adding a card to the Hand
         [Fact]
         public void HandShouldIncreaseAfterAddingACard()
@@ -69,7 +71,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(19,result);
@@ -84,7 +86,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(18, result);
@@ -99,7 +101,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(18, result);
@@ -114,7 +116,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(18, result);
@@ -129,7 +131,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(19, result);
@@ -144,7 +146,7 @@ namespace BlackjackTest
             var hand = new Hand(firstCard, secondCard);
             
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(12, result);
@@ -157,9 +159,9 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Ace, Suit.Club);
             var secondCard = new Card(Rank.King, Suit.Diamond);
             var hand = new Hand(firstCard, secondCard);
-            
+
             //act
-            var result = hand.CalculateSumOfAllCards();
+            var result = HandEvaluator.GetTotal(hand);
             
             //assert
             Assert.Equal(21, result);
