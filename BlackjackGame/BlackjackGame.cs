@@ -7,12 +7,14 @@ namespace Blackjack
 {
     public class BlackjackGame
     {
-        //IBlackjackParticipant - player
-        //IBlackjackParticipant - dealer
+        //List of BlackjackParticipants (Dealer/Player)
+        private List<IBlackjackParticipant> Participants;
 
         public BlackjackGame()
         {
+            Participants = new List<IBlackjackParticipant>();
         }
+        
         //Call order (list) while IPlayer.Play should play in and record the scores
         
         //return 0 or 1 for play method (possible to make them enums)

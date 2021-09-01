@@ -117,6 +117,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dc625b78_002D1f9c_002D4a48_002D87e9_002D8c0df32f2f5b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestingHowManyTimesHitOrStayIsCalled #12" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.ScoreOverTwentyOneShouldPrintBustStatement&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb61b3f2_002Dd211_002D4957_002Da452_002D99bb56a07a03/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;

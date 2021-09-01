@@ -36,7 +36,7 @@ namespace Blackjack
             //adding a card from deck to hand
         }
         
-        public void Play(IDeck deck)
+        public bool Play(IDeck deck)
         {/*
             bool DealerHasChosenToStay = false;
             
@@ -67,7 +67,7 @@ namespace Blackjack
                 
             }
             */
-            
+            return false;
         }
         
         /*
