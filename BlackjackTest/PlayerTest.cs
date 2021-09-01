@@ -7,10 +7,9 @@ namespace BlackjackTest
 {
     public class PlayerTest
     {
-        //how to verify how a function is called - helena
+        //how to verify how a function is called
         //mocks - testing user input
         //NuGet - terminal 
-        
         
         [Fact]
         public void TestingHowManyTimesHitOrStayIsCalled()
@@ -18,33 +17,43 @@ namespace BlackjackTest
             //arrange
             var mockConsole = new Mock<IConsole>();
             var mockdeck = new Mock<IDeck>();
-            int count = 0;
-            //mockConsole.Setup(m => m.ReadLine()).Returns("1");
-            mockConsole.SetupSequence(m => m.ReadLine()).Returns("1").Returns("1");
-            //mockConsole.SetupSequence(m => m.ReadLine()).Returns(new Queue<string>(new[] { "1", "1"}).Dequeue);
+            
+            //int count = 0;
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
             var thirdCard = new Card(Rank.Five, Suit.Spade);
             var fourthCard = new Card(Rank.Ace, Suit.Spade);
-            var deck = mockdeck.Object;
+            var logCount = 0;
+            //mockConsole.Setup(m => m.ReadLine()).Returns("1");
+            //mockConsole.SetupSequence(m => m.ReadLine()).Returns(new Queue<string>(new[] { "1", "1"}).Dequeue);
+            
+            mockConsole.SetupSequence(m => m.ReadLine())
+                .Returns("1")
+                .Returns("1");
+            
+            //mockdeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
+            
+            mockdeck.SetupSequence(m => m.DrawRandomCard())
+                .Returns(thirdCard)
+                .Returns(fourthCard);
+            
+            /*
             mockdeck.Setup(m => m.DrawRandomCard()).Returns(()=>
             {
                 return thirdCard;
                 //callback so it returns a different value based on count
             });
-            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            */
             
+            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var deck = mockdeck.Object;
             
             //act
             player.Play(deck);
-            
-            //var actualWinningStatement = mockConsole.TestingWriteLine[mockConsole.TestingWriteLine.Count-1];
-            
+
             //assert
             mockConsole.Verify(m => m.ReadLine(), Times.Exactly(2));
-            
-            //Assert.Equal(expectedWinningStatement, actualWinningStatement);
-            
+
         }
         
 /*
@@ -160,22 +169,16 @@ namespace BlackjackTest
             //arrange
             var mockConsole = new Mock<IConsole>();
             var mockDeck = new Mock<IDeck>();
-            
-            //var expectedNumberTimesFunctionCalled = 1;
             mockConsole.Setup(m => m.ReadLine()).Returns("1");
-            
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var thirdCard = new Card(Rank.Jack, Suit.Spade);
-            
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
             var player = new Player(firstCard, secondCard, mockConsole.Object);
-            
             var deck = mockDeck.Object;
             var expectedBustStatement = "\nThere is a bust!";
-            
+            //make a new list to take in m - to know how many times the function was called and with what value
             var writeLineList = new List<string>();
-            
             var logWriteLine = string.Empty;
             
             mockConsole.Setup(m => m.WriteLine(It.IsAny<string>()))
@@ -186,15 +189,13 @@ namespace BlackjackTest
                     writeLineList.Add(m);
                 });
             
-            //make a new list to take in m - to know how many times the function was called and with what value
-            
             //act
             player.Play(deck);
             var lastIndexForWriteLineList = writeLineList.Count - 1;
+            
             //assert
             Assert.Equal(expectedBustStatement, writeLineList[lastIndexForWriteLineList]);
             mockConsole.Verify(m => m.ReadLine(), Times.Exactly(1));
-            //Assert.Equal(expectedNumberTimesFunctionCalled, writeLineList.Count);
         }
     }
 }

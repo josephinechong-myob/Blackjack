@@ -1,4 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=034faf08_002D4deb_002D4331_002D8f4b_002D7207c50d443a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #8" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0506ce50_002Df6b4_002D4daa_002Da0af_002D4cbcefdd5579/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
@@ -39,6 +44,17 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=350d8e34_002Df6d5_002D4092_002Db407_002D519a7d875dfe/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ScoreOverTwentyOneShouldPrintBustStatement" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.ScoreOverTwentyOneShouldPrintBustStatement&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=44f4ec77_002D113b_002D4779_002Da823_002D9d23692e6e38/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #9" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5207afcc_002D94e3_002D4a29_002Daeea_002D3b88f4d851d2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlayerShouldBeAbleToStay" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest&lt;/TestId&gt;
@@ -60,7 +76,7 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=98097f57_002Dd933_002D4be7_002D994b_002D37aafe32b558/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestingHowManyTimesHitOrStayIsCalled #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=98097f57_002Dd933_002D4be7_002D994b_002D37aafe32b558/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.HandTest.PlayersHandWithAceTest3&lt;/TestId&gt;
@@ -73,6 +89,11 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ab30b3cb_002Da03c_002D4f5e_002D8a8a_002D4ae6b566c96f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #10" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b18a238d_002D6d05_002D491c_002Db406_002D8a4e986c73c0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlayersHandWithAceTest3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.UnitTest1.PlayersHandWithAceTest3&lt;/TestId&gt;
@@ -83,8 +104,28 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.ConsoleWriteLineCountShouldReturnOneWhenPlayerStays&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c8c9745d_002D59aa_002D4c38_002D9c0b_002D1c7816f7aaf3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #7" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ce0d8a7d_002D1a18_002D4bb5_002D9db9_002D24214a257e65/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.UnitTest1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dc625b78_002D1f9c_002D4a48_002D87e9_002D8c0df32f2f5b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestingHowManyTimesHitOrStayIsCalled #12" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb61b3f2_002Dd211_002D4957_002Da452_002D99bb56a07a03/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f5e81476_002D82af_002D4e0d_002D968e_002D8ce23473a41c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
