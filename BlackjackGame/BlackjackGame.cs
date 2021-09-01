@@ -17,9 +17,11 @@ namespace Blackjack
         
         //Call order (list) while IPlayer.Play should play in and record the scores
         
-        //return 0 or 1 for play method (possible to make them enums)
+        //return 0 or 1 for play method (possible to make them enums)?
         
         //while HasNotFinished playing - once played evaluate score to determine winner
+        
+        //Methods: Find the winner(player) - private or public method 
         
         //Methods: Player - Play - score 
         // if score is <21 and Stay

@@ -7,6 +7,7 @@ namespace Blackjack
     public class Dealer: IBlackjackParticipant
     {
         public Hand Hand;
+        public int Score => HandEvaluator.GetTotal(Hand);
 
         public Dealer(Card firstCard, Card secondCard)
         {

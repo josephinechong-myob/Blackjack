@@ -10,9 +10,25 @@ namespace BlackjackTest
         //how to verify how a function is called
         //mocks - testing user input
         //NuGet - terminal 
+        [Fact]
+        public void PlayersScoreShouldReflectTheValueOfItsHand()
+        {
+            //arrange
+            var mockConsole = new Mock<IConsole>();
+            var firstCard = new Card(Rank.Two, Suit.Heart);
+            var secondCard = new Card(Rank.Three, Suit.Club);
+            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
+            var expectedValue = HandEvaluator.GetTotal(hand);
+            
+            //act
+
+            //assert
+            Assert.Equal(expectedValue, player.Score);
+        }
         
         [Fact]
-        public void TestingHowManyTimesHitOrStayIsCalled()
+        public void PlayerShouldBeAbleToDrawMultipleCards()
         {
             //arrange
             var mockConsole = new Mock<IConsole>();
@@ -158,7 +174,6 @@ namespace BlackjackTest
             Assert.Equal(expectedWinningStatement, actualWinningStatement);
         }
         //mocks return anything, inconsistencies with multiple developers stubs maintains consistency and stubs are used in dependedncy injections
-        
         */
 
         [Fact]

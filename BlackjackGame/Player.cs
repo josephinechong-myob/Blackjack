@@ -7,6 +7,7 @@ namespace Blackjack
     {
         private Hand Hand;
         private readonly IConsole Console;
+        public int Score => HandEvaluator.GetTotal(Hand);
 
         public Player(Card firstCard, Card secondCard, IConsole console )
         {
@@ -45,9 +46,7 @@ namespace Blackjack
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
-            var score = 0;
-
-            while (!IsThereABustOrWin(score))
+            while (!IsThereABustOrWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
                 HandEvaluator.PrintHand(Hand);
                 var choice = HitOrStay();
@@ -59,10 +58,9 @@ namespace Blackjack
                 {
                     return false;
                 }
-                score = HandEvaluator.GetTotal(Hand);
             }
 //this following part should be in Game
-            if (score == 21) //return 1
+            if (Score == 21) //return 1
             {
                 Console.WriteLine("\nYou have won!");
                 return false;
