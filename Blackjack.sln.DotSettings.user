@@ -121,6 +121,7 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.WhenPlayerHasTwentyOneConsoleWriteLineShouldPrintWinningStatement&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.PlayersScoreShouldReflectTheValueOfItsHand&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.DealerTest.DealerShouldStopPlayingWhenTheirScoreIsAtLeastSeventeen&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.HandTest.Theory_HandShouldIncreaseAfterAddingACard&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb61b3f2_002Dd211_002D4957_002Da452_002D99bb56a07a03/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
