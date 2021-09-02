@@ -8,92 +8,38 @@ namespace Blackjack
     {
         public Hand Hand;
         public int Score => HandEvaluator.GetTotal(Hand);
+        public IConsole Console;
 
-        public Dealer(Card firstCard, Card secondCard)
+        public Dealer(Card firstCard, Card secondCard, IConsole console)
         {
             Hand = new Hand(firstCard, secondCard);
+            Console = console;
         }
-        
-        public void HitUntilTotalIsAtLeastSeventeen(Card card)
-        {
-            var dealersHandTotal = HandEvaluator.GetTotal(Hand);
-            
-            while (dealersHandTotal <= 17)
-            {
-                HandEvaluator.PrintHand(Hand);
-                Hand.AddCardToHand(card);
-            }
-            /*
-              playersHand.Add(deck.DrawRandomCard(deckOfCards));
-            var cardLength = playersHand.Count;
-            Console.WriteLine($"You draw [ {playersHand[cardLength-1]} ]");
-            Console.WriteLine($"Your updated total hand is [ {SumOfCards(playersHand.ToArray())} ]");
-             */
-
-        }
-        
         public void Hit(IDeck deck)
         {
-            //adding a card from deck to hand
+            var drawnCard = deck.DrawRandomCard();
+            Hand.AddCardToHand(drawnCard);
+        }
+
+        private bool DealerHasBust()
+        {
+            var isBust = Score > 21;
+
+            return isBust;
         }
         
         public bool Play(IDeck deck)
-        {/*
-            bool DealerHasChosenToStay = false;
-            
-            while (!PlayerHasChosenToStay)
+        {
+            while (Score < 17 && !DealerHasBust())
             {
-                var score = HandEvaluator.GetTotal(Hand);
-                HandEvaluator.PrintHand(Hand);
-                if (score > 21)
-                {
-                    Console.WriteLine("\nYou have bust!");  
-                    break;
-                }
-                Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");  
-                
-                var answer = Console.ReadLine();
-                
-                if (answer == "0") PlayerHasChosenToStay = true;
-
-                else if (score == 21)
-                {
-                    Console.WriteLine("You have won");
-                    PlayerHasChosenToStay = true;
-                }
-                
-                else if (answer == "1") Hit(deck);
-                
-                else Console.WriteLine("Please enter a valid value");
-                
+                HandEvaluator.PrintHand(Hand, "Dealer is"); //Refactor for participant reference
+                Hit(deck);
             }
-            */
+            if (DealerHasBust())
+            {
+                Console.WriteLine("Dealer has bust!");
+            }
             return false;
         }
-        
-        /*
-     
-        public List<Card> DealersTurn()
-        {
-            var deck = new Deck();
-            var hand = new Hand();
-            var dealer = new Dealer();
-            var dealershand = deck.Cards;
-            {
-                deck.DrawRandomCard();
-            }
-            dealershand.Add(deck.DrawRandomCard());
-            var sumOfDealersHand = hand.SumOfCards(dealershand);
-
-            while (sumOfDealersHand < 21)
-            {
-                dealer.PrintDealersHand(dealershand);
-                dealershand.Add(deck.DrawRandomCard());
-                sumOfDealersHand = hand.SumOfCards(dealershand);
-            }
-
-            return dealershand;
-        }
-        */
     }
 }

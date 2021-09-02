@@ -13,7 +13,7 @@ namespace BlackjackTest
         [InlineData(Rank.Eight, Rank.Ace, Rank.Two, 21)]
         [InlineData(Rank.Ten, Rank.King, Rank.Ace, 21)]
         [InlineData(Rank.Queen, Rank.King, Rank.Five, 25)]
-        //[InlineData(Rank.Ace, Rank.King, Rank.Ace, 12)]
+        [InlineData(Rank.Ace, Rank.Ace, Rank.Ace, 13)]
         [InlineData(Rank.Nine, Rank.Nine, Rank.Four, 22)]
         public void Theory_HandShouldIncreaseAfterAddingACard(Rank firstRank, Rank secondRank, Rank thirdRank, int total)
         {
@@ -36,12 +36,12 @@ namespace BlackjackTest
         }
         
         [Theory]
-        [InlineData(Rank.Eight, Rank.Ace, Rank.Two, 21)]
-        [InlineData(Rank.Ten, Rank.Ace, Rank.King, 21)]
-        [InlineData(Rank.Queen, Rank.Five, Rank.King, 25)]
-        [InlineData(Rank.Ace, Rank.Ace, Rank.King, 12)]
-        [InlineData(Rank.Nine, Rank.Four, Rank.Nine, 22)]
-        public void Theory_HandShouldSortCards(Rank firstRank, Rank secondRank, Rank thirdRank, int total)
+        [InlineData(Rank.Eight, Rank.Ace, Rank.Two)]
+        [InlineData(Rank.Ten, Rank.Ace, Rank.King)]
+        [InlineData(Rank.Queen, Rank.Five, Rank.King)]
+        [InlineData(Rank.Ace, Rank.Ace, Rank.King)]
+        [InlineData(Rank.Nine, Rank.Four, Rank.Nine)]
+        public void Theory_HandShouldSortCards(Rank firstRank, Rank secondRank, Rank thirdRank)
         {
             //arrange
             var firstCard = new Card(firstRank, Suit.Club);
@@ -57,78 +57,7 @@ namespace BlackjackTest
             Assert.Equal(secondCard, hand.Cards.Last());
         }
         
-        [Theory]
-        [InlineData(Rank.Eight, Rank.Ace, 19)]
-        [InlineData(Rank.Ten, Rank.Ace, 21)]
-        [InlineData(Rank.Queen, Rank.Five, 15)]
-        [InlineData(Rank.Ace, Rank.Ace, 12)]
-        [InlineData(Rank.Nine, Rank.Four, 13)]
-        public void Theory_TotalOfTwoCardHandShouldBeSumOfRank(Rank firstRank, Rank secondRank, int total)
-        {
-            //arrange
-            var firstCard = new Card(firstRank, Suit.Club);
-            var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            hand.SortHand();
-            var result = HandEvaluator.GetTotal(hand);
-
-            //assert
-            Assert.Equal(total, result);
-        }
         
-        [Theory]
-        [InlineData(Rank.Eight, Rank.King, 18)]
-        [InlineData(Rank.Ten, Rank.Jack, 20)]
-        [InlineData(Rank.Queen, Rank.Five, 15)]
-        [InlineData(Rank.King, Rank.King, 20)]
-        [InlineData(Rank.Queen, Rank.Queen, 20)]
-        [InlineData(Rank.Jack, Rank.Jack, 20)]
-        [InlineData(Rank.Queen, Rank.Jack, 20)]
-        [InlineData(Rank.Queen, Rank.King, 20)]
-        [InlineData(Rank.King, Rank.Jack, 20)]
-        [InlineData(Rank.Queen, Rank.Ace, 21)]
-        public void Theory_FaceCardsShouldValueTenForScoring(Rank firstRank, Rank secondRank, int total)
-        {
-            //arrange
-            var firstCard = new Card(firstRank, Suit.Club);
-            var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            hand.SortHand();
-            var result = HandEvaluator.GetTotal(hand);
-
-            //assert
-            Assert.Equal(total, result);
-        }
-        
-        [Theory]
-        [InlineData(Rank.Ace, Rank.King, 21)]
-        [InlineData(Rank.Ten, Rank.Ace, 21)]
-        [InlineData(Rank.Ace, Rank.Ace, 12)]
-        [InlineData(Rank.Two, Rank.Ace, 13)]
-        [InlineData(Rank.Queen, Rank.Ace, 21)]
-        [InlineData(Rank.Jack, Rank.Ace, 21)]
-        [InlineData(Rank.King, Rank.Ace, 21)]
-        [InlineData(Rank.Ace, Rank.Nine, 20)]
-        [InlineData(Rank.Eight, Rank.Ace, 19)]
-        [InlineData(Rank.Three, Rank.Ace, 14)]
-        public void Theory_AcesShouldValueEitherOneOrElevenDependingOnSumOfNonAceCards(Rank firstRank, Rank secondRank, int total)
-        {
-            //arrange
-            var firstCard = new Card(firstRank, Suit.Club);
-            var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            hand.SortHand();
-            var result = HandEvaluator.GetTotal(hand);
-
-            //assert
-            Assert.Equal(total, result);
-        }
         /*
         //Adding a card to the Hand
         [Fact]
@@ -225,22 +154,6 @@ namespace BlackjackTest
             //assert
             Assert.Equal(18, result);
         }
-*/
-        [Fact]
-        public void NewHandShouldHaveTwoCards()
-        {
-            //arrange
-            var expectedCountOfHandCards = 2;
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var actualCountOfHandCards = hand.Cards.Count;
-            
-            //assert
-            Assert.Equal(expectedCountOfHandCards, actualCountOfHandCards);
-        }
         
         [Fact]
         public void PlayersHandWithAceTest()
@@ -287,18 +200,7 @@ namespace BlackjackTest
             Assert.Equal(21, result);
         }
         
-        [Fact]
-        public void CardShouldPrintTwoDiamond()
-        {
-            //arrange
-            var card = new Card(Rank.Two, Suit.Diamond);
-            
-            //act
-            var result = card.ToString();
-            var expected = "Two of Diamond";
-            
-            //assert
-            Assert.Equal(expected, result);
-        }
+        
+*/
     }
 }

@@ -48,7 +48,7 @@ namespace Blackjack
         {
             while (!IsThereABustOrWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
-                HandEvaluator.PrintHand(Hand);
+                HandEvaluator.PrintHand(Hand, "You are at currently");
                 var choice = HitOrStay();
                 if (choice == "hit")
                 {

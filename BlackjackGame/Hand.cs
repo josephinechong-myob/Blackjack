@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Blackjack
 {
-    public class Hand
+    public class Hand //hand & hand evaluator to pass iconsole through for console.writeline
     {
         public List<Card> Cards;
         
@@ -15,7 +16,8 @@ namespace Blackjack
         
         public void AddCardToHand(Card card)
         {
-           Cards.Add(card); 
+           Cards.Add(card);
+           Console.WriteLine($"You draw {card}");
         }
         
         //Sort list to reassign the field cards for Aces coming last

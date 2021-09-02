@@ -28,58 +28,70 @@ namespace BlackjackTest
             Assert.Equal(total, actualTotal);
         }
         
-        [Fact]
-        public void ThreeAcesShouldReturnThirteen()
+        [Theory]
+        [InlineData(Rank.Eight, Rank.King, 18)]
+        [InlineData(Rank.Ten, Rank.Jack, 20)]
+        [InlineData(Rank.Queen, Rank.Five, 15)]
+        [InlineData(Rank.King, Rank.King, 20)]
+        [InlineData(Rank.Queen, Rank.Queen, 20)]
+        [InlineData(Rank.Jack, Rank.Jack, 20)]
+        [InlineData(Rank.Queen, Rank.Jack, 20)]
+        [InlineData(Rank.Queen, Rank.King, 20)]
+        [InlineData(Rank.King, Rank.Jack, 20)]
+        [InlineData(Rank.Queen, Rank.Ace, 21)]
+        public void Theory_FaceCardsShouldValueTenForScoring(Rank firstRank, Rank secondRank, int total)
         {
             //arrange
-            var expectedTotal = 13;
-            var expectedFirstCard = new Card(Rank.Ace, Suit.Club);
-            var expectedSecondCard = new Card(Rank.Ace, Suit.Diamond);
-            var expectedthirdCard = new Card(Rank.Ace, Suit.Spade);
-            var hand = new Hand(expectedFirstCard, expectedSecondCard);
+            var firstCard = new Card(firstRank, Suit.Club);
+            var secondCard = new Card(secondRank, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
-            hand.AddCardToHand(expectedthirdCard);
-            var actualTotal = HandEvaluator.GetTotal(hand);
+            hand.SortHand();
+            var result = HandEvaluator.GetTotal(hand);
 
             //assert
-            Assert.Equal(expectedTotal, actualTotal);
+            Assert.Equal(total, result);
+        }
+        
+        [Theory]
+        [InlineData(Rank.Ace, Rank.King, 21)]
+        [InlineData(Rank.Ten, Rank.Ace, 21)]
+        [InlineData(Rank.Ace, Rank.Ace, 12)]
+        [InlineData(Rank.Two, Rank.Ace, 13)]
+        [InlineData(Rank.Queen, Rank.Ace, 21)]
+        [InlineData(Rank.Jack, Rank.Ace, 21)]
+        [InlineData(Rank.King, Rank.Ace, 21)]
+        [InlineData(Rank.Ace, Rank.Nine, 20)]
+        [InlineData(Rank.Eight, Rank.Ace, 19)]
+        [InlineData(Rank.Three, Rank.Ace, 14)]
+        public void Theory_AcesShouldValueEitherOneOrElevenDependingOnSumOfNonAceCards(Rank firstRank, Rank secondRank, int total)
+        {
+            //arrange
+            var firstCard = new Card(firstRank, Suit.Club);
+            var secondCard = new Card(secondRank, Suit.Diamond);
+            var hand = new Hand(firstCard, secondCard);
+            
+            //act
+            hand.SortHand();
+            var result = HandEvaluator.GetTotal(hand);
+
+            //assert
+            Assert.Equal(total, result);
         }
         
         [Fact]
-        public void TotalShouldReturnSumOfCardsInHand()
+        public void CardShouldPrintTwoDiamond()
         {
             //arrange
-            var expectedTotal = 21;
-            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
-            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
-            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
-            var hand = new Hand(expectedFirstCard, expectedSecondCard);
-
+            var card = new Card(Rank.Two, Suit.Diamond);
+            
             //act
-            hand.AddCardToHand(expectedThridCard);
-            var actualTotal = HandEvaluator.GetTotal(hand);
-
+            var result = card.ToString();
+            var expected = "Two of Diamond";
+            
             //assert
-            Assert.Equal(expectedTotal, actualTotal);
-        }
-        
-        [Fact]
-        public void TotalShouldReturnSumOfCardsInHand2()
-        {
-            //arrange
-            var expectedTotal = 21;
-            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
-            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
-            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
-            var hand = new Hand(expectedThridCard, expectedSecondCard);
-
-            //act
-            hand.AddCardToHand(expectedFirstCard);
-            var actualTotal = HandEvaluator.GetTotal(hand);
-
-            //assert
-            Assert.Equal(expectedTotal, actualTotal);
+            Assert.Equal(expected, result);
         }
     }
 }

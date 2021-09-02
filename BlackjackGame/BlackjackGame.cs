@@ -7,7 +7,6 @@ namespace Blackjack
 {
     public class BlackjackGame
     {
-        //List of BlackjackParticipants (Dealer/Player)
         private List<IBlackjackParticipant> Participants;
 
         public BlackjackGame()
@@ -22,13 +21,11 @@ namespace Blackjack
         //while HasNotFinished playing - once played evaluate score to determine winner
         
         //Methods: Find the winner(player) - private or public method 
-        
-        //Methods: Player - Play - score 
-        // if score is <21 and Stay
-        //Dealer - Plays
-        //Dealer.Play
-        //Result Assign Winner
-        //Reset game
+
+        private void FindTheWinner()
+        {
+            
+        }
         
         public void Run()
         {
