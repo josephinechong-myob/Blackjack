@@ -6,19 +6,22 @@ namespace Blackjack
 {
     public class Dealer: IBlackjackParticipant
     {
-        public Hand Hand;
-        public int Score => HandEvaluator.GetTotal(Hand);
-        public IConsole Console;
+        private readonly Hand _hand;
+        public int Score => HandEvaluator.GetTotal(_hand);
+        private readonly IConsole _console;
+        private readonly string _name;
 
         public Dealer(Card firstCard, Card secondCard, IConsole console)
         {
-            Hand = new Hand(firstCard, secondCard);
-            Console = console;
+            _hand = new Hand(firstCard, secondCard);
+            _console = console;
+            _name = "Dealer";
         }
+        
         public void Hit(IDeck deck)
         {
             var drawnCard = deck.DrawRandomCard();
-            Hand.AddCardToHand(drawnCard);
+            _hand.AddCardToHand(drawnCard);
         }
 
         private bool DealerHasBust()
@@ -32,12 +35,12 @@ namespace Blackjack
         {
             while (Score < 17 && !DealerHasBust())
             {
-                HandEvaluator.PrintHand(Hand, "Dealer is"); //Refactor for participant reference
+                HandEvaluator.PrintHand(_hand, _name); //Refactor for participant reference
                 Hit(deck);
             }
             if (DealerHasBust())
             {
-                Console.WriteLine("Dealer has bust!");
+                _console.WriteLine("Dealer has bust!");
             }
             return false;
         }

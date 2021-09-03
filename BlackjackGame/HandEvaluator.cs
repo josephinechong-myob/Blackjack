@@ -34,7 +34,6 @@ namespace Blackjack
             }
             return total;
         }
-        
         public static int GetTotal(Hand hand)
         {
             hand.SortHand();
@@ -42,15 +41,32 @@ namespace Blackjack
             return SumOfHand(cards);
         }
 
-        public static void PrintHand(Hand hand, string participantReference)
+        private static string PrintTotal(Hand hand)
         {
-            
-            Console.WriteLine($"{participantReference} at {GetTotal(hand)}");
-            Console.Write($"with the hand");
-            foreach (var card in hand.Cards)
+            var total = GetTotal(hand);
+            if (total > 21)
             {
-                Console.Write($"[{card}]");
+                return "Bust";
             }
+            return total.ToString();
+        }
+
+        public static void PrintHand(Hand hand, string participantName)
+        {
+            if (participantName == "Dealer")
+            {
+                Console.WriteLine($"{participantName} is at {PrintTotal(hand)}");
+            }
+            else
+            {
+                Console.WriteLine($"{participantName} are at currently at {PrintTotal(hand)}"); 
+            }
+            
+            Console.Write($"with the hand");
+                foreach (var card in hand.Cards)
+                {
+                    Console.Write($"[{card}]");
+                }
         }
     }
 }

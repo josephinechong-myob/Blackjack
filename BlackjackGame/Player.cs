@@ -5,27 +5,29 @@ namespace Blackjack
 {
     public class Player:IBlackjackParticipant
     {
-        private Hand Hand;
-        private readonly IConsole Console;
-        public int Score => HandEvaluator.GetTotal(Hand);
+        private readonly Hand _hand;
+        private readonly IConsole _console;
+        public int Score => HandEvaluator.GetTotal(_hand);
+        private readonly string _name;
 
         public Player(Card firstCard, Card secondCard, IConsole console)
         {
-            Hand = new Hand(firstCard, secondCard);
-            Console = console;
+            _hand = new Hand(firstCard, secondCard);
+            _console = console;
+            _name = "You";
         }
         
         public void Hit(IDeck deck)
         {
             var drawnCard = deck.DrawRandomCard();
-            Hand.AddCardToHand(drawnCard);
+            _hand.AddCardToHand(drawnCard);
         }
 
         private bool IsThereABust(int score)
         {
             if (score > 21)
             {
-                Console.WriteLine("\nYou are currently at bust!");
+                _console.WriteLine("\nYou are currently at bust!");
                 return true;
             }
             return false;
@@ -35,7 +37,7 @@ namespace Blackjack
         {
             if (score == 21)
             {
-                Console.WriteLine("\nYou beat the dealer!");
+                _console.WriteLine("\nYou beat the dealer!");
                 return true;
             }
             return false;
@@ -43,22 +45,22 @@ namespace Blackjack
        
         private string HitOrStay()
         {
-            Console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
+            _console.WriteLine("Hit or stay? (Hit = 1, Stay = 0)");
             while (true)
             {
-                var answer = Console.ReadLine();
+                var answer = _console.ReadLine();
                 if (answer == "1") return "hit";
                 if (answer == "0") return "stay";
-                Console.WriteLine("Please enter a valid value");
+                _console.WriteLine("Please enter a valid value");
             }
         }
         
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
-            while (!IsThereABust(Score) && !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
+            while (!IsThereABust(Score) || !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
-                HandEvaluator.PrintHand(Hand, "You are at currently");
+                HandEvaluator.PrintHand(_hand, _name);
                 var choice = HitOrStay();
                 if (choice == "hit")
                 {
