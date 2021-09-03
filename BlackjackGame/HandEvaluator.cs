@@ -2,12 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Castle.Components.DictionaryAdapter;
 
 namespace Blackjack
 {
     public class HandEvaluator
     {
-        //stateless is allowed to be static - static fuctions are item idempotent - stateless and can't access fields of a class
+        private readonly IConsole _console;
+
+        public HandEvaluator(IConsole console)
+        {
+            _console = console;
+        }
+        //stateless is allowed to be static - static functions are item idempotent - stateless and can't access fields of a class
         //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
         private static int CalculateValueOfAce(int total)
         {
@@ -40,7 +47,6 @@ namespace Blackjack
             var cards = hand.Cards;
             return SumOfHand(cards);
         }
-
         private static string PrintTotal(Hand hand)
         {
             var total = GetTotal(hand);
@@ -53,15 +59,8 @@ namespace Blackjack
 
         public static void PrintHand(Hand hand, string participantName)
         {
-            if (participantName == "Dealer")
-            {
-                Console.WriteLine($"{participantName} is at {PrintTotal(hand)}");
-            }
-            else
-            {
-                Console.WriteLine($"{participantName} are at currently at {PrintTotal(hand)}"); 
-            }
-            
+            string diction = (participantName == "Dealer") ? "is" : "are at currently";
+            Console.WriteLine($"{participantName} {diction} at {PrintTotal(hand)}"); 
             Console.Write($"with the hand");
                 foreach (var card in hand.Cards)
                 {
