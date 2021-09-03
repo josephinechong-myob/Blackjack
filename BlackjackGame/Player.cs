@@ -9,7 +9,7 @@ namespace Blackjack
         private readonly IConsole Console;
         public int Score => HandEvaluator.GetTotal(Hand);
 
-        public Player(Card firstCard, Card secondCard, IConsole console )
+        public Player(Card firstCard, Card secondCard, IConsole console)
         {
             Hand = new Hand(firstCard, secondCard);
             Console = console;
@@ -21,11 +21,21 @@ namespace Blackjack
             Hand.AddCardToHand(drawnCard);
         }
 
-        private bool IsThereABustOrWin(int score)
+        private bool IsThereABust(int score)
         {
-            if (score >= 21)
+            if (score > 21)
             {
-                Console.WriteLine("\nThere is a bust!");
+                Console.WriteLine("\nYou are currently at bust!");
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsThereAWin(int score)
+        {
+            if (score == 21)
+            {
+                Console.WriteLine("\nYou beat the dealer!");
                 return true;
             }
             return false;
@@ -46,7 +56,7 @@ namespace Blackjack
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
-            while (!IsThereABustOrWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
+            while (!IsThereABust(Score) && !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
                 HandEvaluator.PrintHand(Hand, "You are at currently");
                 var choice = HitOrStay();
@@ -59,13 +69,6 @@ namespace Blackjack
                     return false;
                 }
             }
-//this following part should be in Game
-            if (Score == 21) //return 1
-            {
-                Console.WriteLine("\nYou have won!");
-                return false;
-            }
-            
             return false;
         }
         
