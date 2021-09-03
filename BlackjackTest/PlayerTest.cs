@@ -7,6 +7,12 @@ namespace BlackjackTest
 {
     public class PlayerTest
     {
+        private Mock<IConsole> _mockConsole;
+
+        public PlayerTest()
+        {
+            _mockConsole = new Mock<IConsole>();
+        }
         //how to verify how a function is called
         //mocks - testing user input
         //NuGet - terminal 
@@ -18,7 +24,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
             var player = new Player(firstCard, secondCard, mockConsole.Object);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, mockConsole.Object);
             var expectedValue = HandEvaluator.GetTotal(hand);
             
             //act
@@ -191,7 +197,7 @@ namespace BlackjackTest
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
             var player = new Player(firstCard, secondCard, mockConsole.Object);
             var deck = mockDeck.Object;
-            var expectedBustStatement = "\nThere is a bust!";
+            var expectedBustStatement = "\nYou are currently at bust!";
             //make a new list to take in m - to know how many times the function was called and with what value
             var writeLineList = new List<string>();
             var logWriteLine = string.Empty;

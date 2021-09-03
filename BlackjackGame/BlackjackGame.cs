@@ -8,11 +8,16 @@ namespace Blackjack
     public class BlackjackGame
     {
         private List<IBlackjackParticipant> _participants;
-        //have deck here? where to have deck
 
-        public BlackjackGame()
+        private IConsole _gameConsole;
+
+        public BlackjackGame(IConsole console)
         {
             _participants = new List<IBlackjackParticipant>();
+            var deck = new Deck();
+            _gameConsole = console;
+            var dealer = new Dealer(deck.DrawRandomCard(), deck.DrawRandomCard(), _gameConsole);
+            _participants.Add(dealer);
         }
         
         //Call order (list) while IPlayer.Play should play in and record the scores
@@ -21,29 +26,25 @@ namespace Blackjack
         
         //while HasNotFinished playing - once played evaluate score to determine winner
         
-        //Methods: Find the winner(player) - private or public method 
-        
-        //participants - score/hand
-       // foreach (var participant in _participants)
-       //var deck //have access to deck or hand
         //_participants.Where(p=>p.Play(deck)==true). ********* Game order/methods
-        //if play or deck is true 
-        //or false the next player has to play
+        
 
-        private void FindTheWinner() //find the winner
+        private IBlackjackParticipant FindTheWinner()
         {
-            
+            var winner = _participants[0];
+            foreach (var participant in _participants)
+            {
+                if (participant.Score > winner.Score && participant.Score <= 21)
+                {
+                    winner = participant; //winner could be a list if there are more than 1 winners
+                }
+            }
+
+            return winner;
         }
         
         public void Run()
         {
-            //Player - Stay (not bust)
-            // foreach player in list if player.play = false, next player on list goes - loop
-            //after all participants have played - score can be evaluated
-            
-            //Dealer - Result
-            //Outcome - Evalute who won
-            
             var deck = new Deck();
             var firstCard = deck.DrawRandomCard();
             var secondCard = deck.DrawRandomCard();

@@ -2,12 +2,20 @@ using System;
 using System.Linq;
 using System.Reflection.Metadata;
 using Blackjack;
+using Moq;
 using Xunit;
 
 namespace BlackjackTest
 {
     public class HandTest
     {
+        private readonly Mock<IConsole> _mockConsole;
+
+        public HandTest()
+        {
+            _mockConsole = new Mock<IConsole>();
+        }
+        
         //convert this test to theory**
         [Theory]
         [InlineData(Rank.Eight, Rank.Ace, Rank.Two, 21)]
@@ -18,10 +26,11 @@ namespace BlackjackTest
         public void Theory_HandShouldIncreaseAfterAddingACard(Rank firstRank, Rank secondRank, Rank thirdRank, int total)
         {
             //Arrange
+            
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
             var thirdCard = new Card(thirdRank, Suit.Club);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
             var expectedCountOfHandCards = 3;
             
             //Act
@@ -47,7 +56,7 @@ namespace BlackjackTest
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
             var thirdCard = new Card(thirdRank, Suit.Club);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
             
             //act
             hand.AddCardToHand(thirdCard);

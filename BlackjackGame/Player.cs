@@ -12,7 +12,7 @@ namespace Blackjack
 
         public Player(Card firstCard, Card secondCard, IConsole console)
         {
-            _hand = new Hand(firstCard, secondCard);
+            _hand = new Hand(firstCard, secondCard, console);
             _console = console;
             _name = "You";
         }
@@ -58,7 +58,7 @@ namespace Blackjack
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
-            while (!IsThereABust(Score) || !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
+            while (!IsThereABust(Score) && !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
                 HandEvaluator.PrintHand(_hand, _name);
                 var choice = HitOrStay();

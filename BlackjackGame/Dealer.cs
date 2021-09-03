@@ -13,7 +13,7 @@ namespace Blackjack
 
         public Dealer(Card firstCard, Card secondCard, IConsole console)
         {
-            _hand = new Hand(firstCard, secondCard);
+            _hand = new Hand(firstCard, secondCard, console);
             _console = console;
             _name = "Dealer";
         }

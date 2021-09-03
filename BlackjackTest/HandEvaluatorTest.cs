@@ -1,10 +1,17 @@
 using Blackjack;
+using Moq;
 using Xunit;
 
 namespace BlackjackTest
 {
     public class HandEvaluatorTest
     {
+        private readonly Mock<IConsole> _mockConsole;
+
+        public HandEvaluatorTest()
+        {
+            _mockConsole = new Mock<IConsole>();
+        }
         //how to use an inline theory - setup test to pass in senrios as fuction arguments
         //fact vs theory - fact is one thing, theory tests a concept not restricted to one condition
         
@@ -19,7 +26,7 @@ namespace BlackjackTest
             //Arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
 
             //Act
             var actualTotal = HandEvaluator.GetTotal(hand);
@@ -44,7 +51,7 @@ namespace BlackjackTest
             //arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
             
             //act
             hand.SortHand();
@@ -70,7 +77,7 @@ namespace BlackjackTest
             //arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
+            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
             
             //act
             hand.SortHand();

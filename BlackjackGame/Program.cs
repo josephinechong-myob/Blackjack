@@ -6,7 +6,8 @@ namespace Blackjack
     {
         static void Main(string[] args)
         {
-            var blackjack = new BlackjackGame();
+            var console = new GameConsole();
+            var blackjack = new BlackjackGame(console);
             blackjack.Run();
             
             //possible dependency injections?
