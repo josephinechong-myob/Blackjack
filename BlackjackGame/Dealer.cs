@@ -22,6 +22,7 @@ namespace Blackjack
         {
             var drawnCard = deck.DrawRandomCard();
             _hand.AddCardToHand(drawnCard);
+            _console.WriteLine($"\nDealer has drawn {drawnCard}");
         }
 
         private bool DealerHasBust()
@@ -30,6 +31,7 @@ namespace Blackjack
 
             return isBust;
         }
+        //Neeed to write tests for printing to console if dealer is 17 or greater
         
         public bool Play(IDeck deck)
         {

@@ -75,6 +75,11 @@ namespace BlackjackTest
 
             //assert
             mockConsole.Verify(m => m.ReadLine(), Times.Exactly(2));
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nYou draw {thirdCard}")
+                ), Times.Once
+            );
 
         }
         

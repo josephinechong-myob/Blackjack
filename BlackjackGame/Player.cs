@@ -21,6 +21,7 @@ namespace Blackjack
         {
             var drawnCard = deck.DrawRandomCard();
             _hand.AddCardToHand(drawnCard);
+            _console.WriteLine($"\nYou draw {drawnCard}");
         }
 
         private bool IsThereABust(int score)
@@ -33,11 +34,10 @@ namespace Blackjack
             return false;
         }
 
-        private bool IsThereAWin(int score)
+        private bool IsThereABlackjack(int score)
         {
             if (score == 21)
             {
-                _console.WriteLine("\nYou beat the dealer!");
                 return true;
             }
             return false;
@@ -58,7 +58,7 @@ namespace Blackjack
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
         {
-            while (!IsThereABust(Score) && !IsThereAWin(Score)) //separte methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
+            while (!IsThereABust(Score) && !IsThereABlackjack(Score)) //separate methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
                 HandEvaluator.PrintHand(_hand, _name);
                 var choice = HitOrStay();

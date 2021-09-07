@@ -19,7 +19,6 @@ namespace Blackjack
         public void AddCardToHand(Card card)
         {
            Cards.Add(card);
-           _console.WriteLine($"You draw {card}"); //fix up the_console
         }
         
         //Sort list to reassign the field cards for Aces coming last

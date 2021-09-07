@@ -45,6 +45,11 @@ namespace BlackjackTest
 
             //assert
             Assert.Equal(expectedScore, actualScore);
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nDealer has drawn {thirdCard}")
+                ), Times.Once
+            );
         }
         
         [Fact]
