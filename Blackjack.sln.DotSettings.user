@@ -76,6 +76,12 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=855c1b9b_002D7c0f_002D42c0_002Db8f8_002D380c05c924c5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShouldAssignTheWinnerToHighestScoreUnderTwentyOne" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignPlayerAndDealerAsTheWinnerForHavingHighestScoreUnderTwentyOne&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignDealerAsTheWinnerForHavingHighestScoreUnderTwentyOne&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8e3ddd28_002Dd029_002D4bcf_002Da066_002D94e3642951ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Theory_FaceCardsShouldValueTenForScoring" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.HandTest.Theory_FaceCardsShouldValueTenForScoring&lt;/TestId&gt;
@@ -142,8 +148,15 @@
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.HandTest.Theory_FaceCardsShouldValueTenForScoring&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e5a8aca7_002Da0e5_002D4710_002D8e67_002D368776ffe0cb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DealerShouldStopPlayingWhenTheirScoreIsAtLeastSeventeen" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e5a8aca7_002Da0e5_002D4710_002D8e67_002D368776ffe0cb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DealerShouldStopPlayingWhenTheirScoreIsAtLeastSeventeen" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Project Location="/Users/josephine.chong/Documents/FMA/Blackjack/BlackjackTest" Presentation="&amp;lt;BlackjackTest&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ea1fe105_002D4d8b_002D48d7_002D9a00_002D87878188b560/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShouldAssignDealerAsTheWinnerForHavingHighestScoreUnderTwentyOne" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignDealerAsTheWinnerForHavingHighestScoreUnderTwentyOne&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignPlayerAndDealerAsTheWinnerForHavingHighestScoreUnderTwentyOne&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignPlayerAsTheWinnerIfTheDealerBust&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb61b3f2_002Dd211_002D4957_002Da452_002D99bb56a07a03/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;

@@ -40,10 +40,10 @@ namespace Blackjack
                 HandEvaluator.PrintHand(_hand, _name); //Refactor for participant reference
                 Hit(deck);
             }
-            if (DealerHasBust())
+            /*if (DealerHasBust())
             {
                 _console.WriteLine("Dealer has bust!");
-            }
+            }*/
             return false;
         }
     }

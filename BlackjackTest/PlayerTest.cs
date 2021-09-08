@@ -23,7 +23,7 @@ namespace BlackjackTest
             var mockConsole = new Mock<IConsole>();
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
-            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
             var hand = new Hand(firstCard, secondCard, mockConsole.Object);
             var expectedValue = HandEvaluator.GetTotal(hand);
             
@@ -67,7 +67,7 @@ namespace BlackjackTest
             });
             */
             
-            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
             var deck = mockdeck.Object;
             
             //act
@@ -200,7 +200,7 @@ namespace BlackjackTest
             var secondCard = new Card(Rank.Jack, Suit.Club);
             var thirdCard = new Card(Rank.Jack, Suit.Spade);
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
-            var player = new Player(firstCard, secondCard, mockConsole.Object);
+            var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
             var deck = mockDeck.Object;
             var expectedBustStatement = "\nYou are currently at bust!";
             //make a new list to take in m - to know how many times the function was called and with what value

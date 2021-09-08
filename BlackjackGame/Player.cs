@@ -8,13 +8,15 @@ namespace Blackjack
         private readonly Hand _hand;
         private readonly IConsole _console;
         public int Score => HandEvaluator.GetTotal(_hand);
-        private readonly string _name;
+        //private readonly string _name;
+        public string Name { get; }
 
-        public Player(Card firstCard, Card secondCard, IConsole console)
+        public Player(Card firstCard, Card secondCard, IConsole console, string name)
         {
             _hand = new Hand(firstCard, secondCard, console);
             _console = console;
-            _name = "You";
+            Name = name;
+            //_name = "You"; //can extend to asking player for their name in console for extentsion 
         }
         
         public void Hit(IDeck deck)
@@ -24,7 +26,7 @@ namespace Blackjack
             _console.WriteLine($"\nYou draw {drawnCard}");
         }
 
-        private bool IsThereABust(int score)
+        public bool IsThereABust(int score)
         {
             if (score > 21)
             {
@@ -60,7 +62,7 @@ namespace Blackjack
         {
             while (!IsThereABust(Score) && !IsThereABlackjack(Score)) //separate methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
-                HandEvaluator.PrintHand(_hand, _name);
+                HandEvaluator.PrintHand(_hand, Name);
                 var choice = HitOrStay();
                 if (choice == "hit")
                 {
