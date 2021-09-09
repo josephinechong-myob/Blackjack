@@ -13,7 +13,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Six, Suit.Club);
             var secondCard = new Card(Rank.Ace, Suit.Diamond);
             var mockConsole = new Mock<IConsole>();
-            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object);
+            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object, "Dealer");
             var deck = new Deck();
             var expectedScore = 17;
 
@@ -34,7 +34,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Six, Suit.Club);
             var secondCard = new Card(Rank.Seven, Suit.Diamond);
             var thirdCard = new Card(Rank.Seven, Suit.Spade);
-            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object);
+            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object, "Dealer");
             var deck = mockDeck;
             var expectedScore = 20;
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
@@ -61,7 +61,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Six, Suit.Club);
             var secondCard = new Card(Rank.Seven, Suit.Diamond);
             var thirdCard = new Card(Rank.Jack, Suit.Spade);
-            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object);
+            var dealer = new Dealer(firstCard, secondCard, mockConsole.Object, "Dealer");
             var deck = mockDeck;
             var expectedScore = 23;
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);

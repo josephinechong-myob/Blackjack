@@ -6,5 +6,6 @@ namespace Blackjack
         public bool Play(IDeck deck);
         public void Hit(IDeck deck);
         public int Score { get; }
+        public string Name { get; }
     }
 }

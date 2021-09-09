@@ -9,13 +9,13 @@ namespace Blackjack
         private readonly Hand _hand;
         public int Score => HandEvaluator.GetTotal(_hand);
         private readonly IConsole _console;
-        private readonly string _name;
+        public string Name { get; }
 
-        public Dealer(Card firstCard, Card secondCard, IConsole console)
+        public Dealer(Card firstCard, Card secondCard, IConsole console, string name)
         {
             _hand = new Hand(firstCard, secondCard, console);
             _console = console;
-            _name = "Dealer";
+            Name = name;
         }
         
         public void Hit(IDeck deck)
@@ -37,7 +37,7 @@ namespace Blackjack
         {
             while (Score < 17 && !DealerHasBust())
             {
-                HandEvaluator.PrintHand(_hand, _name); //Refactor for participant reference
+                HandEvaluator.PrintHand(_hand, Name); //Refactor for participant reference
                 Hit(deck);
             }
             /*if (DealerHasBust())
