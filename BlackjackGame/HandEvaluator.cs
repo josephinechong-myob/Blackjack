@@ -57,15 +57,23 @@ namespace Blackjack
             return total.ToString();
         }
 
-        public static void PrintHand(Hand hand, string participantName)
+        public static void PrintHand(Hand hand, string participantName, IConsole console)
         {
-            string diction = (participantName == "Dealer") ? "is" : "are at currently";
-            Console.WriteLine($"{participantName} {diction} at {PrintTotal(hand)}"); 
-            Console.Write($"with the hand");
+            var output = string.Empty;
+            
+            string diction = (participantName == "Dealer") ? "is" : "is currently";
+            
+            output = ($"{participantName} {diction} at {PrintTotal(hand)}"); 
+            console.WriteLine(output);
+            output = ($"with the hand");
+            
                 foreach (var card in hand.Cards)
                 {
-                    Console.Write($"[{card}]");
+                    output += ($"[{card}]");
                 }
+                
+                console.WriteLine(output);
+                //score of 21 might show console write line black jack?
         }
     }
 }

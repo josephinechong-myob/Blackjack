@@ -36,16 +36,24 @@ namespace Blackjack
                     _gameConsole.WriteLine("\nPlayer has beat the dealer!");
                 }
 
-                _gameConsole.WriteLine("\nDealer wins!");
-                
+                else if (highestScoringPlayer.GetType() == typeof(Dealer))
+                {
+                    _gameConsole.WriteLine("\nDealer wins!"); 
+                }
             }
         }
 
         public void Run()
         {
-            foreach (var participant in _participants)
+            var aParticipantHasBust = false;
+
+            for (int i = 0; i < _participants.Count && !aParticipantHasBust; i++)
             {
-                participant.Play(_deck);
+                _participants[i].Play(_deck);
+                if (_participants[i].Score > 21)
+                {
+                    aParticipantHasBust = true;
+                }
             }
             FindTheWinner();
         }

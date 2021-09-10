@@ -40,6 +40,7 @@ namespace Blackjack
         {
             if (score == 21)
             {
+                HandEvaluator.PrintHand(_hand, Name, _console);
                 return true;
             }
             return false;
@@ -62,7 +63,7 @@ namespace Blackjack
         {
             while (!IsThereABust(Score) && !IsThereABlackjack(Score)) //separate methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
             {
-                HandEvaluator.PrintHand(_hand, Name);
+                HandEvaluator.PrintHand(_hand, Name, _console);
                 var choice = HitOrStay();
                 if (choice == "hit")
                 {

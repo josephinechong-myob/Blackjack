@@ -37,9 +37,10 @@ namespace Blackjack
         {
             while (Score < 17 && !DealerHasBust())
             {
-                HandEvaluator.PrintHand(_hand, Name); //Refactor for participant reference
+                HandEvaluator.PrintHand(_hand, Name, _console); //Refactor for participant reference
                 Hit(deck);
             }
+            HandEvaluator.PrintHand(_hand, Name, _console);
             /*if (DealerHasBust())
             {
                 _console.WriteLine("Dealer has bust!");
