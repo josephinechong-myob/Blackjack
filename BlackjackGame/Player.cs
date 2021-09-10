@@ -8,7 +8,6 @@ namespace Blackjack
         private readonly Hand _hand;
         private readonly IConsole _console;
         public int Score => HandEvaluator.GetTotal(_hand);
-        //private readonly string _name;
         public string Name { get; }
 
         public Player(Card firstCard, Card secondCard, IConsole console, string name)
@@ -16,7 +15,6 @@ namespace Blackjack
             _hand = new Hand(firstCard, secondCard, console);
             _console = console;
             Name = name;
-            //_name = "You"; //can extend to asking player for their name in console for extentsion 
         }
         
         public void Hit(IDeck deck)
@@ -26,7 +24,7 @@ namespace Blackjack
             _console.WriteLine($"\nYou draw {drawnCard}");
         }
 
-        public bool IsThereABust(int score)
+        private bool IsThereABust(int score)
         {
             if (score > 21)
             {

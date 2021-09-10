@@ -31,7 +31,7 @@ namespace Blackjack
 
             return isBust;
         }
-        //Neeed to write tests for printing to console if dealer is 17 or greater
+        //Need to write tests for printing to console if dealer is 17 or greater
         
         public bool Play(IDeck deck)
         {
@@ -41,10 +41,7 @@ namespace Blackjack
                 Hit(deck);
             }
             HandEvaluator.PrintHand(_hand, Name, _console);
-            /*if (DealerHasBust())
-            {
-                _console.WriteLine("Dealer has bust!");
-            }*/
+            
             return false;
         }
     }

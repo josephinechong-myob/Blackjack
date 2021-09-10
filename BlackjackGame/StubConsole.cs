@@ -5,16 +5,16 @@ namespace Blackjack
 {
     public class StubConsole: IConsole
     {
-        public List<string> TestingWriteLine;
-        public int TestingReadLineCounter;
-        private List<string> PlayOrder;
+        private List<string> TestingWriteLine;
+        private int _testingReadLineCounter;
+        private readonly List<string> _playOrder;
         // var playORder = new List<string>() { "1", "0" };
         // var stubConsole = new StubConsole(playORder);
         public StubConsole(List<string> playOrder)
         {
             TestingWriteLine = new List<string>();
-            TestingReadLineCounter = 0;
-            PlayOrder = playOrder;
+            _testingReadLineCounter = 0;
+            _playOrder = playOrder;
         }
         public void WriteLine(string content)
         {
@@ -22,8 +22,8 @@ namespace Blackjack
         }
         public string ReadLine()
         {
-            var input = PlayOrder[TestingReadLineCounter];
-            TestingReadLineCounter += 1;
+            var input = _playOrder[_testingReadLineCounter];
+            _testingReadLineCounter += 1;
             return input;
             
             //have an array passed 

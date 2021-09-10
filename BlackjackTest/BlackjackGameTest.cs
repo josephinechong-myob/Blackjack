@@ -246,6 +246,11 @@ namespace BlackjackTest
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Dealer is at Bust")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
                         It.Is<string>(s=>s==$"\nDealer wins!")
                     ), Times.Never
                 );

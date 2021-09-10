@@ -68,7 +68,7 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=692f3d88_002Dfa7e_002D4da5_002Db18b_002D8920cfdf0c84/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShouldAssignDealerAsTheWinnerIfPlayerIsBust_CaseStudy2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest.ShouldAssignDealerAsTheWinnerIfPlayerIsBust_CaseStudy2&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.BlackjackGameTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ae178b7_002Df279_002D4942_002Dbe66_002Dbbdc698af183/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WhenPlayerHasTwentyOneConsoleWriteLineShouldPrintWinningStatement" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
