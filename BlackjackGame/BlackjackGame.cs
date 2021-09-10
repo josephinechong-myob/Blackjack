@@ -1,14 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Blackjack
 {
     public class BlackjackGame
     {
-        private List<IBlackjackParticipant> _participants;
-        private IConsole _gameConsole;
+        private readonly List<IBlackjackParticipant> _participants;
+        private readonly IConsole _gameConsole;
         private readonly IDeck _deck;
 
         public BlackjackGame(IConsole console, IDeck deck)
