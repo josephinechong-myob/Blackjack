@@ -57,9 +57,9 @@ namespace Blackjack
         }
         
         //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
-        public bool Play(IDeck deck) //return a value 0 or 1 OR record player has finished playing (public field HasPlayed)
+        public bool Play(IDeck deck) 
         {
-            while (!IsThereABust(Score) && !IsThereABlackjack(Score)) //separate methods for bust or win (not a bust && not a win), optional step a method over over the top which is play has ended
+            while (!IsThereABust(Score) && !IsThereABlackjack(Score))
             {
                 HandEvaluator.PrintHand(_hand, Name, _console);
                 var choice = HitOrStay();
@@ -67,13 +67,12 @@ namespace Blackjack
                 {
                     Hit(deck);
                 }
-                else if (choice == "stay") //return 1
+                else if (choice == "stay")
                 {
                     return false;
                 }
             }
             return false;
         }
-        
     }
 }

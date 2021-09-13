@@ -31,13 +31,12 @@ namespace Blackjack
 
             return isBust;
         }
-        //Need to write tests for printing to console if dealer is 17 or greater
-        
+
         public bool Play(IDeck deck)
         {
             while (Score < 17 && !DealerHasBust())
             {
-                HandEvaluator.PrintHand(_hand, Name, _console); //Refactor for participant reference
+                HandEvaluator.PrintHand(_hand, Name, _console);
                 Hit(deck);
             }
             HandEvaluator.PrintHand(_hand, Name, _console);

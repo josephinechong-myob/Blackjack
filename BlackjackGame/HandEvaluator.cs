@@ -15,7 +15,7 @@ namespace Blackjack
             _console = console;
         }
         //stateless is allowed to be static - static functions are item idempotent - stateless and can't access fields of a class
-        //Make a function to evaluate the value of an Ace card based on the information collected to evaluate the Ace
+        
         private static int CalculateValueOfAce(int total)
         {
             total = (total <= 10) ? 11 : 1;

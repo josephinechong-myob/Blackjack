@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Blackjack
 {
-    public class Hand //hand & hand evaluator to pass iconsole through for console.writeline
+    public class Hand 
     {
         public List<Card> Cards;
         private readonly IConsole _console;
