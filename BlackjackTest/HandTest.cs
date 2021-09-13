@@ -16,7 +16,6 @@ namespace BlackjackTest
             _mockConsole = new Mock<IConsole>();
         }
         
-        //convert this test to theory**
         [Theory]
         [InlineData(Rank.Eight, Rank.Ace, Rank.Two, 21)]
         [InlineData(Rank.Ten, Rank.King, Rank.Ace, 21)]
@@ -26,7 +25,6 @@ namespace BlackjackTest
         public void Theory_HandShouldIncreaseAfterAddingACard(Rank firstRank, Rank secondRank, Rank thirdRank, int total)
         {
             //Arrange
-            
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
             var thirdCard = new Card(thirdRank, Suit.Club);
@@ -65,151 +63,5 @@ namespace BlackjackTest
             //assert
             Assert.Equal(secondCard, hand.Cards.Last());
         }
-        
-        
-        /*
-        //Adding a card to the Hand
-        [Fact]
-        public void HandShouldIncreaseAfterAddingACard()
-        {
-            //arrange
-            var expectedCountOfHandCards = 3;
-            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
-            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
-            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
-            var hand = new Hand(expectedFirstCard, expectedSecondCard);
-
-            //act
-            hand.AddCardToHand(expectedThridCard);
-
-            //assert
-            Assert.True(hand.Cards.Contains(expectedThridCard));
-            Assert.Equal(expectedCountOfHandCards, hand.Cards.Count);
-        }
-        
-        [Fact]
-        public void HandShouldSortCards()
-        {
-            //arrange
-            var expectedFirstCard = new Card(Rank.Ten, Suit.Club);
-            var expectedSecondCard = new Card(Rank.Jack, Suit.Club);
-            var expectedThridCard = new Card(Rank.Ace, Suit.Club);
-            var hand = new Hand(expectedFirstCard, expectedThridCard);
-
-            //act
-            hand.AddCardToHand(expectedSecondCard);
-            hand.SortHand();
-
-            //assert
-            Assert.Equal(expectedThridCard, hand.Cards.Last());
-        }
-        
-        [Fact]
-        public void PlayersHandTest()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(19,result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithKingTest()
-        {
-            //arrange
-            var firstCard = new Card(Rank.King, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(18, result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithQueenTest()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Queen, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(18, result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithJackTest()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Jack, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(18, result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithAceTest()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Eight, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(19, result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithAceTest2()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.Ace, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-            
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(12, result);
-        }
-        
-        [Fact]
-        public void PlayersHandWithAceTest3()
-        {
-            //arrange
-            var firstCard = new Card(Rank.Ace, Suit.Club);
-            var secondCard = new Card(Rank.King, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard);
-
-            //act
-            var result = HandEvaluator.GetTotal(hand);
-            
-            //assert
-            Assert.Equal(21, result);
-        }
-        
-        
-*/
     }
 }

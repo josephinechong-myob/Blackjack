@@ -66,7 +66,6 @@ namespace BlackjackTest
             var expectedScore = 23;
             mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
             
-
             //act
             dealer.Play(deck.Object);
             var actualScore = dealer.Score;

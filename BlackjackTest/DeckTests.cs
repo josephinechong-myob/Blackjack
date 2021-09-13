@@ -90,7 +90,6 @@ namespace BlackjackTest
             deck.DrawRandomCard();
             deck.ResetDeck();
             var actualDrawnCards = deck.DrawnCards.Count;
-            
             var result = deck.Cards.Count;
             
             //assert

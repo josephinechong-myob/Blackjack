@@ -12,7 +12,7 @@ namespace BlackjackTest
         {
             _mockConsole = new Mock<IConsole>();
         }
-        //how to use an inline theory - setup test to pass in senrios as fuction arguments
+        
         //fact vs theory - fact is one thing, theory tests a concept not restricted to one condition
         
         [Theory]
