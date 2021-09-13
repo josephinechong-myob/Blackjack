@@ -74,7 +74,7 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedScore, actualScore);
             mockConsole.Verify(m=>m.WriteLine(
-                It.Is <string>(value=> value == "Dealer has bust!")
+                It.Is <string>(value=> value == "Dealer is at bust")
                 ),Times.Exactly(1)); //checks it was called once but doesn't check that it was the last thing called so making a new list to log all the Writelines whill still help with positioning or the order of thwne things are called
             
         }

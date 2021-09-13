@@ -52,7 +52,7 @@ namespace Blackjack
             var total = GetTotal(hand);
             if (total > 21)
             {
-                return "Bust";
+                return "bust";
             }
             return total.ToString();
         }
