@@ -1,4 +1,5 @@
 ﻿using System;
+using Blackjack.Cards;
 
 namespace Blackjack
 {
@@ -9,7 +10,12 @@ namespace Blackjack
             var console = new GameConsole();
             var blackjack = new BlackjackGame(console, new Deck());
             blackjack.Run();
-            //possible dependency injections?
+            
+            while (blackjack.DoesUserWantToContinueGame())
+            {
+                blackjack.Reset();
+                blackjack.Run();
+            }
         }
     }
 }

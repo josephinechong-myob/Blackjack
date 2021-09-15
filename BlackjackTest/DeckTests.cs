@@ -1,4 +1,5 @@
 using Blackjack;
+using Blackjack.Cards;
 using Xunit;
 
 namespace BlackjackTest

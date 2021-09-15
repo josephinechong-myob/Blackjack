@@ -1,4 +1,5 @@
 using Blackjack;
+using Blackjack.Cards;
 using Moq;
 using Xunit;
 
@@ -35,6 +36,16 @@ namespace BlackjackTest
                     It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
                 ), Times.Once
             );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nDealer wins!")
+                ), Times.Never
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nIt's a tie!")
+                ), Times.Never
+            );
         }
         
         [Fact]                              
@@ -68,6 +79,16 @@ namespace BlackjackTest
                     It.Is<string>(s=>s==$"\nDealer wins!")
                 ), Times.Once
             );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nIt's a tie!")
+                ), Times.Never
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                ), Times.Never
+            );
         }
         
         //If the player has blackjack, they win, unless the dealer also has blackjack, in which case the game is a tie.
@@ -99,6 +120,16 @@ namespace BlackjackTest
                 m=>m.WriteLine(
                     It.Is<string>(s=>s==$"\nIt's a tie!")
                 ), Times.Once
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                ), Times.Never
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nDealer wins!")
+                ), Times.Never
             );
         }
         
@@ -132,6 +163,16 @@ namespace BlackjackTest
                 m=>m.WriteLine(
                     It.Is<string>(s=>s==$"\nIt's a tie!")
                 ), Times.Once
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                ), Times.Never
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"\nDealer wins!")
+                ), Times.Never
             );
         }
            
@@ -170,6 +211,16 @@ namespace BlackjackTest
                         It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
                     ), Times.Once
                 );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nIt's a tie!")
+                    ), Times.Never
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nDealer wins!")
+                    ), Times.Never
+                );
             
             }
             
@@ -206,6 +257,16 @@ namespace BlackjackTest
                     m=>m.WriteLine(
                         It.Is<string>(s=>s==$"\nDealer wins!")
                     ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                    ), Times.Never
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nIt's a tie!")
+                    ), Times.Never
                 );
             }
             
@@ -246,7 +307,7 @@ namespace BlackjackTest
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(
-                        It.Is<string>(s=>s==$"Dealer is at bust")
+                        It.Is<string>(s=>s==$"Dealer is at bust\nwith the hand[Queen of Diamond][Jack of Spade][Three of Spade][Ace of Diamond]")
                     ), Times.Once
                 );
                 mockConsole.Verify(
@@ -269,7 +330,6 @@ namespace BlackjackTest
                 var fifthCard = new Card(Rank.King, Suit.Diamond);
                 var sixCard = new Card(Rank.Two, Suit.Spade);
                 
-            
                 mockConsole.SetupSequence(m => m.ReadLine())
                     .Returns("1");
             
@@ -295,6 +355,57 @@ namespace BlackjackTest
                 mockConsole.Verify(
                     m=>m.WriteLine(
                         It.Is<string>(s=>s==$"\nDealer wins!")
+                    ), Times.Once
+                );
+            }
+            
+            //Resetting the game after finishing previous game
+            [Fact]
+            public void GameDeckShouldResetHandCardsWhenRestartingNewGame()
+            {
+                //assign
+                var mockConsole = new Mock<IConsole>();
+                var mockDeck = new Mock<IDeck>();
+                var firstCard = new Card(Rank.Ten, Suit.Heart);
+                var secondCard = new Card(Rank.Ace, Suit.Club);
+                var thirdCard = new Card(Rank.Jack, Suit.Spade);
+                var fourthCard = new Card(Rank.Seven, Suit.Spade);
+                var fifthCard = new Card(Rank.King, Suit.Spade);
+                var sixthCard = new Card(Rank.Ace, Suit.Spade);
+                var seventhCard = new Card(Rank.Nine, Suit.Spade);
+                var eighthCard = new Card(Rank.Ten, Suit.Spade);
+
+                //act
+                mockDeck.SetupSequence(m => m.DrawRandomCard())
+                    .Returns(firstCard)
+                    .Returns(secondCard)
+                    .Returns(thirdCard)
+                    .Returns(fourthCard)
+                    .Returns(fifthCard)
+                    .Returns(sixthCard)
+                    .Returns(seventhCard)
+                    .Returns(eighthCard);
+                
+                mockConsole.SetupSequence(m => m.ReadLine())
+                    .Returns("1")
+                    .Returns("0");
+                
+                var game = new BlackjackGame(mockConsole.Object, mockDeck.Object);
+            
+                //act
+                game.Run();
+                game.Reset();
+                game.Run();
+
+                //assert
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Let's play again")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Jo is currently at 21\nwith the hand[King of Spade][Ace of Spade]")
                     ), Times.Once
                 );
             }

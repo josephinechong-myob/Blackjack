@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace Blackjack
+namespace Blackjack.Cards
 {
     public class Deck : IDeck
     {
@@ -12,12 +11,9 @@ namespace Blackjack
         public Deck()
         {
             Cards = CreateInitialDeck();
-            
-            //Record of cards drawn from deck
             DrawnCards = new List<Card>();
         }
         
-        //Drawing a random card - Used in Play
         public Card DrawRandomCard()
         {
             Random rnd = new Random();
@@ -28,7 +24,6 @@ namespace Blackjack
             return card;
         }
         
-        //Adding a card to the deck - If we increase the number of cards in original game deck
         public Card AddCardToDeck()
         {
             Random rnd = new Random();
@@ -38,7 +33,6 @@ namespace Blackjack
             return card;
         }
         
-        //Record of cards
         private List<Card> CreateInitialDeck()
         {
             var suitCount = 4;
@@ -60,11 +54,9 @@ namespace Blackjack
                 deckOfCards.Add(new Card(Rank.Queen, (Suit)i));
                 deckOfCards.Add(new Card(Rank.King, (Suit)i));
             }
-
             return deckOfCards;
         }
-
-        //Reset the deck
+        
         public void ResetDeck()
         {
             Cards = CreateInitialDeck();

@@ -1,4 +1,5 @@
 using Blackjack;
+using Blackjack.Cards;
 using Moq;
 using Xunit;
 
@@ -73,7 +74,7 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedScore, actualScore);
             mockConsole.Verify(m=>m.WriteLine(
-                It.Is <string>(value=> value == "Dealer is at bust")
+                It.Is <string>(value=> value == "Dealer is at bust\nwith the hand[Jack of Spade][Seven of Diamond][Six of Club]")
                 ),Times.Exactly(1)); //checks it was called once but doesn't check that it was the last thing called so making a new list to log all the Writelines whill still help with positioning or the order of thwne things are called
             
         }

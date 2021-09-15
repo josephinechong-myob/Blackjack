@@ -1,4 +1,5 @@
 using Blackjack;
+using Blackjack.Cards;
 using Moq;
 using Xunit;
 

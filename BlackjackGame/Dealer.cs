@@ -1,19 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Blackjack.Cards;
 
 namespace Blackjack
 {
     public class Dealer: IBlackjackParticipant
     {
-        private readonly Hand _hand;
-        public int Score => HandEvaluator.GetTotal(_hand);
+        public Hand Hand { get; }
+        public int Score => HandEvaluator.GetTotal(Hand);
         private readonly IConsole _console;
         public string Name { get; }
 
         public Dealer(Card firstCard, Card secondCard, IConsole console, string name)
         {
-            _hand = new Hand(firstCard, secondCard, console);
+            Hand = new Hand(firstCard, secondCard, console);
             _console = console;
             Name = name;
         }
@@ -21,7 +22,7 @@ namespace Blackjack
         public void Hit(IDeck deck)
         {
             var drawnCard = deck.DrawRandomCard();
-            _hand.AddCardToHand(drawnCard);
+            Hand.AddCardToHand(drawnCard);
             _console.WriteLine($"\nDealer has drawn {drawnCard}");
         }
 
@@ -36,10 +37,10 @@ namespace Blackjack
         {
             while (Score < 17 && !DealerHasBust())
             {
-                HandEvaluator.PrintHand(_hand, Name, _console);
+                HandEvaluator.PrintHand(Hand, Name, _console);
                 Hit(deck);
             }
-            HandEvaluator.PrintHand(_hand, Name, _console);
+            HandEvaluator.PrintHand(Hand, Name, _console);
             
             return false;
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Blackjack;
+using Blackjack.Cards;
 using Xunit;
 using Moq;
 
@@ -8,14 +9,11 @@ namespace BlackjackTest
     public class PlayerTest
     {
         private Mock<IConsole> _mockConsole;
-
         public PlayerTest()
         {
             _mockConsole = new Mock<IConsole>();
         }
-        //how to verify how a function is called
-        //mocks - testing user input
-        //NuGet - terminal 
+        
         [Fact]
         public void PlayersScoreShouldReflectTheValueOfItsHand()
         {
@@ -39,33 +37,18 @@ namespace BlackjackTest
             //arrange
             var mockConsole = new Mock<IConsole>();
             var mockdeck = new Mock<IDeck>();
-            
-            //int count = 0;
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
             var thirdCard = new Card(Rank.Five, Suit.Spade);
             var fourthCard = new Card(Rank.Ace, Suit.Spade);
-            var logCount = 0;
-            //mockConsole.Setup(m => m.ReadLine()).Returns("1");
-            //mockConsole.SetupSequence(m => m.ReadLine()).Returns(new Queue<string>(new[] { "1", "1"}).Dequeue);
-            
+
             mockConsole.SetupSequence(m => m.ReadLine())
                 .Returns("1")
                 .Returns("1");
-            
-            //mockdeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
-            
+
             mockdeck.SetupSequence(m => m.DrawRandomCard())
                 .Returns(thirdCard)
                 .Returns(fourthCard);
-            
-            /*
-            mockdeck.Setup(m => m.DrawRandomCard()).Returns(()=>
-            {
-                return thirdCard;
-                //callback so it returns a different value based on count
-            });
-            */
             
             var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
             var deck = mockdeck.Object;
@@ -80,7 +63,6 @@ namespace BlackjackTest
                     It.Is<string>(s=>s==$"\nYou draw {thirdCard}")
                 ), Times.Once
             );
-
         }
         
 /*

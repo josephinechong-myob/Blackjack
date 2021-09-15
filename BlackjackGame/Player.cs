@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
+using Blackjack.Cards;
 
 namespace Blackjack
 {
     public class Player:IBlackjackParticipant
     {
-        private readonly Hand _hand;
+        public Hand Hand { get; }
         private readonly IConsole _console;
-        public int Score => HandEvaluator.GetTotal(_hand);
+        public int Score => HandEvaluator.GetTotal(Hand);
         public string Name { get; }
 
         public Player(Card firstCard, Card secondCard, IConsole console, string name)
         {
-            _hand = new Hand(firstCard, secondCard, console);
+            Hand = new Hand(firstCard, secondCard, console);
             _console = console;
             Name = name;
         }
@@ -20,7 +21,7 @@ namespace Blackjack
         public void Hit(IDeck deck)
         {
             var drawnCard = deck.DrawRandomCard();
-            _hand.AddCardToHand(drawnCard);
+            Hand.AddCardToHand(drawnCard);
             _console.WriteLine($"\nYou draw {drawnCard}");
         }
 
@@ -38,7 +39,7 @@ namespace Blackjack
         {
             if (score == 21)
             {
-                HandEvaluator.PrintHand(_hand, Name, _console);
+                HandEvaluator.PrintHand(Hand, Name, _console);
                 return true;
             }
             return false;
@@ -56,12 +57,11 @@ namespace Blackjack
             }
         }
         
-        //never use a break, continue and skip statement ever - to exit the loop "break" - rather use boolean conditions for a loop to run
         public bool Play(IDeck deck) 
         {
             while (!IsThereABust(Score) && !IsThereABlackjack(Score))
             {
-                HandEvaluator.PrintHand(_hand, Name, _console);
+                HandEvaluator.PrintHand(Hand, Name, _console);
                 var choice = HitOrStay();
                 if (choice == "hit")
                 {

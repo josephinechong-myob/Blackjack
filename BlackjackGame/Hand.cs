@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Blackjack.Cards;
 
 namespace Blackjack
 {
@@ -9,7 +10,6 @@ namespace Blackjack
         public List<Card> Cards;
         private readonly IConsole _console;
         
-        //Hand should have a min of 2 cards
         public Hand(Card firstCard, Card secondCard, IConsole console)
         {
             Cards = new List<Card>{firstCard, secondCard};
@@ -21,10 +21,19 @@ namespace Blackjack
            Cards.Add(card);
         }
         
-        //Sort list to reassign the field cards for Aces coming last
         public void SortHand()
         {
             Cards = Cards.OrderByDescending(card => card.Rank).ToList();
+        }
+        
+        public void ClearHand()
+        {
+            Cards.Clear();
+        }
+        
+        public void ResetHand(Card firstCard, Card secondCard)
+        {
+            Cards = new List<Card>{firstCard, secondCard};
         }
     }
 }

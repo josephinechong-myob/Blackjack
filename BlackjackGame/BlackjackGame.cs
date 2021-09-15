@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Blackjack.Cards;
 
 namespace Blackjack
 {
@@ -56,6 +58,28 @@ namespace Blackjack
                 }
             }
             FindTheWinner();
+        }
+
+        public void Reset()
+        {
+            _deck.ResetDeck();
+            _gameConsole.WriteLine("Let's play again");
+            foreach (var participant in _participants)
+            {
+                participant.Hand.ClearHand();
+                participant.Hand.ResetHand(_deck.DrawRandomCard(), _deck.DrawRandomCard());
+            }
+        }
+        
+        public bool DoesUserWantToContinueGame()
+        {
+            _gameConsole.WriteLine("Do you want to play blackjack again? Yes - 1 or No - 0");
+            var input = _gameConsole.ReadLine();
+            if (input == "1")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
