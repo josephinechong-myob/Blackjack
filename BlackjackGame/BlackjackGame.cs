@@ -19,29 +19,40 @@ namespace Blackjack
             var dealer = new Dealer(_deck.DrawRandomCard(), _deck.DrawRandomCard(), _gameConsole, "Dealer");
             _participants = new List<IBlackjackParticipant>() {player, dealer};
         }
-        
-        private void FindTheWinner() 
+
+        private List<IBlackjackParticipant> ParticipantsOrderedByScore()
         {
-            var orderedScored = _participants.Where(m => m.Score <= 21).OrderByDescending(m=>m.Score).ToList();
-            var highestScoringPlayer = orderedScored.FirstOrDefault(); 
+            var orderedParticipants = _participants.Where(m => m.Score <= 21).OrderByDescending(m=>m.Score).ToList();
+            return orderedParticipants;
+        }
+
+        private void DetermineHighestScorers(List<IBlackjackParticipant> orderedParticipant, IBlackjackParticipant highestScoringPlayer)
+        {
+            var highestScorer = orderedParticipant.Where(m => m.Score == highestScoringPlayer.Score).ToList();
+                
+            if (highestScorer.Count > 1)
+            {
+                _gameConsole.WriteLine("\nIt's a tie!");
+            }
+                
+            if (highestScorer.Count <= 1 && highestScoringPlayer.GetType() == typeof(Player))
+            {
+                _gameConsole.WriteLine("\nPlayer has beat the dealer!");
+            }
+
+            else if (highestScoringPlayer.GetType() == typeof(Dealer))
+            {
+                _gameConsole.WriteLine("\nDealer wins!"); 
+            }
+        }
+        
+        private void FindTheWinner()
+        {
+            var orderedParticipant = ParticipantsOrderedByScore();
+            var highestScoringPlayer = orderedParticipant.FirstOrDefault(); 
             if (highestScoringPlayer != null)
             {
-                var tie = orderedScored.Where(m => m.Score == highestScoringPlayer.Score).ToList();
-                
-                if (tie.Count > 1)
-                {
-                    _gameConsole.WriteLine("\nIt's a tie!");
-                }
-                
-                if (highestScoringPlayer.GetType() == typeof(Player))
-                {
-                    _gameConsole.WriteLine("\nPlayer has beat the dealer!");
-                }
-
-                else if (highestScoringPlayer.GetType() == typeof(Dealer))
-                {
-                    _gameConsole.WriteLine("\nDealer wins!"); 
-                }
+                DetermineHighestScorers(orderedParticipant, highestScoringPlayer);
             }
         }
 
@@ -73,12 +84,13 @@ namespace Blackjack
         
         public bool DoesUserWantToContinueGame()
         {
-            _gameConsole.WriteLine("Do you want to play blackjack again? Yes - 1 or No - 0");
+            _gameConsole.WriteLine("Do you want to play blackjack again? (Yes = 1, No = 0)");
             var input = _gameConsole.ReadLine();
             if (input == "1")
             {
                 return true;
             }
+            _gameConsole.WriteLine("Thank you and goodbye!");
             return false;
         }
     }

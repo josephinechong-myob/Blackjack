@@ -65,26 +65,29 @@ namespace BlackjackTest
             );
         }
         
-/*
         [Fact]
         public void TestingPlayMethod_HitShouldIncreaseCardCountByOne()
         {
             //arrange
             var mockConsole = new Mock<IConsole>();
-            mockConsole.Setup(m => m.ReadLine()).Returns("1");
+            mockConsole.SetupSequence(m => m.ReadLine())
+                .Returns("1")
+                .Returns("0");
             var expectedHandTotal = 3;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard, mockConsole.Object);
-            var deck = new Deck();
+            var thirdCard = new Card(Rank.Two, Suit.Club);
+            var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
+            var mockDeck = new Mock<IDeck>();
+            mockDeck.Setup(m => m.DrawRandomCard()).Returns(thirdCard);
 
             //act
-            player.Play(deck);
+            player.Play(mockDeck.Object);
             var actualHandTotal = player.Hand.Cards.Count;
             
             //assert
             Assert.Equal(expectedHandTotal, actualHandTotal);
-            mockConsole.Verify(m => m.ReadLine(), Times.Exactly(1));
+            mockConsole.Verify(m => m.ReadLine(), Times.Exactly(2));
         }
         
         [Fact]
@@ -96,7 +99,7 @@ namespace BlackjackTest
             var expectedHandTotal = 3;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard, stubConsole);
+            var player = new Player(firstCard, secondCard, stubConsole, "Jo");
             var deck = new Deck();
 
             //act
@@ -116,7 +119,7 @@ namespace BlackjackTest
             var expectedHandTotal = 2;
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard, stubConsole);
+            var player = new Player(firstCard, secondCard, stubConsole, "Jo");
             var deck = new Deck();
             
             //act
@@ -135,9 +138,9 @@ namespace BlackjackTest
             var stubConsole = new StubConsole(playOrder);
             var firstCard = new Card(Rank.Eight, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard, stubConsole);
+            var player = new Player(firstCard, secondCard, stubConsole, "Jo");
             var deck = new Deck();
-            var expectedWriteLineCount = 1;
+            var expectedWriteLineCount = 2;
 
             //act
             player.Play(deck);
@@ -148,16 +151,16 @@ namespace BlackjackTest
         }
         
         [Fact]
-        public void WhenPlayerHasTwentyOneConsoleWriteLineShouldPrintWinningStatement()
+        public void WhenPlayerHasTwentyOneConsoleWriteLineShouldPrintPlayerStatement()
         {
             //arrange
             var playOrder = new List<string> {"0"};
             var stubConsole = new StubConsole(playOrder);
             var firstCard = new Card(Rank.Ace, Suit.Heart);
             var secondCard = new Card(Rank.Jack, Suit.Club);
-            var player = new Player(firstCard, secondCard, stubConsole);
+            var player = new Player(firstCard, secondCard, stubConsole, "Jo");
             var deck = new Deck();
-            var expectedWinningStatement = "\nYou have won!";
+            var expectedWinningStatement = "Jo is currently at 21\nwith the hand[Jack of Club][Ace of Heart]";
 
             //act
             player.Play(deck);
@@ -166,8 +169,6 @@ namespace BlackjackTest
             //assert
             Assert.Equal(expectedWinningStatement, actualWinningStatement);
         }
-        //mocks return anything, inconsistencies with multiple developers stubs maintains consistency and stubs are used in dependedncy injections
-        */
 
         [Fact]
         public void ScoreOverTwentyOneShouldPrintBustStatement()

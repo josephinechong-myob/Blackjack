@@ -5,7 +5,7 @@ namespace Blackjack
 {
     public class StubConsole: IConsole
     {
-        private List<string> TestingWriteLine;
+        public List<string> TestingWriteLine;
         private int _testingReadLineCounter;
         private readonly List<string> _playOrder;
         public StubConsole(List<string> playOrder)

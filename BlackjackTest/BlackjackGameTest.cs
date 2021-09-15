@@ -5,7 +5,7 @@ using Xunit;
 
 namespace BlackjackTest
 {
-    public class BlackjackGameTest
+    public class BlackjackGameTest //theory inline testing
     {
         //If the player and the dealer both don't bust, whoever is closest to 21 wins.
         [Fact]                              
@@ -394,6 +394,7 @@ namespace BlackjackTest
             
                 //act
                 game.Run();
+                game.DoesUserWantToContinueGame();
                 game.Reset();
                 game.Run();
 
@@ -406,6 +407,11 @@ namespace BlackjackTest
                 mockConsole.Verify(
                     m=>m.WriteLine(
                         It.Is<string>(s=>s==$"Jo is currently at 21\nwith the hand[King of Spade][Ace of Spade]")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Do you want to play blackjack again? (Yes = 1, No = 0)")
                     ), Times.Once
                 );
             }

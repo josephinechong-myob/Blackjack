@@ -1,4 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/josephine.chong/Library/Caches/JetBrains/Rider2020.3/resharper-host/temp/Rider/vAny/CoverageData/_Blackjack.-1653496612/Snapshot/snapshot.utdcvr</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=034faf08_002D4deb_002D4331_002D8f4b_002D7207c50d443a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestingHowManyTimesHitOrStayIsCalled #8" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::D451B1AD-8EEC-4C27-B8C7-D6D8BD621911::net5.0::BlackjackTest.PlayerTest.TestingHowManyTimesHitOrStayIsCalled&lt;/TestId&gt;
