@@ -19,4 +19,4 @@ In a nutshell, the blackjack game developed allows one player to try their luck 
 
 ## Game design
 
-![UML diagram]()
+![UML diagram](https://github.com/josephinechong-myob/Blackjack/blob/master/blackjack-3.drawio.png)
