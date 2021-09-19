@@ -415,5 +415,99 @@ namespace BlackjackTest
                     ), Times.Once
                 );
             }
+
+            [Fact]
+            public void WinnersRecordShouldReflectWinsByPlayerAndDealer()
+            {
+                var mockConsole = new Mock<IConsole>();
+                var mockDeck = new Mock<IDeck>();
+                var firstCard = new Card(Rank.Ace, Suit.Heart);
+                var secondCard = new Card(Rank.Ten, Suit.Club);
+                var thirdCard = new Card(Rank.Six, Suit.Spade);
+                var fourthCard = new Card(Rank.Ace, Suit.Spade);
+            
+                mockDeck.SetupSequence(m => m.DrawRandomCard())
+                    .Returns(firstCard)
+                    .Returns(secondCard)
+                    .Returns(thirdCard)
+                    .Returns(fourthCard);
+            
+                var game = new BlackjackGame(mockConsole.Object, mockDeck.Object);
+            
+                //act
+                game.Run();
+                
+                //assert
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Winner: Jo, Win Count: 1")
+                    ), Times.Once
+                );
+            }
+
+            [Fact]
+            public void ShouldReportBothPlayerAndDealerWinningInWinnersRecord()
+            {
+                var mockConsole = new Mock<IConsole>();
+                var mockDeck = new Mock<IDeck>();
+                var firstCard = new Card(Rank.Ace, Suit.Heart);
+                var secondCard = new Card(Rank.Ten, Suit.Club);
+                var thirdCard = new Card(Rank.Six, Suit.Spade);
+                var fourthCard = new Card(Rank.Ace, Suit.Spade);
+
+                mockDeck.SetupSequence(m => m.DrawRandomCard())
+                    .Returns(firstCard)
+                    .Returns(secondCard)
+                    .Returns(thirdCard)
+                    .Returns(fourthCard)
+                    .Returns(thirdCard)
+                    .Returns(fourthCard)
+                    .Returns(firstCard)
+                    .Returns(secondCard)
+                    .Returns(thirdCard)
+                    .Returns(fourthCard)
+                    .Returns(firstCard)
+                    .Returns(secondCard);
+                
+                mockConsole.SetupSequence(m => m.ReadLine())
+                    .Returns("0")
+                    .Returns("0");
+            
+                var game = new BlackjackGame(mockConsole.Object, mockDeck.Object);
+            
+                //act
+                game.Run();
+                game.Reset();
+                game.Run();
+                game.Reset();
+                game.Run();
+                
+                //assert
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"\nDealer wins!")
+                    ), Times.Exactly(2)
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Winner: Jo, Win Count: 1")
+                    ), Times.Once
+                );
+                mockConsole.Verify(
+                    m=>m.WriteLine(
+                        It.Is<string>(s=>s==$"Winner: Dealer, Win Count: 2")
+                    ), Times.Once
+                );
+            }
     }
 }

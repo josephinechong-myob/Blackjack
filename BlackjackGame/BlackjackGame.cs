@@ -62,30 +62,26 @@ namespace Blackjack
             {
                 winner = DetermineHighestScorers(orderedParticipant, highestScoringPlayer);
             }
-
             return winner;
         }
 
-        private void KeepTrackOfWins() //dictionary - write test
+        private void KeepTrackOfWins(string winnersName)
         {
-            var winnersName = FindTheWinner();
             _RecordOfWins.Add(winnersName);
-            
             var count = _RecordOfWins.Count(s => s != null && s.Equals(winnersName));
-            
             var dictionary = new Dictionary<string, int>();
             dictionary.Add(winnersName, count);
-            
-            foreach( string name in dictionary )
-            {
-                Console.WriteLine("Key = {0}", name);
-            }
+            string loser = String.Empty;//find out loser and get count for how many times loser has won
+            //tie mechanics
 
-            //(Dealer, Jo, Dealer, Dealer) - Dealer wins 3 times, Jo wins 1 time
-            foreach(var winner in _RecordOfWins)
+            for(int i =0; i < dictionary.Count; i++)
             {
-                if(winner == "Dealer")
+                var winner = dictionary.ElementAt(i).Key;
+                var winCount = dictionary.ElementAt(i).Value;
+                _gameConsole.WriteLine($"Winner: {winner}, Win Count: {winCount}");
             }
+            //need to print non-winners win list too!
+            //need to have test for ties 
         }
 
         public void Run()
@@ -100,7 +96,8 @@ namespace Blackjack
                     aParticipantHasBust = true;
                 }
             }
-            FindTheWinner();
+            var winner = FindTheWinner();
+            KeepTrackOfWins(winner);
         }
 
         public void Reset()
@@ -122,7 +119,7 @@ namespace Blackjack
             {
                 return true;
             }
-            _gameConsole.WriteLine("Thank you and goodbye!");
+            _gameConsole.WriteLine("Thank you for playing\nGoodbye!");
             return false;
         }
     }
