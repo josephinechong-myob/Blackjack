@@ -9,13 +9,10 @@ In a nutshell, the blackjack game developed allows one player to try their luck 
 ## Coding principles used:
 - TDD (Test driven development)
 - Good testing code coverage
-- Test doubles & Mocks
+- Test doubles & Mocks & Stubs
 - Interfaces
 - Inline testing & Facts (Unit tests)
 - Constructor methods & public fields 
 - Single responsibility principle (SRP) to write functions
 - DRY principle (do not repeat yourself)
 - Readability for functions and their names
-
-
-
