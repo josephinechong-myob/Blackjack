@@ -16,3 +16,7 @@ In a nutshell, the blackjack game developed allows one player to try their luck 
 - Single responsibility principle (SRP) to write functions
 - DRY principle (do not repeat yourself)
 - Readability for functions and their names
+
+## Game design
+
+![UML diagram]()
