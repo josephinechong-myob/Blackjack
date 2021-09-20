@@ -68,6 +68,9 @@ namespace Blackjack
             return winner;
         }
 
+        //print winner - that there is a tie
+        //adding to participant dictionary + tie
+        //GameEvaluator class
         private void KeepTrackOfWins(string winnersName)
         {
             _RecordOfWins.Add(winnersName);
@@ -91,7 +94,7 @@ namespace Blackjack
             }
             foreach (var participant in participants)
             {
-                _gameConsole.WriteLine($"{participant.Key} has a win Count of {participant.Value}");
+                _gameConsole.WriteLine($"{participant.Key} has a win count of {participant.Value}");
             }
         }
 

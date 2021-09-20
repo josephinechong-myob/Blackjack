@@ -450,7 +450,7 @@ namespace BlackjackTest
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(
-                        It.Is<string>(s=>s==$"Winner: Jo, Win Count: 1")
+                        It.Is<string>(s=>s==$"Jo has a win count of 1")
                     ), Times.Once
                 );
             }
@@ -505,12 +505,12 @@ namespace BlackjackTest
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(
-                        It.Is<string>(s=>s==$"Winner: Jo, Win Count: 1")
-                    ), Times.Once
+                        It.Is<string>(s=>s==$"Jo has a win count of 1")
+                    ), Times.Exactly(3)
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(
-                        It.Is<string>(s=>s==$"Winner: Dealer, Win Count: 2")
+                        It.Is<string>(s=>s==$"Dealer has a win count of 2")
                     ), Times.Once
                 );
             }
