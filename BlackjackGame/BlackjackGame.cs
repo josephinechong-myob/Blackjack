@@ -11,7 +11,7 @@ namespace Blackjack
         private readonly IConsole _gameConsole;
         private readonly IDeck _deck;
         private List<string> _RecordOfWins;
-            //scoring for several games
+        private List<int> _RecordOfTies;
 
         public BlackjackGame(IConsole console, IDeck deck)
         {
@@ -21,6 +21,7 @@ namespace Blackjack
             var dealer = new Dealer(_deck.DrawRandomCard(), _deck.DrawRandomCard(), _gameConsole, "Dealer");
             _participants = new List<IBlackjackParticipant>() {player, dealer};
             _RecordOfWins = new List<string>();
+            _RecordOfTies = new List<int>();
         }
 
         private List<IBlackjackParticipant> ParticipantsOrderedByScore()
@@ -37,6 +38,8 @@ namespace Blackjack
             if (highestScorer.Count > 1)
             {
                 _gameConsole.WriteLine("\nIt's a tie!");
+                _RecordOfTies.Add(1);
+                winnerName = "tie";
             }
                 
             if (highestScorer.Count <= 1 && highestScoringPlayer.GetType() == typeof(Player))
@@ -69,19 +72,27 @@ namespace Blackjack
         {
             _RecordOfWins.Add(winnersName);
             var count = _RecordOfWins.Count(s => s != null && s.Equals(winnersName));
-            var dictionary = new Dictionary<string, int>();
-            dictionary.Add(winnersName, count);
-            string loser = String.Empty;//find out loser and get count for how many times loser has won
-            //tie mechanics
+            var participants = new Dictionary<string, int>();
+            participants.Add(winnersName, count);
 
-            for(int i =0; i < dictionary.Count; i++)
+            if (winnersName == "tie")
             {
-                var winner = dictionary.ElementAt(i).Key;
-                var winCount = dictionary.ElementAt(i).Value;
-                _gameConsole.WriteLine($"Winner: {winner}, Win Count: {winCount}");
+                var tieCount = _RecordOfTies.Count;
+                _gameConsole.WriteLine($"There has been {tieCount} ties");
             }
-            //need to print non-winners win list too!
-            //need to have test for ties 
+            else if (winnersName != "tie" && _RecordOfWins.Count > 1)
+            {
+                var loser = _RecordOfWins.Find(s => s != null && s != winnersName);
+                var loserCount = _RecordOfWins.Count(s => s != null && s != winnersName);
+                if (loser != null)
+                {
+                    participants.Add(loser, loserCount);
+                }
+            }
+            foreach (var participant in participants)
+            {
+                _gameConsole.WriteLine($"{participant.Key} has a win Count of {participant.Value}");
+            }
         }
 
         public void Run()

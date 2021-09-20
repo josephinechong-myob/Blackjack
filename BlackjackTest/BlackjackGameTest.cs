@@ -123,6 +123,11 @@ namespace BlackjackTest
             );
             mockConsole.Verify(
                 m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"There has been 1 ties")
+                ), Times.Once
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
                     It.Is<string>(s=>s==$"\nPlayer has beat the dealer!")
                 ), Times.Never
             );
