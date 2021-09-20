@@ -8,7 +8,7 @@ In a nutshell, the blackjack game developed allows one player to try their luck 
 
 ## Coding principles used:
 - TDD (Test driven development)
-- Good testing code coverage
+- Good testing code coverage 94%
 - Test doubles & Mocks & Stubs
 - Interfaces
 - Inline testing & Facts (Unit tests)
