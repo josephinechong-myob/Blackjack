@@ -8,6 +8,10 @@ In a nutshell, the blackjack game developed allows one player to try their luck 
 
 ## Run & Build Notes
 
+## Possible Refactoring ideas
+-Game Evaluator Class
+-Have more players (extension idea)
+
 ## Coding principles used:
 - TDD (Test driven development)
 - Good testing code coverage 94%
