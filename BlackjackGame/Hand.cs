@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blackjack.Cards;
@@ -8,12 +7,10 @@ namespace Blackjack
     public class Hand 
     {
         public List<Card> Cards;
-        private readonly IConsole _console;
-        
-        public Hand(Card firstCard, Card secondCard, IConsole console)
+
+        public Hand(Card firstCard, Card secondCard)
         {
             Cards = new List<Card>{firstCard, secondCard};
-            _console = console;
         }
         
         public void AddCardToHand(Card card)

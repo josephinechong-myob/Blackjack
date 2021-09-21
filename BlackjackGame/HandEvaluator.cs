@@ -5,6 +5,27 @@ namespace Blackjack
 {
     public static class HandEvaluator
     {
+        public static int GetTotal(Hand hand)
+        {
+            hand.SortHand();
+            var cards = hand.Cards;
+            return SumOfHand(cards);
+        }
+        
+        public static void PrintHand(Hand hand, string participantName, IConsole console)
+        {
+            var diction = (participantName == "Dealer") ? "is" : "is currently";
+            var output = ($"{participantName} {diction} at {PrintTotal(hand)}\n"); 
+            
+            output += ($"with the hand");
+            
+            foreach (var card in hand.Cards)
+            {
+                output += ($"[{card}]");
+            }
+            console.WriteLine(output);
+        }
+        
         private static int CalculateValueOfAce(int total)
         {
             total = (total <= 10) ? 11 : 1;
@@ -18,7 +39,7 @@ namespace Blackjack
             foreach (var card in cardForSorting)
             { 
                 if 
-                (card.Rank != Rank.Ace)
+                    (card.Rank != Rank.Ace)
                 {
                     total += card.GetRankValue();
                 }
@@ -30,13 +51,6 @@ namespace Blackjack
             return total;
         }
         
-        public static int GetTotal(Hand hand)
-        {
-            hand.SortHand();
-            var cards = hand.Cards;
-            return SumOfHand(cards);
-        }
-        
         private static string PrintTotal(Hand hand)
         {
             var total = GetTotal(hand);
@@ -45,20 +59,6 @@ namespace Blackjack
                 return "bust";
             }
             return total.ToString();
-        }
-
-        public static void PrintHand(Hand hand, string participantName, IConsole console)
-        {
-            var diction = (participantName == "Dealer") ? "is" : "is currently";
-            var output = ($"{participantName} {diction} at {PrintTotal(hand)}\n"); 
-            
-            output += ($"with the hand");
-            
-            foreach (var card in hand.Cards)
-            {
-                output += ($"[{card}]");
-            }
-            console.WriteLine(output);
         }
     }
 }

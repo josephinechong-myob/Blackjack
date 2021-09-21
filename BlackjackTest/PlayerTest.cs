@@ -22,7 +22,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Two, Suit.Heart);
             var secondCard = new Card(Rank.Three, Suit.Club);
             var player = new Player(firstCard, secondCard, mockConsole.Object, "Jo");
-            var hand = new Hand(firstCard, secondCard, mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             var expectedValue = HandEvaluator.GetTotal(hand);
             
             //act

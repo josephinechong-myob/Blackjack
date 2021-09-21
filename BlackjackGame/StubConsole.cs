@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 
 namespace Blackjack
 {
     public class StubConsole: IConsole
     {
-        public List<string> TestingWriteLine;
+        public readonly List<string> TestingWriteLine;
         private int _testingReadLineCounter;
         private readonly List<string> _playOrder;
         public StubConsole(List<string> playOrder)

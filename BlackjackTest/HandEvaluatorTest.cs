@@ -27,7 +27,7 @@ namespace BlackjackTest
             //Arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
 
             //Act
             var actualTotal = HandEvaluator.GetTotal(hand);
@@ -52,7 +52,7 @@ namespace BlackjackTest
             //arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
             hand.SortHand();
@@ -78,7 +78,7 @@ namespace BlackjackTest
             //arrange
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
             hand.SortHand();

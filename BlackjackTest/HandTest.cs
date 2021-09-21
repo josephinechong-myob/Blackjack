@@ -29,7 +29,7 @@ namespace BlackjackTest
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
             var thirdCard = new Card(thirdRank, Suit.Club);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             var expectedCountOfHandCards = 3;
             
             //Act
@@ -55,7 +55,7 @@ namespace BlackjackTest
             var firstCard = new Card(firstRank, Suit.Club);
             var secondCard = new Card(secondRank, Suit.Diamond);
             var thirdCard = new Card(thirdRank, Suit.Club);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             
             //act
             hand.AddCardToHand(thirdCard);
@@ -72,7 +72,7 @@ namespace BlackjackTest
             var firstCard = new Card(Rank.Three, Suit.Club);
             var secondCard = new Card(Rank.Two, Suit.Diamond);
             var thirdCard = new Card(Rank.Four, Suit.Club);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             var expectedCountAfterThirdCardAdded = 3;
             var expectedCountAfterClearedHand = 0;
             
@@ -96,7 +96,7 @@ namespace BlackjackTest
             var thirdCard = new Card(Rank.Four, Suit.Club);
             var fourthCard = new Card(Rank.Ace, Suit.Club);
             var fifthCard = new Card(Rank.King, Suit.Club);
-            var hand = new Hand(firstCard, secondCard, _mockConsole.Object);
+            var hand = new Hand(firstCard, secondCard);
             var expectedCountAfterThirdCardAdded = 3;
             var expectedCountAfterResetHand = 2;
             

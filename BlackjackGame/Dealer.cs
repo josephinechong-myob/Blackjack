@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Xml;
 using Blackjack.Cards;
 
 namespace Blackjack
@@ -14,7 +11,7 @@ namespace Blackjack
 
         public Dealer(Card firstCard, Card secondCard, IConsole console, string name)
         {
-            Hand = new Hand(firstCard, secondCard, console);
+            Hand = new Hand(firstCard, secondCard);
             _console = console;
             Name = name;
         }
@@ -25,14 +22,7 @@ namespace Blackjack
             Hand.AddCardToHand(drawnCard);
             _console.WriteLine($"\nDealer has drawn {drawnCard}");
         }
-
-        private bool DealerHasBust()
-        {
-            var isBust = Score > 21;
-
-            return isBust;
-        }
-
+        
         public bool Play(IDeck deck)
         {
             while (Score < 17 && !DealerHasBust())
@@ -43,6 +33,13 @@ namespace Blackjack
             HandEvaluator.PrintHand(Hand, Name, _console);
             
             return false;
+        }
+        
+        private bool DealerHasBust()
+        {
+            var isBust = Score > 21;
+
+            return isBust;
         }
     }
 }

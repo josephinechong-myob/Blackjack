@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Blackjack.Cards;
 
 namespace Blackjack
@@ -13,9 +11,27 @@ namespace Blackjack
 
         public Player(Card firstCard, Card secondCard, IConsole console, string name)
         {
-            Hand = new Hand(firstCard, secondCard, console);
+            Hand = new Hand(firstCard, secondCard);
             _console = console;
             Name = name;
+        }
+        
+        public bool Play(IDeck deck) 
+        {
+            while (!IsThereABust(Score) && !IsThereABlackjack(Score))
+            {
+                HandEvaluator.PrintHand(Hand, Name, _console);
+                var choice = HitOrStay();
+                if (choice == "hit")
+                {
+                    Hit(deck);
+                }
+                else if (choice == "stay")
+                {
+                    return false;
+                }
+            }
+            return false;
         }
         
         public void Hit(IDeck deck)
@@ -55,24 +71,6 @@ namespace Blackjack
                 if (answer == "0") return "stay";
                 _console.WriteLine("Please enter a valid value");
             }
-        }
-        
-        public bool Play(IDeck deck) 
-        {
-            while (!IsThereABust(Score) && !IsThereABlackjack(Score))
-            {
-                HandEvaluator.PrintHand(Hand, Name, _console);
-                var choice = HitOrStay();
-                if (choice == "hit")
-                {
-                    Hit(deck);
-                }
-                else if (choice == "stay")
-                {
-                    return false;
-                }
-            }
-            return false;
         }
     }
 }

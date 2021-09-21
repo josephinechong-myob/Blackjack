@@ -1,11 +1,10 @@
-﻿using System;
-using Blackjack.Cards;
+﻿using Blackjack.Cards;
 
 namespace Blackjack
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var console = new GameConsole();
             var blackjack = new BlackjackGame(console, new Deck());
@@ -16,7 +15,6 @@ namespace Blackjack
                 blackjack.Reset();
                 blackjack.Run();
             }
-            
         }
     }
 }

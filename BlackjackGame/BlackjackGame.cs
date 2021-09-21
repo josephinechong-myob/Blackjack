@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blackjack.Cards;
@@ -26,7 +25,46 @@ namespace Blackjack
                 {"Tie", 0}
             };
         }
+        public void Run()
+        {
+            var aParticipantHasBust = false;
 
+            for (int i = 0; i < _participants.Count && !aParticipantHasBust; i++)
+            {
+                _participants[i].Play(_deck);
+                if (_participants[i].Score > 21)
+                {
+                    aParticipantHasBust = true;
+                }
+            }
+            var outcome = FindTheWinner();
+            KeepTrackOfWins(outcome);
+        }
+
+        public void Reset()
+        {
+            _deck.ResetDeck();
+            _gameConsole.WriteLine("Let's play again");
+            foreach (var participant in _participants)
+            {
+                participant.Hand.ClearHand();
+                participant.Hand.ResetHand(_deck.DrawRandomCard(), _deck.DrawRandomCard());
+            }
+        }
+        
+        public bool DoesUserWantToContinueGame()
+        {
+            _gameConsole.WriteLine("Do you want to play blackjack again? (Yes = 1, No = 0)");
+            var input = _gameConsole.ReadLine();
+            if (input == "1")
+            {
+                return true;
+            }
+            SummaryOfStatistics();
+            _gameConsole.WriteLine("Thank you for playing\nGoodbye!");
+            return false;
+        }
+        
         private List<IBlackjackParticipant> ParticipantsOrderedByScore()
         {
             var orderedParticipants = _participants.Where(m => m.Score <= 21).OrderByDescending(m=>m.Score).ToList();
@@ -75,7 +113,7 @@ namespace Blackjack
             _participantsWinningStatistics[winnersName] += 1;
         }
 
-        public void SummaryOfStatistics()
+        private void SummaryOfStatistics()
         {
             foreach (var participant in _participantsWinningStatistics)
             {
@@ -88,46 +126,6 @@ namespace Blackjack
                     _gameConsole.WriteLine($"{participant.Key} has a win count of {participant.Value}");
                 }
             }
-        }
-        
-        public void Run()
-        {
-            var aParticipantHasBust = false;
-
-            for (int i = 0; i < _participants.Count && !aParticipantHasBust; i++)
-            {
-                _participants[i].Play(_deck);
-                if (_participants[i].Score > 21)
-                {
-                    aParticipantHasBust = true;
-                }
-            }
-            var outcome = FindTheWinner();
-            KeepTrackOfWins(outcome);
-        }
-
-        public void Reset()
-        {
-            _deck.ResetDeck();
-            _gameConsole.WriteLine("Let's play again");
-            foreach (var participant in _participants)
-            {
-                participant.Hand.ClearHand();
-                participant.Hand.ResetHand(_deck.DrawRandomCard(), _deck.DrawRandomCard());
-            }
-        }
-        
-        public bool DoesUserWantToContinueGame()
-        {
-            _gameConsole.WriteLine("Do you want to play blackjack again? (Yes = 1, No = 0)");
-            var input = _gameConsole.ReadLine();
-            if (input == "1")
-            {
-                return true;
-            }
-            SummaryOfStatistics();
-            _gameConsole.WriteLine("Thank you for playing\nGoodbye!");
-            return false;
         }
     }
 }

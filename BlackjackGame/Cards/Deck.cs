@@ -36,7 +36,7 @@ namespace Blackjack.Cards
         private List<Card> CreateInitialDeck()
         {
             var suitCount = 4;
-            var deckOfCards = new List<Card>{};
+            var deckOfCards = new List<Card>();
 
             for (int i = 0; i < suitCount; i += 1)
             {
