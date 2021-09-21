@@ -10,8 +10,7 @@ namespace Blackjack
         private readonly List<IBlackjackParticipant> _participants;
         private readonly IConsole _gameConsole;
         private readonly IDeck _deck;
-        private List<string> _RecordOfWins;
-        private List<int> _RecordOfTies;
+        private readonly Dictionary<string, int> _participantsWinningStatistics;
 
         public BlackjackGame(IConsole console, IDeck deck)
         {
@@ -20,8 +19,12 @@ namespace Blackjack
             var player = new Player(_deck.DrawRandomCard(), _deck.DrawRandomCard(), _gameConsole, "Jo");
             var dealer = new Dealer(_deck.DrawRandomCard(), _deck.DrawRandomCard(), _gameConsole, "Dealer");
             _participants = new List<IBlackjackParticipant>() {player, dealer};
-            _RecordOfWins = new List<string>();
-            _RecordOfTies = new List<int>();
+            _participantsWinningStatistics = new Dictionary<string, int>()
+            {
+                {player.Name, 0},
+                {dealer.Name, 0},
+                {"Tie", 0}
+            };
         }
 
         private List<IBlackjackParticipant> ParticipantsOrderedByScore()
@@ -33,27 +36,26 @@ namespace Blackjack
         private string DetermineHighestScorers(List<IBlackjackParticipant> orderedParticipant, IBlackjackParticipant highestScoringPlayer)
         {
             var highestScorer = orderedParticipant.Where(m => m.Score == highestScoringPlayer.Score).ToList();
-            var winnerName = "";  
+            var outcome = "";  
             
             if (highestScorer.Count > 1)
             {
                 _gameConsole.WriteLine("\nIt's a tie!");
-                _RecordOfTies.Add(1);
-                winnerName = "tie";
+                outcome = "Tie";
             }
                 
             if (highestScorer.Count <= 1 && highestScoringPlayer.GetType() == typeof(Player))
             {
                 _gameConsole.WriteLine("\nPlayer has beat the dealer!");
-                winnerName = highestScoringPlayer.Name;
+                outcome = highestScoringPlayer.Name;
             }
 
             else if (highestScoringPlayer.GetType() == typeof(Dealer))
             {
                 _gameConsole.WriteLine("\nDealer wins!");
-                winnerName = highestScoringPlayer.Name;
+                outcome = highestScoringPlayer.Name;
             }
-            return winnerName;
+            return outcome;
         }
         
         private string FindTheWinner()
@@ -68,36 +70,26 @@ namespace Blackjack
             return winner;
         }
 
-        //print winner - that there is a tie
-        //adding to participant dictionary + tie
-        //GameEvaluator class
         private void KeepTrackOfWins(string winnersName)
         {
-            _RecordOfWins.Add(winnersName);
-            var count = _RecordOfWins.Count(s => s != null && s.Equals(winnersName));
-            var participants = new Dictionary<string, int>();
-            participants.Add(winnersName, count);
-
-            if (winnersName == "tie")
-            {
-                var tieCount = _RecordOfTies.Count;
-                _gameConsole.WriteLine($"There has been {tieCount} ties");
-            }
-            else if (winnersName != "tie" && _RecordOfWins.Count > 1)
-            {
-                var loser = _RecordOfWins.Find(s => s != null && s != winnersName);
-                var loserCount = _RecordOfWins.Count(s => s != null && s != winnersName);
-                if (loser != null)
-                {
-                    participants.Add(loser, loserCount);
-                }
-            }
-            foreach (var participant in participants)
-            {
-                _gameConsole.WriteLine($"{participant.Key} has a win count of {participant.Value}");
-            }
+            _participantsWinningStatistics[winnersName] += 1;
         }
 
+        public void SummaryOfStatistics()
+        {
+            foreach (var participant in _participantsWinningStatistics)
+            {
+                if (participant.Key == "Tie")
+                {
+                    _gameConsole.WriteLine($"{participant.Key} has occured {participant.Value} time"+(participant.Value > 1 ? "s": "")); 
+                }
+                else if (participant.Key != "Tie")
+                {
+                    _gameConsole.WriteLine($"{participant.Key} has a win count of {participant.Value}");
+                }
+            }
+        }
+        
         public void Run()
         {
             var aParticipantHasBust = false;
@@ -110,8 +102,8 @@ namespace Blackjack
                     aParticipantHasBust = true;
                 }
             }
-            var winner = FindTheWinner();
-            KeepTrackOfWins(winner);
+            var outcome = FindTheWinner();
+            KeepTrackOfWins(outcome);
         }
 
         public void Reset()
@@ -133,6 +125,7 @@ namespace Blackjack
             {
                 return true;
             }
+            SummaryOfStatistics();
             _gameConsole.WriteLine("Thank you for playing\nGoodbye!");
             return false;
         }

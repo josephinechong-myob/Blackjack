@@ -109,10 +109,18 @@ namespace BlackjackTest
                 .Returns(thirdCard)
                 .Returns(fourthCard);
             
+            mockConsole.SetupSequence(m => m.ReadLine())
+                .Returns("0");
+            
             var game = new BlackjackGame(mockConsole.Object, mockDeck.Object);
             
             //act
             game.Run();
+            while (game.DoesUserWantToContinueGame())
+            {
+                game.Reset();
+                game.Run();
+            }
             
             //assert
             
@@ -123,8 +131,13 @@ namespace BlackjackTest
             );
             mockConsole.Verify(
                 m=>m.WriteLine(
-                    It.Is<string>(s=>s==$"There has been 1 ties")
+                    It.Is<string>(s=>s==$"Tie has occured 1 time")
                 ), Times.Once
+            );
+            mockConsole.Verify(
+                m=>m.WriteLine(
+                    It.Is<string>(s=>s==$"Tie has a win count of 1")
+                ), Times.Never
             );
             mockConsole.Verify(
                 m=>m.WriteLine(
@@ -436,11 +449,19 @@ namespace BlackjackTest
                     .Returns(secondCard)
                     .Returns(thirdCard)
                     .Returns(fourthCard);
+
+                mockConsole.SetupSequence(m => m.ReadLine())
+                    .Returns("0");
             
                 var game = new BlackjackGame(mockConsole.Object, mockDeck.Object);
             
                 //act
                 game.Run();
+                while (game.DoesUserWantToContinueGame())
+                {
+                    game.Reset();
+                    game.Run();
+                }
                 
                 //assert
                 mockConsole.Verify(
@@ -466,20 +487,23 @@ namespace BlackjackTest
                 var fourthCard = new Card(Rank.Ace, Suit.Spade);
 
                 mockDeck.SetupSequence(m => m.DrawRandomCard())
-                    .Returns(firstCard)
+                    .Returns(firstCard)//player wins
                     .Returns(secondCard)
                     .Returns(thirdCard)
                     .Returns(fourthCard)
-                    .Returns(thirdCard)
+                    .Returns(thirdCard)//2nd run - dealer wins players staysf
                     .Returns(fourthCard)
                     .Returns(firstCard)
                     .Returns(secondCard)
-                    .Returns(thirdCard)
+                    .Returns(thirdCard)//3rd run - dealer wins players stays
                     .Returns(fourthCard)
                     .Returns(firstCard)
                     .Returns(secondCard);
                 
                 mockConsole.SetupSequence(m => m.ReadLine())
+                    .Returns("1")
+                    .Returns("0")
+                    .Returns("1")
                     .Returns("0")
                     .Returns("0");
             
@@ -487,10 +511,11 @@ namespace BlackjackTest
             
                 //act
                 game.Run();
-                game.Reset();
-                game.Run();
-                game.Reset();
-                game.Run();
+                while (game.DoesUserWantToContinueGame())
+                {
+                    game.Reset();
+                    game.Run();
+                }
                 
                 //assert
                 mockConsole.Verify(
@@ -506,7 +531,7 @@ namespace BlackjackTest
                 mockConsole.Verify(
                     m=>m.WriteLine(
                         It.Is<string>(s=>s==$"Jo has a win count of 1")
-                    ), Times.Exactly(3)
+                    ), Times.Once
                 );
                 mockConsole.Verify(
                     m=>m.WriteLine(

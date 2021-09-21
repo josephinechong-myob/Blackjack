@@ -16,6 +16,7 @@ namespace Blackjack
                 blackjack.Reset();
                 blackjack.Run();
             }
+            
         }
     }
 }
