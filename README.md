@@ -7,6 +7,7 @@ This blackjack game has been developed in C# for this [kata](https://github.com/
 In a nutshell, the blackjack game developed allows one player to try their luck at beating the dealer at a game of blackjack. Objective is to score '21' or higher than the dealer without busting. This game can be played multiple times and keep score of winners throughout the gaming session.
 
 ## Run & Build Notes
+You need to be able to read the code on an IDE that can compile C# (i.e. Rider). Game play is on the terminal.
 
 ## Possible Refactoring ideas
 -Game Evaluator Class
